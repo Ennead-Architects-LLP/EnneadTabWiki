@@ -10,14 +10,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #2d5aa0 0%, #1e3a8a 100%);
             min-height: 100vh;
             color: #333;
         }
-
         .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -27,7 +25,6 @@
             top: 0;
             z-index: 100;
         }
-
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -36,18 +33,15 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .logo-section {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-
         .logo-icon {
             font-size: 2.5rem;
             color: #2d5aa0;
         }
-
         .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
@@ -56,7 +50,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .nav-button {
             background: linear-gradient(135deg, #2d5aa0, #1e3a8a);
             color: white;
@@ -72,95 +65,68 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .nav-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
-        .main-content {
-            max-width: 1200px;
+        .main-content-wrapper {
+            display: flex;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem 1rem;
         }
-
-        .hero-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 0.8s ease-out;
+        .sidebar-nav {
+            min-width: 220px;
+            max-width: 260px;
+            margin-right: 2rem;
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 1.5rem 1rem;
+            position: sticky;
+            top: 110px;
+            height: fit-content;
+            align-self: flex-start;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .sidebar-nav ul {
+            list-style: none;
         }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #2d5aa0;
+        .sidebar-nav li {
             margin-bottom: 1rem;
         }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stats-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
+        .sidebar-nav a {
             color: #2d5aa0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.2s;
+        }
+        .sidebar-nav a:hover {
+            color: #1e3a8a;
+            text-decoration: underline;
+        }
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .search-bar-wrapper {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .search-bar {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            border: 1.5px solid #ddd;
+            font-size: 1.1rem;
+            outline: none;
+            transition: border 0.2s;
             margin-bottom: 0.5rem;
         }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .search-bar:focus {
+            border: 1.5px solid #2d5aa0;
         }
-
         .tab-section {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -169,7 +135,6 @@
             margin-bottom: 2rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-
         .tab-title {
             font-size: 1.8rem;
             font-weight: 600;
@@ -178,13 +143,11 @@
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #2d5aa0;
         }
-
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
         .tool-card {
             background: white;
             border-radius: 15px;
@@ -193,27 +156,23 @@
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
-
         .tool-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
             border-color: #2d5aa0;
         }
-
         .tool-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1rem;
         }
-
         .tool-title {
             font-size: 1.2rem;
             font-weight: 600;
             color: #333;
             margin: 0;
         }
-
         .popular-badge {
             background: linear-gradient(135deg, #ffd700, #ffed4e);
             color: #333;
@@ -224,13 +183,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
         .tool-description {
             color: #666;
             line-height: 1.5;
             font-size: 0.9rem;
         }
-
         .footer {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -239,52 +196,62 @@
             margin-top: 3rem;
             border-top: 1px solid #eee;
         }
-
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             color: #888;
             font-size: 0.9rem;
         }
-
         .footer a {
             color: #2d5aa0;
             text-decoration: none;
         }
-
         .footer a:hover {
             text-decoration: underline;
         }
-
+        @media (max-width: 1100px) {
+            .main-content-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-nav {
+                position: static;
+                margin-bottom: 2rem;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
             }
-
+            .main-content-wrapper {
+                flex-direction: column;
+                padding: 1rem 0.5rem;
+            }
+            .sidebar-nav {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+                padding: 1rem 0.5rem;
+            }
             .main-content {
-                padding: 2rem 1rem;
+                padding: 0;
             }
-
-            .hero-section {
-                padding: 2rem;
+            .tab-section {
+                padding: 1rem;
             }
-
-            .hero-title {
-                font-size: 2rem;
+            .tab-title {
+                font-size: 1.2rem;
             }
-
             .tools-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-
             .tool-card {
                 padding: 1rem;
             }
         }
-
         .floating-shapes {
             position: fixed;
             top: 0;
@@ -294,14 +261,12 @@
             pointer-events: none;
             z-index: -1;
         }
-
         .shape {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
         }
-
         .shape:nth-child(1) {
             width: 80px;
             height: 80px;
@@ -309,7 +274,6 @@
             left: 10%;
             animation-delay: 0s;
         }
-
         .shape:nth-child(2) {
             width: 120px;
             height: 120px;
@@ -317,7 +281,6 @@
             right: 10%;
             animation-delay: 2s;
         }
-
         .shape:nth-child(3) {
             width: 60px;
             height: 60px;
@@ -325,7 +288,6 @@
             left: 20%;
             animation-delay: 4s;
         }
-
         @keyframes float {
             0%, 100% {
                 transform: translateY(0px) rotate(0deg);
@@ -342,7 +304,6 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-
     <header class="header">
         <div class="header-content">
             <div class="logo-section">
@@ -354,45 +315,59 @@
             </a>
         </div>
     </header>
-
-    <main class="main-content">
-        <section class="hero-section">
-            <h1 class="hero-title">Rhino Knowledge Base</h1>
-            <p class="hero-subtitle">Master EnneadTab's Rhino Integration</p>
-            <p class="hero-description">
-                Explore comprehensive guides, tutorials, and resources for leveraging EnneadTab's powerful tools within Rhino. 
-                From basic operations to advanced techniques, learn how to enhance your Rhino experience and boost productivity 
-                with our advanced features and best practices.
-            </p>
-        </section>
-
-        <section class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">147</div>
-                    <div class="stat-label">Total Tools</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">34</div>
-                    <div class="stat-label">Popular Tools</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">18</div>
-                    <div class="stat-label">Categories</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">147</div>
-                    <div class="stat-label">Documented</div>
-                </div>
+    <div class="main-content-wrapper">
+        <nav class="sidebar-nav"><ul><li><a href="#Block_tab">Block.tab</a></li><li><a href="#Create_tab">Create.tab</a></li><li><a href="#Drafting_tab">Drafting.tab</a></li><li><a href="#EnneadTab_menu">EnneadTab.menu</a></li><li><a href="#File_tab">File.tab</a></li><li><a href="#Fun_tab">Fun.tab</a></li><li><a href="#Knowledge_tab">Knowledge.tab</a></li><li><a href="#Lab_tab">Lab.tab</a></li><li><a href="#Layer_tab">Layer.tab</a></li><li><a href="#Material_tab">Material.tab</a></li><li><a href="#Modify_tab">Modify.tab</a></li><li><a href="#Other">Other</a></li><li><a href="#Render_tab">Render.tab</a></li><li><a href="#Revit_tab">Revit.tab</a></li><li><a href="#Selection_tab">Selection.tab</a></li><li><a href="#Tailor_tab">Tailor.tab</a></li><li><a href="#View_tab">View.tab</a></li><li><a href="#Web_tab">Web.tab</a></li></ul></nav>
+        <main class="main-content">
+            <div class="search-bar-wrapper">
+                <input type="text" class="search-bar" id="searchBar" placeholder="Search tools by name or description..." />
             </div>
-        </section>
-
-        
-            <div class="tab-section">
+            <section class="hero-section">
+                <h1 class="hero-title">Rhino Knowledge Base</h1>
+                <p class="hero-subtitle">Master EnneadTab's Rhino Integration</p>
+                <p class="hero-description">
+                    Explore comprehensive guides, tutorials, and resources for leveraging EnneadTab's powerful tools within Rhino. 
+                    From basic operations to advanced techniques, learn how to enhance your Rhino experience and boost productivity 
+                    with our advanced features and best practices.
+                </p>
+            </section>
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">147</div>
+                        <div class="stat-label">Total Tools</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">34</div>
+                        <div class="stat-label">Popular Tools</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">147</div>
+                        <div class="stat-label">Documented</div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="tab-section" id="Block_tab">
                 <h2 class="tab-title">Block.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="batchrenameblocks" data-doc="block name batch editing utility for rhino.
+
+features:
+- interactive table interface for block renaming
+- real-time block preview in viewport
+- double-click to isolate and inspect blocks
+- validates name conflicts automatically
+- preserves block definitions during renaming
+
+usage:
+1. edit desired names in the 'new name' column
+2. double-click entries to preview blocks
+3. click 'update block names' to apply changes">
                         <div class="tool-header">
                             <h3 class="tool-title">BatchRenameBlocks</h3>
                             
@@ -403,10 +378,23 @@ Features:
 - Interactive table interface for block renaming
 - Real-time block preview in viewport
 - Double-click to isolate and inspect blocks
-- Validates n...</p>
+- Validates name conflicts automatically
+- Preserves block definitions during renaming
+
+Usage:
+1. Edit desired names in the 'New Name' column
+2. Double-click entries to preview blocks
+3. Click 'Update Block Names' to apply changes</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="editdistortedblock" data-doc="block editing utility for distorted instances.
+
+features:
+- creates editable copy of distorted block
+- maintains block definition relationships
+- automatic camera positioning for editing
+- temporary isolation of edited block
+- right-click to restore previous view">
                         <div class="tool-header">
                             <h3 class="tool-title">EditDistortedBlock</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -417,10 +405,16 @@ Features:
 - Creates editable copy of distorted block
 - Maintains block definition relationships
 - Automatic camera positioning for editing
-- Temporary i...</p>
+- Temporary isolation of edited block
+- Right-click to restore previous view</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="editdistortedblockrestoreview" data-doc="restore view after block editing.
+
+features:
+- restores previous camera position
+- shows all hidden objects
+- cleans up temporary editing blocks">
                         <div class="tool-header">
                             <h3 class="tool-title">EditDistortedBlockRestoreView</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -433,7 +427,14 @@ Features:
 - Cleans up temporary editing blocks</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="fallgeosongeo" data-doc="project objects onto target geometry.
+
+features:
+- projects blocks using insertion points
+- projects other objects using bounding box centers
+- supports both top and bottom face projections
+- works with surfaces and polysurfaces
+- maintains object properties during projection">
                         <div class="tool-header">
                             <h3 class="tool-title">FallGeosOnGeo</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -444,10 +445,18 @@ Features:
 - Projects blocks using insertion points
 - Projects other objects using bounding box centers
 - Supports both top and bottom face projections
-- Works wi...</p>
+- Works with surfaces and polysurfaces
+- Maintains object properties during projection</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="filterblockbyname" data-doc="smart block selection utility.
+
+features:
+- filter blocks by name patterns
+- multi-select support for block names
+- sorted block name display
+- real-time search filtering
+- automatic selection of matching instances">
                         <div class="tool-header">
                             <h3 class="tool-title">FilterBlockByName</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -459,10 +468,16 @@ Features:
 - Multi-select support for block names
 - Sorted block name display
 - Real-time search filtering
-- Automatic selection of matc...</p>
+- Automatic selection of matching instances</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="isolatesimilarblocks" data-doc="isolate blocks of similar definitions from the selected blocks.
+
+features:
+- automatically identifies and isolates blocks with identical definitions
+- supports multiple block definitions at once
+- maintains original selection state
+- keeps other objects visible and unchanged">
                         <div class="tool-header">
                             <h3 class="tool-title">IsolateSimilarBlocks</h3>
                             
@@ -472,12 +487,20 @@ Features:
 Features:
 - Automatically identifies and isolates blocks with identical definitions
 - Supports multiple block definitions at once
-- Mai...</p>
+- Maintains original selection state
+- Keeps other objects visible and unchanged</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="makeblockunique mbu" data-doc="create unique block definitions.
+
+features:
+- creates independent block definitions
+- optional name tagging with creator info
+- preserves block transformations
+- handles nested block structures
+- maintains layer assignments">
                         <div class="tool-header">
-                            <h3 class="tool-title">['MakeBlockUnique', 'MBU']</h3>
+                            <h3 class="tool-title">MakeBlockUnique MBU</h3>
                             <span class="popular-badge">⭐ Popular</span>
                         </div>
                         <p class="tool-description">Create unique block definitions.
@@ -487,10 +510,16 @@ Features:
 - Optional name tagging with creator info
 - Preserves block transformations
 - Handles nested block structures
-- Main...</p>
+- Maintains layer assignments</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="makeblockuniquetoone" data-doc="consolidate blocks into single definition.
+
+features:
+- merges multiple block types into one
+- creates new unified block definition
+- preserves instance positions
+- maintains transformation data">
                         <div class="tool-header">
                             <h3 class="tool-title">MakeBlockUniqueToOne</h3>
                             
@@ -504,7 +533,14 @@ Features:
 - Maintains transformation data</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="matchtexturemappinginblock" data-doc="copy texture mapping between blocks.
+
+features:
+- transfers texture mapping from source block
+- matches by layer correspondence
+- preserves mapping parameters
+- supports multiple target blocks
+- layer-specific texture application">
                         <div class="tool-header">
                             <h3 class="tool-title">MatchTextureMappingInBlock</h3>
                             
@@ -516,10 +552,17 @@ Features:
 - Matches by layer correspondence
 - Preserves mapping parameters
 - Supports multiple target blocks
-- Layer...</p>
+- Layer-specific texture application</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="packageblocklayer" data-doc="organize block content layers.
+
+features:
+- creates unified layer structure
+- optional layer flattening
+- preserves layer colors and materials
+- handles nested block hierarchies
+- streamlines material testing workflow">
                         <div class="tool-header">
                             <h3 class="tool-title">PackageBlockLayer</h3>
                             
@@ -531,10 +574,26 @@ Features:
 - Optional layer flattening
 - Preserves layer colors and materials
 - Handles nested block hierarchies
-- Streamlines material...</p>
+- Streamlines material testing workflow</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomblocksonsrfs" data-doc="advanced block distribution utility for surfaces.
+
+features:
+- distributes blocks randomly across target surfaces
+- configurable edge distance and spacing controls
+- optional edge-guided or curve-guided placement
+- real-time preview of block placement
+- supports multiple distribution patterns:
+  - random interior placement
+  - edge-aligned placement
+  - even edge distribution
+
+usage:
+1. select target surfaces and sample blocks
+2. configure placement parameters
+3. choose distribution pattern
+4. preview and adjust as needed">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomBlocksOnSrfs</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -544,10 +603,27 @@ Features:
 Features:
 - Distributes blocks randomly across target surfaces
 - Configurable edge distance and spacing controls
-- Optional edge-guided or curve-guid...</p>
+- Optional edge-guided or curve-guided placement
+- Real-time preview of block placement
+- Supports multiple distribution patterns:
+  - Random interior placement
+  - Edge-aligned placement
+  - Even edge distribution
+
+Usage:
+1. Select target surfaces and sample blocks
+2. Configure placement parameters
+3. Choose distribution pattern
+4. Preview and adjust as needed</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomizeblocktransformation" data-doc="randomly transform block transformation for rotation and scale.
+
+features:
+- rotates blocks randomly
+- scales blocks 1d height softly or taller
+- scales 3d dimensions evenly
+- animates transformation process">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomizeBlockTransformation</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -558,10 +634,21 @@ Features:
 - Rotates blocks randomly
 - Scales blocks 1D height softly or taller
 - Scales 3D dimensions evenly
-- Animates transformation ...</p>
+- Animates transformation process</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="samplelayout" data-doc="create sample block layout along crvs to quickly visualize design.
+
+features:
+- quick block layout visualization
+- flexible block size configuration
+- multiple layout modes:
+  - panel mode: blocks span between divider points
+  - post mode: blocks oriented to local coordinate of divider points
+- user-friendly interface with clear step-by-step instructions
+- real-time preview of block placement
+- supports both open and closed curves
+- automatically handles curve segmentation for accurate block placement">
                         <div class="tool-header">
                             <h3 class="tool-title">SampleLayout</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -572,10 +659,25 @@ Features:
 - Quick block layout visualization
 - Flexible block size configuration
 - Multiple layout modes:
-  - Panel mode: Blocks spa...</p>
+  - Panel mode: Blocks span between divider points
+  - Post mode: Blocks oriented to local coordinate of divider points
+- User-friendly interface with clear step-by-step instructions
+- Real-time preview of block placement
+- Supports both open and closed curves
+- Automatically handles curve segmentation for accurate block placement</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="selectsimilarblocks" data-doc="selects all block instances that share the same block definition as the selected blocks.
+
+usage:
+    1. pre-select block instances (optional)
+    2. run the command
+    3. select additional blocks if none were pre-selected
+    
+notes:
+    - works with multiple block definitions at once
+    - automatically filters for block objects only
+">
                         <div class="tool-header">
                             <h3 class="tool-title">SelectSimilarBlocks</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -585,10 +687,15 @@ Features:
 Usage:
     1. Pre-select block instances (optional)
     2. Run the command
-    3. Select additional blocks if ...</p>
+    3. Select additional blocks if none were pre-selected
+    
+Notes:
+    - Works with multiple block definitions at once
+    - Automatically filters for block objects only
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="toggleblockcolordisplay" data-doc="toggle on/off for highlighting the different block type. very helpful when you have many block variation.">
                         <div class="tool-header">
                             <h3 class="tool-title">ToggleBlockColorDisplay</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -596,7 +703,7 @@ Usage:
                         <p class="tool-description">Toggle on/off for highlighting the different block type. Very helpful when you have many block variation.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="toggleblockcolordisplay_setting" data-doc="toggle the on/off of block names.">
                         <div class="tool-header">
                             <h3 class="tool-title">ToggleBlockColorDisplay_Setting</h3>
                             
@@ -604,7 +711,7 @@ Usage:
                         <p class="tool-description">Toggle the on/off of block names.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="uniformtransformgeos" data-doc="apply same rotational transformation for the blocks or geometries. helpful when you have to reorient many directional blocks, such as changing the direction of cars on street.">
                         <div class="tool-header">
                             <h3 class="tool-title">UniformTransformGeos</h3>
                             
@@ -615,11 +722,26 @@ Usage:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Create_tab">
                 <h2 class="tab-title">Create.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="quickmassing" data-doc="create parametric massing models with customizable floor heights and basement options.
+
+features:
+- adjustable first floor height
+- configurable typical floor height
+- customizable number of typical floors
+- optional basement level with adjustable height
+- real-time input validation
+- persistent settings storage
+
+usage:
+1. left-click to activate the quickmassing tool
+2. configure floor heights and counts in the dialog
+3. create massing model based on your specifications
+
+note: all settings are saved between sessions for convenience.">
                         <div class="tool-header">
                             <h3 class="tool-title">QuickMassing</h3>
                             
@@ -629,10 +751,43 @@ Usage:
 Features:
 - Adjustable first floor height
 - Configurable typical floor height
-- Customizable number of typical f...</p>
+- Customizable number of typical floors
+- Optional basement level with adjustable height
+- Real-time input validation
+- Persistent settings storage
+
+Usage:
+1. Left-click to activate the QuickMassing tool
+2. Configure floor heights and counts in the dialog
+3. Create massing model based on your specifications
+
+Note: All settings are saved between sessions for convenience.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="slabedge" data-doc="create custom slab edges by sweeping a profile block along selected edges.
+
+features:
+- multiple selection methods:
+  * individual edge selection
+  * edge loop selection
+  * curve selection
+- profile block customization:
+  * select from existing blocks
+  * preview profile orientation
+  * flip profile direction
+- interactive preview:
+  * real-time visualization
+  * adjust before finalizing
+  * cancel and retry options
+
+usage:
+1. choose selection method
+2. select edges or curves
+3. pick profile block
+4. preview and adjust
+5. confirm to create
+
+note: preview objects are automatically cleaned up after use.">
                         <div class="tool-header">
                             <h3 class="tool-title">SlabEdge</h3>
                             
@@ -644,10 +799,46 @@ Features:
   * Individual edge selection
   * Edge loop selection
   * Curve selection
-- Profile ...</p>
+- Profile block customization:
+  * Select from existing blocks
+  * Preview profile orientation
+  * Flip profile direction
+- Interactive preview:
+  * Real-time visualization
+  * Adjust before finalizing
+  * Cancel and retry options
+
+Usage:
+1. Choose selection method
+2. Select edges or curves
+3. Pick profile block
+4. Preview and adjust
+5. Confirm to create
+
+Note: Preview objects are automatically cleaned up after use.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="stairmaker" data-doc="create parametric linear stairs with interactive controls and real-time preview.
+
+features:
+- dynamic stair creation with live preview
+- customizable parameters:
+  * riser height
+  * tread width
+  * stair width
+  * landing configuration
+- automatic step count calculation based on height
+- intelligent error handling for invalid inputs
+- support for multiple stair configurations
+- interactive point selection for precise placement
+
+usage:
+1. select start point for stair base
+2. define stair direction and height
+3. adjust width using flip point
+4. preview and confirm stair creation
+
+note: all parameters are validated in real-time to ensure code compliance.">
                         <div class="tool-header">
                             <h3 class="tool-title">StairMaker</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -659,10 +850,30 @@ Features:
 - Customizable parameters:
   * Riser height
   * Tread width
-  * S...</p>
+  * Stair width
+  * Landing configuration
+- Automatic step count calculation based on height
+- Intelligent error handling for invalid inputs
+- Support for multiple stair configurations
+- Interactive point selection for precise placement
+
+Usage:
+1. Select start point for stair base
+2. Define stair direction and height
+3. Adjust width using flip point
+4. Preview and confirm stair creation
+
+Note: All parameters are validated in real-time to ensure code compliance.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="stairmakerspiral" data-doc="interactively create spiral stairs in rhino.
+
+key features:
+- dynamic spiral stair creation with preview
+- customizable riser height and tread width
+- adjustable spiral radius and rotation
+- automatic step count calculation
+- support for clockwise and counter-clockwise rotation">
                         <div class="tool-header">
                             <h3 class="tool-title">StairMakerSpiral</h3>
                             
@@ -673,17 +884,18 @@ Key Features:
 - Dynamic spiral stair creation with preview
 - Customizable riser height and tread width
 - Adjustable spiral radius and rotation
-- Automatic...</p>
+- Automatic step count calculation
+- Support for clockwise and counter-clockwise rotation</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Drafting_tab">
                 <h2 class="tab-title">Drafting.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="colorpicker" data-doc="opens coolors.co color palette generator in default web browser for color scheme inspiration">
                         <div class="tool-header">
                             <h3 class="tool-title">ColorPicker</h3>
                             
@@ -691,7 +903,14 @@ Key Features:
                         <p class="tool-description">Opens Coolors.co color palette generator in default web browser for color scheme inspiration</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="duplicatelayout" data-doc="duplicate layouts with customizable viewport offsets.
+
+key features:
+- maintain layout settings and properties
+- adjust viewport positions with x-y offsets
+- capture different model space views
+- preserve viewport scales and display settings
+- support for multiple layout selection">
                         <div class="tool-header">
                             <h3 class="tool-title">DuplicateLayout</h3>
                             
@@ -702,10 +921,18 @@ Key Features:
 - Maintain layout settings and properties
 - Adjust viewport positions with X-Y offsets
 - Capture different model space views
-- Pres...</p>
+- Preserve viewport scales and display settings
+- Support for multiple layout selection</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="exportselectedlayout" data-doc="export selected layouts to pdf format.
+
+key features:
+- multiple layout selection support
+- customizable output location
+- maintains print settings and quality
+- optional automatic pdf opening
+- batch processing capability">
                         <div class="tool-header">
                             <h3 class="tool-title">ExportSelectedLayout</h3>
                             
@@ -717,10 +944,17 @@ Key Features:
 - Customizable output location
 - Maintains print settings and quality
 - Optional automatic PDF opening
-- Batch...</p>
+- Batch processing capability</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="opensampleexcel" data-doc="access sample excel template for area visualization.
+
+key features:
+- pre-formatted excel template
+- example data structure
+- color coding guidelines
+- area calculation formulas
+- category organization samples">
                         <div class="tool-header">
                             <h3 class="tool-title">OpenSampleExcel</h3>
                             
@@ -732,10 +966,17 @@ Key Features:
 - Example data structure
 - Color coding guidelines
 - Area calculation formulas
-- Category organizatio...</p>
+- Category organization samples</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="sectioncrowd" data-doc="create section view crowd representations.
+
+key features:
+- interactive crowd placement in top view
+- customizable people spacing and density
+- random variations for natural appearance
+- support for multiple crowd patterns
+- automatic group creation for easy management">
                         <div class="tool-header">
                             <h3 class="tool-title">SectionCrowd</h3>
                             
@@ -746,10 +987,18 @@ Key Features:
 - Interactive crowd placement in TOP view
 - Customizable people spacing and density
 - Random variations for natural appearance
-- Support for m...</p>
+- Support for multiple crowd patterns
+- Automatic group creation for easy management</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="visualizeexcel" data-doc="convert excel data into visual diagrams.
+
+key features:
+- multiple shape options (circles, squares, bars)
+- customizable colors and sizes
+- automatic area calculations
+- support for grouped data visualization
+- dynamic layout adjustments.">
                         <div class="tool-header">
                             <h3 class="tool-title">VisualizeExcel</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -760,17 +1009,24 @@ Key Features:
 - Multiple shape options (circles, squares, bars)
 - Customizable colors and sizes
 - Automatic area calculations
-- Support for grouped data visua...</p>
+- Support for grouped data visualization
+- Dynamic layout adjustments.</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="EnneadTab_menu">
                 <h2 class="tab-title">EnneadTab.menu</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="activateenneadtab" data-doc="restore enneadtab functionality.
+
+key features:
+- system path verification
+- component activation
+- path configuration
+- startup script setup">
                         <div class="tool-header">
                             <h3 class="tool-title">ActivateEnneadTab</h3>
                             
@@ -784,7 +1040,14 @@ Key Features:
 - Startup script setup</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="appstore" data-doc="access enneadtab's centralized tool repository.
+
+key features:
+- complete tool collection
+- category organization
+- installation management
+- update notifications
+- tool documentation access">
                         <div class="tool-header">
                             <h3 class="tool-title">AppStore</h3>
                             
@@ -799,7 +1062,13 @@ Key Features:
 - Tool documentation access</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="extractpreviewimages" data-doc="extract preview images from rhino files.
+
+key features:
+- batch image extraction
+- multiple file support
+- automatic naming convention
+- progress tracking">
                         <div class="tool-header">
                             <h3 class="tool-title">ExtractPreviewImages</h3>
                             
@@ -813,7 +1082,7 @@ Key Features:
 - Progress tracking</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="getengine" data-doc="ensure that you have a localized python engine installed">
                         <div class="tool-header">
                             <h3 class="tool-title">GetEngine</h3>
                             
@@ -821,7 +1090,14 @@ Key Features:
                         <p class="tool-description">Ensure that you have a localized Python engine installed</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="getlatest" data-doc="update enneadtab to latest version.
+
+key features:
+- automatic version detection
+- core module updates
+- system path configuration
+- component synchronization
+- installation verification">
                         <div class="tool-header">
                             <h3 class="tool-title">GetLatest</h3>
                             
@@ -836,7 +1112,14 @@ Key Features:
 - Installation verification</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="howtoinstall" data-doc="access enneadtab installation documentation.
+
+key features:
+- step-by-step installation guide
+- system requirements
+- troubleshooting tips
+- configuration instructions
+- team deployment guidance">
                         <div class="tool-header">
                             <h3 class="tool-title">HowToInstall</h3>
                             
@@ -851,7 +1134,14 @@ Key Features:
 - Team deployment guidance</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="makeanewbutton" data-doc="create new enneadtab button components.
+
+key features:
+- interactive button creation
+- template generation
+- file structure setup
+- icon integration support
+- documentation templates">
                         <div class="tool-header">
                             <h3 class="tool-title">MakeANewButton</h3>
                             
@@ -866,7 +1156,8 @@ Key Features:
 - Documentation templates</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="monitordriveconnection" data-doc="launches the monitordrive application to track and manage network drive connections.
+this tool provides real-time monitoring of network drive status and connection health.">
                         <div class="tool-header">
                             <h3 class="tool-title">MonitorDriveConnection</h3>
                             
@@ -875,7 +1166,7 @@ Key Features:
 This tool provides real-time monitoring of network drive status and connection health.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="openautosavefolder" data-doc="open the rhino autosave folder lcoations.">
                         <div class="tool-header">
                             <h3 class="tool-title">OpenAutosaveFolder</h3>
                             
@@ -883,7 +1174,14 @@ This tool provides real-time monitoring of network drive status and connection h
                         <p class="tool-description">Open the Rhino autosave folder lcoations.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="openecosystemfolder" data-doc="access the enneadtab ecosystem directory.
+
+key features:
+- direct folder access
+- system file management
+- resource exploration
+- configuration access
+- template management">
                         <div class="tool-header">
                             <h3 class="tool-title">OpenEcosystemFolder</h3>
                             
@@ -898,7 +1196,12 @@ Key Features:
 - Template management</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="reloadengine" data-doc="reload all enneadtab modules to ensure latest changes are applied.
+
+this script will:
+1. import all enneadtab modules
+2. reload each module to apply latest changes
+3. handle any import errors gracefully">
                         <div class="tool-header">
                             <h3 class="tool-title">ReloadEngine</h3>
                             
@@ -908,10 +1211,10 @@ Key Features:
 This script will:
 1. Import all EnneadTab modules
 2. Reload each module to apply latest changes
-3. Handle any import errors graceful...</p>
+3. Handle any import errors gracefully</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="remotefixcode" data-doc="launches vs code dev for emergency remote code editing and debugging">
                         <div class="tool-header">
                             <h3 class="tool-title">RemoteFixCode</h3>
                             
@@ -919,7 +1222,14 @@ This script will:
                         <p class="tool-description">Launches VS Code Dev for emergency remote code editing and debugging</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="resetallconduit" data-doc="reset all display conduits to default state.
+
+key features:
+- complete conduit cleanup
+- memory optimization
+- display pipeline reset
+- system performance improvement
+- debug assistance">
                         <div class="tool-header">
                             <h3 class="tool-title">ResetAllConduit</h3>
                             
@@ -934,7 +1244,14 @@ Key Features:
 - Debug assistance</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="restartrhino" data-doc="restart rhino to apply core updates.
+
+key features:
+- safe application restart
+- update implementation
+- session state preservation
+- automatic core reloading
+- system verification">
                         <div class="tool-header">
                             <h3 class="tool-title">RestartRhino</h3>
                             
@@ -949,7 +1266,7 @@ Key Features:
 - System verification</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="secretkeybinding" data-doc="setup some secrete shortcut based on sen's preference.">
                         <div class="tool-header">
                             <h3 class="tool-title">SecretKeyBinding</h3>
                             
@@ -957,7 +1274,14 @@ Key Features:
                         <p class="tool-description">Setup some secrete shortcut based on Sen's preference.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="selfrepair" data-doc="automatically repair and update enneadtab installation.
+
+key features:
+- legacy rui detection and repair
+- automatic version updates
+- system path verification
+- component synchronization
+- installation validation">
                         <div class="tool-header">
                             <h3 class="tool-title">SelfRepair</h3>
                             
@@ -969,10 +1293,17 @@ Key Features:
 - Automatic version updates
 - System path verification
 - Component synchronization
-- Installati...</p>
+- Installation validation</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="tellmeversion" data-doc="display current enneadtab rhino version.
+
+key features:
+- version number display
+- update status information
+- installation verification
+- component compatibility check
+- release notes access">
                         <div class="tool-header">
                             <h3 class="tool-title">TellMeVersion</h3>
                             
@@ -987,7 +1318,7 @@ Key Features:
 - Release notes access</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="uninstall enneadtab" data-doc="completely uninstall enneadtab from the system">
                         <div class="tool-header">
                             <h3 class="tool-title">Uninstall EnneadTab</h3>
                             
@@ -995,7 +1326,13 @@ Key Features:
                         <p class="tool-description">Completely uninstall EnneadTab from the system</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="unittest" data-doc="execute unit tests for enneadtab components.
+
+key features:
+- comprehensive module testing
+- automated error detection
+- system integrity verification
+- performance validation">
                         <div class="tool-header">
                             <h3 class="tool-title">UnitTest</h3>
                             
@@ -1009,7 +1346,10 @@ Key Features:
 - Performance validation</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="youtubeplaylist" data-doc="access enneadtab's video tutorial library.
+
+opens the official enneadtab youtube playlist containing tutorials, 
+demonstrations and workflow guides.">
                         <div class="tool-header">
                             <h3 class="tool-title">YoutubePlaylist</h3>
                             
@@ -1023,11 +1363,18 @@ demonstrations and workflow guides.</p>
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="File_tab">
                 <h2 class="tab-title">File.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="archivefile" data-doc="archive files with customizable date prefixes.
+
+key features:
+- multiple date format options
+- batch file processing
+- custom destination selection
+- file opening options
+- automatic naming convention">
                         <div class="tool-header">
                             <h3 class="tool-title">ArchiveFile</h3>
                             
@@ -1042,7 +1389,14 @@ Key Features:
 - Automatic naming convention</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="bindworksession" data-doc="convert worksession to single file with organized layers.
+
+key features:
+- automatic layer organization
+- file hierarchy preservation
+- progress tracking
+- resource cleanup
+- email notification support">
                         <div class="tool-header">
                             <h3 class="tool-title">BindWorksession</h3>
                             
@@ -1054,10 +1408,17 @@ Key Features:
 - File hierarchy preservation
 - Progress tracking
 - Resource cleanup
-- Email notification suppor...</p>
+- Email notification support</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="createworksession" data-doc="create multi-file rhino worksession.
+
+key features:
+- multiple file selection support
+- custom session naming
+- automatic file linking
+- performance optimization
+- batch file processing">
                         <div class="tool-header">
                             <h3 class="tool-title">CreateWorksession</h3>
                             
@@ -1072,7 +1433,18 @@ Key Features:
 - Batch file processing</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="docdata" data-doc="demonstrates usage of rhino_proj_data module for document data management.
+
+this script showcases how to:
+- inspect existing document data
+- set preferred grasshopper file path
+- store structured grasshopper input parameters
+- handle various data types (bool, int, float)
+
+example usage:
+    - left-click to run the demonstration
+    - view results in rhino command line
+">
                         <div class="tool-header">
                             <h3 class="tool-title">DocData</h3>
                             
@@ -1082,10 +1454,23 @@ Key Features:
 This script showcases how to:
 - Inspect existing document data
 - Set preferred Grasshopper file path
-- Store structured Gras...</p>
+- Store structured Grasshopper input parameters
+- Handle various data types (bool, int, float)
+
+Example Usage:
+    - Left-click to run the demonstration
+    - View results in Rhino command line
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="externaltrimmer" data-doc="manage external file trimming operations.
+
+key features:
+- external file linking and updating
+- boolean trimming operations
+- layer-based filtering
+- block instance management
+- automatic file synchronization">
                         <div class="tool-header">
                             <h3 class="tool-title">ExternalTrimmer</h3>
                             
@@ -1097,10 +1482,17 @@ Key Features:
 - Boolean trimming operations
 - Layer-based filtering
 - Block instance management
-- Automatic file synchro...</p>
+- Automatic file synchronization</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="externaltrimmer" data-doc="update external linked references.
+
+key features:
+- external block updating
+- link synchronization
+- reference management
+- file dependency tracking
+- automatic refresh handling">
                         <div class="tool-header">
                             <h3 class="tool-title">ExternalTrimmer</h3>
                             
@@ -1115,7 +1507,14 @@ Key Features:
 - Automatic refresh handling</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="rebasefile" data-doc="rebase file geometry and views to new origin point.
+
+key features:
+- interactive base point selection
+- automatic object transformation
+- view camera adjustment
+- named view preservation
+- comprehensive coordinate system update">
                         <div class="tool-header">
                             <h3 class="tool-title">RebaseFile</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1127,10 +1526,17 @@ Key Features:
 - Automatic object transformation
 - View camera adjustment
 - Named view preservation
-- Comprehensi...</p>
+- Comprehensive coordinate system update</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="savesmallandclose" data-doc="save optimized file and close document.
+
+key features:
+- automatic resource cleanup
+- material purging
+- block definition optimization
+- layer cleanup
+- quick document closure">
                         <div class="tool-header">
                             <h3 class="tool-title">SaveSmallAndClose</h3>
                             
@@ -1148,11 +1554,14 @@ Key Features:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Fun_tab">
                 <h2 class="tab-title">Fun.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="dvd" data-doc="classic dvd screensaver animation for rhino.
+
+a nostalgic entertainment feature that recreates the 
+bouncing dvd logo animation within rhino viewport.">
                         <div class="tool-header">
                             <h3 class="tool-title">DVD</h3>
                             
@@ -1163,7 +1572,7 @@ A nostalgic entertainment feature that recreates the
 bouncing DVD logo animation within Rhino viewport.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="enneadcity" data-doc="work on your plot">
                         <div class="tool-header">
                             <h3 class="tool-title">EnneadCity</h3>
                             
@@ -1171,7 +1580,7 @@ bouncing DVD logo animation within Rhino viewport.</p>
                         <p class="tool-description">Work on your plot</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="enneadcity" data-doc="load all city plots to a session.">
                         <div class="tool-header">
                             <h3 class="tool-title">EnneadCity</h3>
                             
@@ -1179,7 +1588,20 @@ bouncing DVD logo animation within Rhino viewport.</p>
                         <p class="tool-description">Load all city plots to a session.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="petduck" data-doc="
+duckitect - ai architecture assistant
+------------------------------------
+
+a desktop companion that combines architectural expertise with ai capabilities.
+
+features:
+- ai-powered chat and analysis
+- architecture tools and code library
+- rhino/grasshopper integration
+- professional documentation support
+
+usage: left click to activate
+">
                         <div class="tool-header">
                             <h3 class="tool-title">PetDuck</h3>
                             
@@ -1192,10 +1614,21 @@ A desktop companion that combines architectural expertise with AI capabilities.
 
 Features:
 - AI-powered chat and analysis
--...</p>
+- Architecture tools and code library
+- Rhino/Grasshopper integration
+- Professional documentation support
+
+Usage: Left click to activate
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="redalert" data-doc="command & conquer inspired game mode for rhino.
+
+features:
+- real-time audio feedback for modeling operations
+- classic rts game sound effects
+- dynamic response to object creation/deletion
+- nostalgic gaming atmosphere while modeling">
                         <div class="tool-header">
                             <h3 class="tool-title">RedAlert</h3>
                             
@@ -1206,17 +1639,17 @@ Features:
 - Real-time audio feedback for modeling operations
 - Classic RTS game sound effects
 - Dynamic response to object creation/deletion
-- Nostalgi...</p>
+- Nostalgic gaming atmosphere while modeling</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Knowledge_tab">
                 <h2 class="tab-title">Knowledge.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="chinacoderef" data-doc="this button does chinacoderef when left click">
                         <div class="tool-header">
                             <h3 class="tool-title">ChinaCodeRef</h3>
                             
@@ -1224,7 +1657,7 @@ Features:
                         <p class="tool-description">This button does ChinaCodeRef when left click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="perforationratio" data-doc="find out how to calculate your perforation panel with precise opening ratio.">
                         <div class="tool-header">
                             <h3 class="tool-title">PerforationRatio</h3>
                             
@@ -1232,7 +1665,7 @@ Features:
                         <p class="tool-description">Find out how to calculate your perforation panel with precise opening ratio.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="placeasset" data-doc="place asset from asset library">
                         <div class="tool-header">
                             <h3 class="tool-title">PlaceAsset</h3>
                             
@@ -1240,9 +1673,16 @@ Features:
                         <p class="tool-description">Place Asset from asset library</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="searchcommand learnenneadtabforrhino commandlist" data-doc="search and learn enneadtab commands.
+
+key features:
+- interactive command search
+- function documentation
+- command aliases
+- tool location finder
+- visual command preview">
                         <div class="tool-header">
-                            <h3 class="tool-title">['SearchCommand', 'LearnEnneadTabForRhino', 'CommandList']</h3>
+                            <h3 class="tool-title">SearchCommand LearnEnneadTabForRhino CommandList</h3>
                             <span class="popular-badge">⭐ Popular</span>
                         </div>
                         <p class="tool-description">Search and learn EnneadTab commands.
@@ -1255,7 +1695,7 @@ Key Features:
 - Visual command preview</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="slopecalculator" data-doc="this button does slopecalculator when left click">
                         <div class="tool-header">
                             <h3 class="tool-title">SlopeCalculator</h3>
                             
@@ -1263,7 +1703,13 @@ Key Features:
                         <p class="tool-description">This button does SlopeCalculator when left click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="turtorial" data-doc="enneadtab learning resources hub.
+
+features:
+- access to comprehensive gh tutorials
+- local documentation and pdf guides
+- video tutorials via youtube playlist
+- quick reference materials for common workflows">
                         <div class="tool-header">
                             <h3 class="tool-title">Turtorial</h3>
                             
@@ -1274,17 +1720,17 @@ Features:
 - Access to comprehensive GH tutorials
 - Local documentation and PDF guides
 - Video tutorials via YouTube playlist
-- Quick reference materials for common w...</p>
+- Quick reference materials for common workflows</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Lab_tab">
                 <h2 class="tab-title">Lab.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="anything" data-doc="this button does anything, depedening what you want to quickly test without creating a new button">
                         <div class="tool-header">
                             <h3 class="tool-title">Anything</h3>
                             
@@ -1292,7 +1738,7 @@ Features:
                         <p class="tool-description">This button does Anything, depedening what you want to quickly test without creating a new button</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="dockpane" data-doc="a dockable panel that attaches to the side of rhino window">
                         <div class="tool-header">
                             <h3 class="tool-title">Dockpane</h3>
                             
@@ -1300,7 +1746,17 @@ Features:
                         <p class="tool-description">A dockable panel that attaches to the side of Rhino window</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="text2script" data-doc="utility script to convert text to script using ai.
+
+note: this is rhino 8 only.
+
+features:
+- converts natural language to executable python script
+- integrated with rhino's rhinoscriptsyntax
+- maximum 5 refinement attempts for optimal results
+- always uses main() as the entry function
+- modern error handling and user feedback
+">
                         <div class="tool-header">
                             <h3 class="tool-title">Text2Script</h3>
                             
@@ -1312,10 +1768,13 @@ Note: This is Rhino 8 only.
 Features:
 - Converts natural language to executable Python script
 - Integrated with Rhino's rhinoscriptsyntax
-- Maximum...</p>
+- Maximum 5 refinement attempts for optimal results
+- Always uses main() as the entry function
+- Modern error handling and user feedback
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="text2scriptsetting" data-doc="this button does text2scriptsetting when right click">
                         <div class="tool-header">
                             <h3 class="tool-title">Text2ScriptSetting</h3>
                             
@@ -1323,7 +1782,19 @@ Features:
                         <p class="tool-description">This button does Text2ScriptSetting when right click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="viewprettifier" data-doc="generate ai renderings from architectural images.
+features:
+- processes existing architectural images
+- detects edges in the image to preserve model structure
+- allows use of style reference images
+- modern dark-themed gui for configuration
+- model and controlnet selection
+- progress tracking with step indicators
+- generates ai renderings using stable diffusion with controlnet
+- shows real-time progress during generation
+- automatically installs required dependencies
+- monitors for stalled processes and provides diagnostics
+">
                         <div class="tool-header">
                             <h3 class="tool-title">ViewPrettifier</h3>
                             
@@ -1333,17 +1804,24 @@ Features:
 - Processes existing architectural images
 - Detects edges in the image to preserve model structure
 - Allows use of style reference images
-- ...</p>
+- Modern dark-themed GUI for configuration
+- Model and ControlNet selection
+- Progress tracking with step indicators
+- Generates AI renderings using Stable Diffusion with ControlNet
+- Shows real-time progress during generation
+- Automatically installs required dependencies
+- Monitors for stalled processes and provides diagnostics
+</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Layer_tab">
                 <h2 class="tab-title">Layer.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="destroylayer" data-doc="delete selected layers, even if there are objs in it. helpful when layer tree is constrainted by block usage.">
                         <div class="tool-header">
                             <h3 class="tool-title">DestroyLayer</h3>
                             
@@ -1351,7 +1829,14 @@ Features:
                         <p class="tool-description">Delete selected layers, even if there are objs in it. Helpful when layer tree is constrainted by block usage.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="findlayerinfiles" data-doc="search for layers across multiple files.
+
+key features:
+- multi-file layer search
+- case-insensitive matching
+- progress tracking
+- search result summary
+- file origin tracking">
                         <div class="tool-header">
                             <h3 class="tool-title">FindLayerInFiles</h3>
                             
@@ -1366,7 +1851,14 @@ Key Features:
 - File origin tracking</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="initiatelayers" data-doc="create standardized layer structures.
+
+key features:
+- predefined layer schemes
+- color-coded organization
+- program-based grouping
+- material-based grouping
+- customizable hierarchy">
                         <div class="tool-header">
                             <h3 class="tool-title">InitiateLayers</h3>
                             
@@ -1381,7 +1873,14 @@ Key Features:
 - Customizable hierarchy</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="isolatelayerbyselection" data-doc="show only objects on selected layers.
+
+key features:
+- selection-based isolation
+- layer visibility control
+- quick view focusing
+- multiple layer support
+- view organization">
                         <div class="tool-header">
                             <h3 class="tool-title">IsolateLayerBySelection</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1396,7 +1895,14 @@ Key Features:
 - View organization</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="layernameformat" data-doc="standardize layer naming conventions.
+
+key features:
+- multiple format options
+- case formatting
+- pattern preservation
+- batch renaming
+- protected name handling">
                         <div class="tool-header">
                             <h3 class="tool-title">LayerNameFormat</h3>
                             
@@ -1411,7 +1917,14 @@ Key Features:
 - Protected name handling</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="mergelayer" data-doc="combine multiple layers into one.
+
+key features:
+- layer consolidation
+- block-aware merging
+- property preservation
+- layer cleanup
+- batch processing">
                         <div class="tool-header">
                             <h3 class="tool-title">MergeLayer</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1426,7 +1939,14 @@ Key Features:
 - Batch processing</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="nestlayer" data-doc="organize layers in hierarchical structure.
+
+key features:
+- layer nesting automation
+- block-aware processing
+- duplicate name handling
+- layer hierarchy preservation
+- batch layer organization">
                         <div class="tool-header">
                             <h3 class="tool-title">NestLayer</h3>
                             
@@ -1441,7 +1961,14 @@ Key Features:
 - Batch layer organization</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomlayercolor" data-doc="assign random colors to layers.
+
+key features:
+- smart color assignment
+- context-aware coloring
+- desaturated color option
+- color scheme preservation
+- batch processing support">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomLayerColor</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1456,7 +1983,7 @@ Key Features:
 - Batch processing support</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomlayercolorsetting" data-doc="change the setting of color style.">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomLayerColorSetting</h3>
                             
@@ -1464,7 +1991,7 @@ Key Features:
                         <p class="tool-description">Change the setting of color style.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="selectobjectsonsimilarlayer" data-doc="selection objects on the similar layers.">
                         <div class="tool-header">
                             <h3 class="tool-title">SelectObjectsOnSimilarLayer</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1475,11 +2002,11 @@ Key Features:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Material_tab">
                 <h2 class="tab-title">Material.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="assignemptymaterialtolayer" data-doc="same as ea_assignemptymaterial">
                         <div class="tool-header">
                             <h3 class="tool-title">AssignEmptyMaterialToLayer</h3>
                             
@@ -1487,7 +2014,14 @@ Key Features:
                         <p class="tool-description">Same as EA_AssignEmptyMaterial</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="importselectedmaterial" data-doc="import materials from external files.
+
+key features:
+- selective material import
+- property preservation
+- material preview
+- name conflict handling
+- multi-select support">
                         <div class="tool-header">
                             <h3 class="tool-title">ImportSelectedMaterial</h3>
                             
@@ -1502,7 +2036,14 @@ Key Features:
 - Multi-select support</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="materialprefix" data-doc="add file-specific prefixes to materials.
+
+key features:
+- automatic prefix generation
+- session compatibility
+- name conflict resolution
+- batch processing
+- material tracking">
                         <div class="tool-header">
                             <h3 class="tool-title">MaterialPrefix</h3>
                             
@@ -1517,7 +2058,14 @@ Key Features:
 - Material tracking</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="mergematerials" data-doc="consolidate multiple materials into one.
+
+key features:
+- material consolidation
+- block-aware processing
+- layer material handling
+- object material updating
+- automatic cleanup.">
                         <div class="tool-header">
                             <h3 class="tool-title">MergeMaterials</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1532,7 +2080,14 @@ Key Features:
 - Automatic cleanup.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomtexturewalk" data-doc="randomize texture mapping positions.
+
+key features:
+- texture offset randomization
+- mapping preservation
+- customizable range
+- batch processing
+- pattern variation">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomTextureWalk</h3>
                             
@@ -1547,7 +2102,7 @@ Key Features:
 - Pattern variation</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="removestringinmaterialname" data-doc="remove the specific string in material name. handy if trying to remove file name prefix.">
                         <div class="tool-header">
                             <h3 class="tool-title">RemoveStringInMaterialName</h3>
                             
@@ -1558,11 +2113,11 @@ Key Features:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Modify_tab">
                 <h2 class="tab-title">Modify.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="flattenmeshface" data-doc="try to flatten the mesh face so there is no bump">
                         <div class="tool-header">
                             <h3 class="tool-title">FlattenMeshFace</h3>
                             
@@ -1570,7 +2125,11 @@ Key Features:
                         <p class="tool-description">Try to flatten the mesh face so there is no bump</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="makevoidseam" data-doc="creates void cut polysurfaces based on layer name configuration.
+
+the script processes layers containing seam definitions to generate corresponding void cuts.
+layer names should include width parameters in square brackets (e.g. 'seam[12]').
+">
                         <div class="tool-header">
                             <h3 class="tool-title">MakeVoidSeam</h3>
                             
@@ -1578,10 +2137,11 @@ Key Features:
                         <p class="tool-description">Creates void cut polysurfaces based on layer name configuration.
 
 The script processes layers containing seam definitions to generate corresponding void cuts.
-Layer names should include width paramete...</p>
+Layer names should include width parameters in square brackets (e.g. 'seam[12]').
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="matchcrvdir" data-doc="match multiple crvs direction.">
                         <div class="tool-header">
                             <h3 class="tool-title">MatchCrvDir</h3>
                             
@@ -1589,7 +2149,15 @@ Layer names should include width paramete...</p>
                         <p class="tool-description">Match multiple crvs direction.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="measure3d" data-doc="display 3d measurements between two points.
+
+shows total distance with a curve, and displays x, y, z differences as color-coded curves:
+- x difference in red
+- y difference in green
+- z difference in blue
+
+measurements remain on screen until a new measurement is started.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">Measure3D</h3>
                             
@@ -1599,10 +2167,24 @@ Layer names should include width paramete...</p>
 Shows total distance with a curve, and displays X, Y, Z differences as color-coded curves:
 - X difference in red
 - Y difference in green
-- Z difference in ...</p>
+- Z difference in blue
+
+Measurements remain on screen until a new measurement is started.
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="movefixeddist" data-doc="move selected objects a fixed distance in 6 directions.
+
+features:
+- simple modeless interface with 6 directional buttons
+- persistent distance value between sessions
+- input validation for numeric values
+- north/south/east/west/up/down movement
+- allows full interaction with rhino while dialog is open
+- gamepad-style button layout
+- zoom to selected function
+- measure3d function for quick measurements
+- choice between view cplane and world cplane coordinate systems">
                         <div class="tool-header">
                             <h3 class="tool-title">MoveFixedDist</h3>
                             
@@ -1612,10 +2194,16 @@ Shows total distance with a curve, and displays X, Y, Z differences as color-cod
 Features:
 - Simple modeless interface with 6 directional buttons
 - Persistent distance value between sessions
-- Input validation for numeric va...</p>
+- Input validation for numeric values
+- North/South/East/West/Up/Down movement
+- Allows full interaction with Rhino while dialog is open
+- Gamepad-style button layout
+- Zoom to selected function
+- Measure3D function for quick measurements
+- Choice between View CPlane and World CPlane coordinate systems</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="offsetfloorborder" data-doc="shrink/expand the border of floor for input srf or polysrfs. the thickness is retained if using polysrf.">
                         <div class="tool-header">
                             <h3 class="tool-title">OffsetFloorBorder</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1623,7 +2211,11 @@ Features:
                         <p class="tool-description">Shrink/Expand the border of floor for input srf or polysrfs. The thickness is retained if using polysrf.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="pushglassin" data-doc="creates recessed glass surfaces from selected surfaces.
+
+generates inset glass surfaces with surrounding frame geometry.
+useful for creating window/curtainwall details with depth.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">PushGlassIn</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1635,7 +2227,11 @@ Useful for creating window/curtainwall details with depth.
 </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="shapemapper" data-doc="maps complex designs over target surfaces.
+
+advanced surface mapping utility that provides enhanced control compared to flowalongsurface.
+allows mapping of curves, surfaces and polysurfaces while maintaining design intent.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">ShapeMapper</h3>
                             
@@ -1643,10 +2239,17 @@ Useful for creating window/curtainwall details with depth.
                         <p class="tool-description">Maps complex designs over target surfaces.
 
 Advanced surface mapping utility that provides enhanced control compared to FlowAlongSurface.
-Allows mapping of curves, surfaces and polysurfaces while main...</p>
+Allows mapping of curves, surfaces and polysurfaces while maintaining design intent.
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="srftopanel" data-doc="advanced surface panelization utility.
+
+features:
+- converts surfaces to detailed panel geometry
+- configurable panel thickness and joint reveals
+- automatic edge detail generation
+- maintains design intent while adding construction detail">
                         <div class="tool-header">
                             <h3 class="tool-title">SrfToPanel</h3>
                             
@@ -1657,10 +2260,15 @@ Features:
 - Converts surfaces to detailed panel geometry
 - Configurable panel thickness and joint reveals
 - Automatic edge detail generation
-- Maintains design ...</p>
+- Maintains design intent while adding construction detail</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="timetravel" data-doc="selective undo tool for rhino objects.
+
+features:
+- undo history for selected objects only
+- maintains other objects' current state
+- precise history control for specific elements">
                         <div class="tool-header">
                             <h3 class="tool-title">TimeTravel</h3>
                             
@@ -1676,26 +2284,26 @@ Features:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Other">
                 <h2 class="tab-title">Other</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="enneadtab_startup" data-doc="the friendly welcome wagon for enneadtab in rhino! this startup script springs into action with each new rhino session, quietly setting up your environment with all the enneadtab goodness. it registers aliases, checks for updates, sets up event hooks, and ensures all your favorite tools are ready to use - so you can focus on creating amazing designs.">
                         <div class="tool-header">
                             <h3 class="tool-title">EnneadTab_Startup</h3>
                             
                         </div>
-                        <p class="tool-description">The friendly welcome wagon for EnneadTab in Rhino! This startup script springs into action with each new Rhino session, quietly setting up your environment with all the EnneadTab goodness. It register...</p>
+                        <p class="tool-description">The friendly welcome wagon for EnneadTab in Rhino! This startup script springs into action with each new Rhino session, quietly setting up your environment with all the EnneadTab goodness. It registers aliases, checks for updates, sets up event hooks, and ensures all your favorite tools are ready to use - so you can focus on creating amazing designs.</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Render_tab">
                 <h2 class="tab-title">Render.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="airenderupscale" data-doc="upscale ai generated images.">
                         <div class="tool-header">
                             <h3 class="tool-title">AiRenderUpscale</h3>
                             
@@ -1703,7 +2311,11 @@ Features:
                         <p class="tool-description">Upscale AI generated images.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="airenderingfromview" data-doc="renders rhino views using stable diffusion ai.
+
+captures current viewport and processes it through selected ai models.
+provides extensive control over rendering style, mood, and architectural context.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">AiRenderingFromView</h3>
                             
@@ -1711,10 +2323,18 @@ Features:
                         <p class="tool-description">Renders Rhino views using Stable Diffusion AI.
 
 Captures current viewport and processes it through selected AI models.
-Provides extensive control over rendering style, mood, and architectural context....</p>
+Provides extensive control over rendering style, mood, and architectural context.
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="assignemptymaterial" data-doc="assigns unique materials to layers without assigned materials.
+
+key features:
+- creates a unique material for each layer without materials
+- material names based on layer hierarchy (including parent layers)
+- makes d5 material editing workflow more efficient
+- use the layer color as the material diffuse color
+">
                         <div class="tool-header">
                             <h3 class="tool-title">AssignEmptyMaterial</h3>
                             
@@ -1723,10 +2343,22 @@ Provides extensive control over rendering style, mood, and architectural context
 
 Key Features:
 - Creates a unique material for each layer without materials
-- Material names based on layer hierarchy (including parent l...</p>
+- Material names based on layer hierarchy (including parent layers)
+- Makes D5 material editing workflow more efficient
+- Use the layer color as the material diffuse color
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="enscapeassetlocator" data-doc="your personal detective for hunting down elusive enscape assets!
+
+this handy tool launches the enscapeassetchanger application that helps you:
+- locate hidden enscape asset folders across your system
+- access and modify materials on enscape objects
+- customize properties of those beautiful enscape trees, furniture and people
+- save hours of searching through obscure file directories
+
+perfect for visualization specialists who need precise control over their enscape assets.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">EnscapeAssetLocator</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1735,10 +2367,15 @@ Key Features:
 
 This handy tool launches the EnscapeAssetChanger application that helps you:
 - Locate hidden Enscape asset folders across your system
-...</p>
+- Access and modify materials on Enscape objects
+- Customize properties of those beautiful Enscape trees, furniture and people
+- Save hours of searching through obscure file directories
+
+Perfect for visualization specialists who need precise control over their Enscape assets.
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="getgoogleearthmodel" data-doc="this button does getgoogleearthmodel when left click">
                         <div class="tool-header">
                             <h3 class="tool-title">GetGoogleEarthModel</h3>
                             
@@ -1746,7 +2383,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">This button does GetGoogleEarthModel when left click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="importselectedcamera" data-doc="import seleced camera from another file.">
                         <div class="tool-header">
                             <h3 class="tool-title">ImportSelectedCamera</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1754,7 +2391,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Import seleced camera from another file.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="inspectenscapesetting" data-doc="inspect and compare enscape setting files for differences">
                         <div class="tool-header">
                             <h3 class="tool-title">InspectEnscapeSetting</h3>
                             
@@ -1762,7 +2399,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Inspect and compare Enscape setting files for differences</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="loadenscapetopsd" data-doc="load related enscape image to photoshop">
                         <div class="tool-header">
                             <h3 class="tool-title">LoadEnscapeToPsd</h3>
                             
@@ -1770,7 +2407,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Load related Enscape image to Photoshop</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="makecrvpipe" data-doc="make/update a small pipe along crvs in layers that has '[edge]' in it. so coplanar face in enscape can show edge.">
                         <div class="tool-header">
                             <h3 class="tool-title">MakeCrvPipe</h3>
                             
@@ -1778,15 +2415,15 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Make/Update a small pipe along crvs in layers that has '[EDGE]' in it. So coplanar face in enscape can show edge.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="materialshop" data-doc="your gateway to a treasure trove of high-quality materials! opens ambientcg, a fantastic resource offering hundreds of free pbr materials perfect for architectural visualization. quickly find textures, hdris, and 3d models to elevate your renderings without spending a penny.">
                         <div class="tool-header">
                             <h3 class="tool-title">MaterialShop</h3>
                             
                         </div>
-                        <p class="tool-description">Your gateway to a treasure trove of high-quality materials! Opens AmbientCG, a fantastic resource offering hundreds of free PBR materials perfect for architectural visualization. Quickly find textures...</p>
+                        <p class="tool-description">Your gateway to a treasure trove of high-quality materials! Opens AmbientCG, a fantastic resource offering hundreds of free PBR materials perfect for architectural visualization. Quickly find textures, HDRIs, and 3D models to elevate your renderings without spending a penny.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="renameenscapefiles" data-doc="rename the output of enscape files to remove the long bit.">
                         <div class="tool-header">
                             <h3 class="tool-title">RenameEnscapeFiles</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1797,11 +2434,11 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Revit_tab">
                 <h2 class="tab-title">Revit.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="block2family" data-doc="convert rhino blocks to revit families and place them in project. this tool different from standard rhino2revit because you do not need to manage family creation and it can batch process.">
                         <div class="tool-header">
                             <h3 class="tool-title">Block2Family</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1809,7 +2446,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Convert rhino blocks to revit families and place them in project. This tool different from standard Rhino2Revit because you do not need to manage family creation and it can batch process.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="breptomass" data-doc="using faces of the brep to recreate a freeform mass in revit.">
                         <div class="tool-header">
                             <h3 class="tool-title">BrepToMass</h3>
                             
@@ -1817,7 +2454,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Using faces of the brep to recreate a freeform mass in Revit.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="draftinsulationbatting" data-doc="given base crvs and thickness, it makes a 2d insulation batting graphic that can be any shape. ">
                         <div class="tool-header">
                             <h3 class="tool-title">DraftInsulationBatting</h3>
                             
@@ -1825,7 +2462,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Given base crvs and thickness, it makes a 2D insulation batting graphic that can be any shape. </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="exportcameratorevit" data-doc="you can recreate same 3d camera in revit by exporting cameras from rhino here first.">
                         <div class="tool-header">
                             <h3 class="tool-title">ExportCameraToRevit</h3>
                             
@@ -1833,7 +2470,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">You can recreate same 3D camera in Revit by exporting cameras from Rhino here first.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="exportmaterialbylayer" data-doc="export material definitions for each layer using legal file names as dictionary keys.">
                         <div class="tool-header">
                             <h3 class="tool-title">ExportMaterialByLayer</h3>
                             
@@ -1841,7 +2478,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Export material definitions for each layer using legal file names as dictionary keys.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="floordrafter" data-doc="convert brep to floor data so in revit it can be used as floor creation base.">
                         <div class="tool-header">
                             <h3 class="tool-title">FloorDrafter</h3>
                             
@@ -1849,7 +2486,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Convert brep to floor data so in Revit it can be used as floor creation base.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="importrevitcollection" data-doc="organize dwgs export from revit to readable rhino layer tree.">
                         <div class="tool-header">
                             <h3 class="tool-title">ImportRevitCollection</h3>
                             
@@ -1857,7 +2494,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Organize dwgs export from Revit to readable Rhino layer tree.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="liveselection" data-doc="this button does liveselection when left click">
                         <div class="tool-header">
                             <h3 class="tool-title">LiveSelection</h3>
                             
@@ -1865,7 +2502,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">This button does LiveSelection when left click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="mapblocktransform" data-doc="send the transformation of the blocks to revit to be used by space adaptive family. this is the only known way of doing true free 3d orientation in revit.">
                         <div class="tool-header">
                             <h3 class="tool-title">MapBlockTransform</h3>
                             
@@ -1873,7 +2510,7 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Send the transformation of the blocks to Revit to be used by space adaptive family. This is the only known way of doing true free 3D orientation in Revit.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="maprevitsubcategorymaterial" data-doc="work with exportsubcategorymaterialtable on revit side. after you export the ost mapping there, this button help you create and map layer material based on layer name, if found in the ost mapping">
                         <div class="tool-header">
                             <h3 class="tool-title">MapRevitSubCategoryMaterial</h3>
                             
@@ -1881,7 +2518,18 @@ This handy tool launches the EnscapeAssetChanger application that helps you:
                         <p class="tool-description">Work with ExportSubCategoryMaterialTable on revit side. After you export the OST mapping there, this button help you create and map layer material based on layer name, if found in the OST mapping</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="revitdrafterexport" data-doc="exports drafting content to revit.
+
+features:
+- processes curves and filled regions
+- maintains layer organization
+- supports multiple geometry types
+- preserves object properties
+
+usage:
+1. create content in out layers
+2. run command to export
+3. import in revit using companion tool">
                         <div class="tool-header">
                             <h3 class="tool-title">RevitDrafterExport</h3>
                             
@@ -1895,10 +2543,23 @@ Features:
 - Preserves object properties
 
 Usage:
-1. Create co...</p>
+1. Create content in OUT layers
+2. Run command to export
+3. Import in Revit using companion tool</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="revitdrafterimport" data-doc="imports drafting content from revit.
+
+features:
+- sets up layer structure for line styles
+- supports filled region types
+- maintains layer organization
+- preserves object properties
+
+usage:
+1. export content from revit
+2. run command to import
+3. content organized in layer tree">
                         <div class="tool-header">
                             <h3 class="tool-title">RevitDrafterImport</h3>
                             
@@ -1912,10 +2573,12 @@ Features:
 - Preserves object properties
 
 Usage:
-1. Export ...</p>
+1. Export content from Revit
+2. Run command to import
+3. Content organized in layer tree</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="rhino2revit" data-doc="export layer contents to 3dm and dwg for rhino2revit in enneadtab for revit.">
                         <div class="tool-header">
                             <h3 class="tool-title">Rhino2Revit</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1923,16 +2586,33 @@ Usage:
                         <p class="tool-description">Export Layer Contents to 3dm and dwg for Rhino2Revit in EnneadTab for Revit.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="shape2revit" data-doc="convert each and every selected geometry to individual revit families via temporary blocks.
+not to be confused with the block2family button, which exports better defined blocks to revit families and is much more memory efficient.
+only use this button sparingly so you do not introduce too many families to revit.
+
+features:
+- converts surfaces, polysurfaces and meshes to blocks
+- creates temporary blocks with unique names
+- exports blocks to revit families
+- cleans up temporary blocks after export
+- maintains original geometry properties">
                         <div class="tool-header">
                             <h3 class="tool-title">Shape2Revit</h3>
                             
                         </div>
                         <p class="tool-description">Convert EACH and EVERY selected geometry to INDIVIDUAL Revit families via temporary blocks.
-Not to be confused with the block2family button, which exports better defined blocks to Revit families and i...</p>
+Not to be confused with the block2family button, which exports better defined blocks to Revit families and is much more memory efficient.
+Only use this button sparingly so you do not introduce too many families to Revit.
+
+Features:
+- Converts surfaces, polysurfaces and meshes to blocks
+- Creates temporary blocks with unique names
+- Exports blocks to Revit families
+- Cleans up temporary blocks after export
+- Maintains original geometry properties</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="surfacetoadaptivecomponent" data-doc="use the corners of the input surfs as the marker for the adaptive pts in revit.">
                         <div class="tool-header">
                             <h3 class="tool-title">SurfaceToAdaptiveComponent</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1943,11 +2623,22 @@ Not to be confused with the block2family button, which exports better defined bl
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Selection_tab">
                 <h2 class="tab-title">Selection.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomdeselect" data-doc="randomly deselects objects based on percentage.
+
+features:
+- deselects random subset of selected objects
+- percentage-based deselection (1-99%)
+- remembers last used percentage
+- maintains object relationships
+
+usage:
+1. select objects
+2. enter deselection percentage
+3. random subset will be deselected">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomDeselect</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1958,10 +2649,25 @@ Features:
 - Deselects random subset of selected objects
 - Percentage-based deselection (1-99%)
 - Remembers last used percentage
-- Maintains object rela...</p>
+- Maintains object relationships
+
+Usage:
+1. Select objects
+2. Enter deselection percentage
+3. Random subset will be deselected</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomdeselectbydist" data-doc="randomly deselects blocks based on their distance from a curve.
+
+the probability of keeping a block is proportional to its distance from the curve.
+blocks closer to the curve have higher chance of being kept.
+distance clamping is available to control the influence range.
+
+usage:
+1. pre-select blocks or select when prompted
+2. select a base curve as attractor
+3. adjust distance clamps in the dialog
+">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomDeselectByDist</h3>
                             
@@ -1969,10 +2675,28 @@ Features:
                         <p class="tool-description">Randomly deselects blocks based on their distance from a curve.
 
 The probability of keeping a block is proportional to its distance from the curve.
-Blocks closer to the curve have higher chance of bei...</p>
+Blocks closer to the curve have higher chance of being kept.
+Distance clamping is available to control the influence range.
+
+Usage:
+1. Pre-select blocks or select when prompted
+2. Select a base curve as attractor
+3. Adjust distance clamps in the dialog
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="randomselectiontogroup" data-doc="randomly distributes selected objects into groups.
+
+features:
+- creates specified number of groups
+- randomly assigns objects to groups
+- useful for applying varied materials/shading
+- maintains object relationships
+
+usage:
+1. select objects to group
+2. specify number of groups
+3. objects will be randomly distributed">
                         <div class="tool-header">
                             <h3 class="tool-title">RandomSelectionToGroup</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -1983,17 +2707,22 @@ Features:
 - Creates specified number of groups
 - Randomly assigns objects to groups
 - Useful for applying varied materials/shading
-- Maintains objec...</p>
+- Maintains object relationships
+
+Usage:
+1. Select objects to group
+2. Specify number of groups
+3. Objects will be randomly distributed</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Tailor_tab">
                 <h2 class="tab-title">Tailor.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="2128_patternmaker" data-doc="this button does patternmaker when left click">
                         <div class="tool-header">
                             <h3 class="tool-title">2128_PatternMaker</h3>
                             
@@ -2001,7 +2730,7 @@ Features:
                         <p class="tool-description">This button does PatternMaker when left click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="2419_facade move" data-doc="xxxxxxxxxxxxxxxxxxxxx">
                         <div class="tool-header">
                             <h3 class="tool-title">2419_Facade move</h3>
                             
@@ -2009,7 +2738,7 @@ Features:
                         <p class="tool-description">xxxxxxxxxxxxxxxxxxxxx</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="2425replaceblocks" data-doc="this button does 2425replaceblocks when left click">
                         <div class="tool-header">
                             <h3 class="tool-title">2425ReplaceBlocks</h3>
                             
@@ -2017,7 +2746,7 @@ Features:
                         <p class="tool-description">This button does 2425ReplaceBlocks when left click</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="exportwithoutcrv_1643" data-doc="export the rhino file as dwg but solidate all blocks and remove all crvs.">
                         <div class="tool-header">
                             <h3 class="tool-title">ExportWithoutCrv_1643</h3>
                             
@@ -2025,7 +2754,7 @@ Features:
                         <p class="tool-description">Export the rhino file as dwg but solidate all blocks and remove all crvs.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="moveimg_1643" data-doc="move all the images to new location">
                         <div class="tool-header">
                             <h3 class="tool-title">MoveImg_1643</h3>
                             
@@ -2033,7 +2762,7 @@ Features:
                         <p class="tool-description">Move all the images to new location</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="registermirror" data-doc="help jazzy to register mirror command shortcut with and without copy">
                         <div class="tool-header">
                             <h3 class="tool-title">RegisterMirror</h3>
                             
@@ -2041,7 +2770,13 @@ Features:
                         <p class="tool-description">Help Jazzy to register mirror command shortcut with and without copy</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="relocateall_1643" data-doc="batch relocation tool for rhino content.
+
+features:
+- relocates all cameras and models to new revit location
+- maintains relative positions and orientations
+- preserves camera views and model relationships
+- automatically updates all named views">
                         <div class="tool-header">
                             <h3 class="tool-title">RelocateAll_1643</h3>
                             
@@ -2051,10 +2786,11 @@ Features:
 Features:
 - Relocates all cameras and models to new Revit location
 - Maintains relative positions and orientations
-- Preserves camera views and model relation...</p>
+- Preserves camera views and model relationships
+- Automatically updates all named views</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="stack psd" data-doc="stack psd files">
                         <div class="tool-header">
                             <h3 class="tool-title">Stack PSD</h3>
                             
@@ -2065,11 +2801,25 @@ Features:
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="View_tab">
                 <h2 class="tab-title">View.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="bakegfadatatoexcel" data-doc="export gfa (gross floor area) data to excel and manage area targets.
+
+features:
+- export area calculations to formatted excel spreadsheet
+- generate checking surfaces for visual verification 
+- set and manage target areas for different gfa categories
+- compare actual vs target areas with variance analysis
+
+usage:
+- click to export current gfa data to excel
+- right-click to access additional options:
+  - generate checking surfaces
+  - set target areas for gfa categories
+  - edit existing target values
+">
                         <div class="tool-header">
                             <h3 class="tool-title">BakeGFADataToExcel</h3>
                             
@@ -2079,10 +2829,23 @@ Features:
 Features:
 - Export area calculations to formatted Excel spreadsheet
 - Generate checking surfaces for visual verification 
-- Set an...</p>
+- Set and manage target areas for different GFA categories
+- Compare actual vs target areas with variance analysis
+
+Usage:
+- Click to export current GFA data to Excel
+- Right-click to access additional options:
+  - Generate checking surfaces
+  - Set target areas for GFA categories
+  - Edit existing target values
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="batchexportrhinoview" data-doc="exports multiple rhino views in batch.
+
+allows selection of multiple views for automated export.
+supports customizable resolution and format settings.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">BatchExportRhinoView</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -2094,7 +2857,11 @@ Supports customizable resolution and format settings.
 </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="batchrenamecamera" data-doc="enables bulk camera renaming operations.
+
+provides interface for renaming multiple cameras without activation.
+maintains camera properties while updating names efficiently.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">BatchRenameCamera</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -2106,7 +2873,11 @@ Maintains camera properties while updating names efficiently.
 </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="changeobjectdisplaysource" data-doc="modifies object display source settings.
+
+controls whether objects inherit color and material properties from their layer.
+provides batch modification capabilities for multiple objects.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">ChangeObjectDisplaySource</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -2118,7 +2889,7 @@ Provides batch modification capabilities for multiple objects.
 </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="sectionboxcleanup" data-doc="reset the view to unbounded.">
                         <div class="tool-header">
                             <h3 class="tool-title">SectionBoxCleanup</h3>
                             
@@ -2126,7 +2897,11 @@ Provides batch modification capabilities for multiple objects.
                         <p class="tool-description">Reset the view to unbounded.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="sectionboxbyboundingbox" data-doc="creates section boxes around selected elements.
+
+similar to revit's sectionbox, crops views to selected element boundaries.
+supports all clipping modes in rhino, with limited enscape compatibility.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">SectionboxByBoundingBox</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -2138,7 +2913,7 @@ Supports all clipping modes in Rhino, with limited Enscape compatibility.
 </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="sectionboxbypolysrf" data-doc="use closed polysrf as input box cutter.">
                         <div class="tool-header">
                             <h3 class="tool-title">SectionboxByPolysrf</h3>
                             
@@ -2146,7 +2921,23 @@ Supports all clipping modes in Rhino, with limited Enscape compatibility.
                         <p class="tool-description">Use closed polysrf as input box cutter.</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="togglegfa" data-doc="toggles gross floor area (gfa) visualization and calculation.
+
+features:
+- processes layers marked with [gfa] to calculate and display area information
+- real-time updates as geometry changes
+- supports area factor multipliers using \{factor\} syntax in layer names
+- excel data export capabilities
+- automatic unit conversion (mm/m -> sqm, inch/ft -> sqft)
+- dynamic merging of coplanar surfaces at same elevation
+- support for single surfaces and polysurfaces
+- live comparison of how much is off from target.
+
+usage:
+- add [gfa] to layer names to include in calculation
+- optional \{factor\} at end of layer name for area multipliers (e.g. \{0.5\})
+- right-click to export to excel or generate checking surfaces or set target area for each keyword.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">ToggleGFA</h3>
                             <span class="popular-badge">⭐ Popular</span>
@@ -2156,10 +2947,25 @@ Supports all clipping modes in Rhino, with limited Enscape compatibility.
 Features:
 - Processes layers marked with [GFA] to calculate and display area information
 - Real-time updates as geometry changes
-- Suppor...</p>
+- Supports area factor multipliers using \{factor\} syntax in layer names
+- Excel data export capabilities
+- Automatic unit conversion (mm/m -> SQM, inch/ft -> SQFT)
+- Dynamic merging of coplanar surfaces at same elevation
+- Support for single surfaces and polysurfaces
+- Live comparison of how much is off from target.
+
+Usage:
+- Add [GFA] to layer names to include in calculation
+- Optional \{factor\} at end of layer name for area multipliers (e.g. \{0.5\})
+- Right-click to export to Excel or generate checking surfaces or set target area for each keyword.
+</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="togglelayerpointer" data-doc="displays quick layer information for visible objects.
+
+creates a filtered layer list showing only layers with visible objects.
+useful for examining and understanding model layer structure.
+">
                         <div class="tool-header">
                             <h3 class="tool-title">ToggleLayerPointer</h3>
                             
@@ -2171,7 +2977,16 @@ Useful for examining and understanding model layer structure.
 </p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="viewtoggle" data-doc="quick view navigation tool for rhino.
+
+features:
+- toggles between top and perspective views
+- left click to switch between views
+- keyboard shortcut: {key}
+- optimizes modeling workflow with rapid view changes
+
+usage:
+click button to toggle between views.">
                         <div class="tool-header">
                             <h3 class="tool-title">ViewToggle</h3>
                             
@@ -2182,17 +2997,20 @@ Features:
 - Toggles between Top and Perspective views
 - Left click to switch between views
 - Keyboard shortcut: {KEY}
-- Optimizes modeling workflow with rapid vi...</p>
+- Optimizes modeling workflow with rapid view changes
+
+Usage:
+Click button to toggle between views.</p>
                     </div>
                 
                 </div>
             </div>
             
-            <div class="tab-section">
+            <div class="tab-section" id="Web_tab">
                 <h2 class="tab-title">Web.tab</h2>
                 <div class="tools-grid">
             
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="listentomiro" data-doc="listen to changes in the miro">
                         <div class="tool-header">
                             <h3 class="tool-title">ListenToMiro</h3>
                             
@@ -2200,7 +3018,7 @@ Features:
                         <p class="tool-description">Listen to changes in the miro</p>
                     </div>
                 
-                    <div class="tool-card">
+                    <div class="tool-card" data-alias="pushtomiro" data-doc="push selected elements in rhino to miro. only support text and rect and circle.">
                         <div class="tool-header">
                             <h3 class="tool-title">PushToMiro</h3>
                             
@@ -2211,25 +3029,53 @@ Features:
                 </div>
             </div>
             
-    </main>
-
+        </main>
+    </div>
     <footer class="footer">
         <div class="footer-content">
             <p>
-                © 2024 EnneadTab. For support and inquiries, contact 
+                © 2025 EnneadTab. For support and inquiries, contact 
                 <a href="mailto:szhang@ennead.com">szhang@ennead.com</a>
             </p>
         </div>
     </footer>
-
     <script>
+        // Search functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.tool-card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-                card.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                card.style.opacity = '0';
+            const searchBar = document.getElementById('searchBar');
+            if (searchBar) {
+                searchBar.addEventListener('input', function() {
+                    const query = this.value.toLowerCase();
+                    document.querySelectorAll('.tool-card').forEach(card => {
+                        const alias = card.getAttribute('data-alias') || '';
+                        const doc = card.getAttribute('data-doc') || '';
+                        if (alias.includes(query) || doc.includes(query)) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+        // Smooth scroll for sidebar nav
+        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.getElementById(this.getAttribute('href').substring(1));
+                if (target) {
+                    window.scrollTo({
+                        top: target.getBoundingClientRect().top + window.scrollY - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+        // Animate tool cards
+        document.querySelectorAll('.tool-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            card.style.opacity = '0';
         });
     </script>
 </body>
