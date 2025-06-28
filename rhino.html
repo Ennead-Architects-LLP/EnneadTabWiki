@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhino Knowledge - EnneadTab Wiki</title>
+    <title>Rhino Knowledge - EnneadTabWiki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         html, body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
             background-color: #F5F5DC;
             color: #2F2F2F;
             line-height: 1.6;
@@ -44,14 +45,11 @@
             gap: 0.75rem;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-        }
-
         .logo-text {
             font-size: 1.5rem;
             font-weight: 600;
             color: #8B7355;
+            letter-spacing: 0.04em;
         }
 
         .nav {
@@ -84,31 +82,40 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 600;
             color: #8B7355;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #A0522D;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #6B6B6B;
             max-width: 600px;
             margin: 0 auto;
         }
 
+        .soft-divider {
+            border: none;
+            border-top: 1.5px solid #D2B48C;
+            margin: 2.5rem 0 2.5rem 0;
+            background: none;
+            opacity: 0.5;
+        }
+
         .stats {
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
 
         .stats-grid {
@@ -127,8 +134,8 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.1rem;
+            font-weight: 600;
             color: #8B7355;
             margin-bottom: 0.5rem;
         }
@@ -141,7 +148,7 @@
         }
 
         .platforms {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .platform-grid {
@@ -166,13 +173,8 @@
             box-shadow: 0 12px 32px rgba(139, 115, 85, 0.1);
         }
 
-        .platform-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
         .platform-title {
-            font-size: 1.75rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: #8B7355;
             margin-bottom: 1rem;
@@ -214,15 +216,17 @@
         }
 
         .sidebar-nav {
-            min-width: 250px;
+            min-width: 220px;
+            max-width: 260px;
+            margin-right: 2rem;
             background: #FFFFFF;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
-            border: 1px solid #D2B48C;
-            height: fit-content;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+            padding: 1.5rem 1rem;
             position: sticky;
-            top: 100px;
+            top: 110px;
+            height: fit-content;
+            align-self: flex-start;
         }
 
         .sidebar-nav ul {
@@ -230,20 +234,20 @@
         }
 
         .sidebar-nav li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .sidebar-nav a {
-            color: #2F2F2F;
+            color: #8B7355;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.05rem;
             transition: color 0.2s;
-            display: block;
-            padding: 0.5rem 0;
         }
 
         .sidebar-nav a:hover {
-            color: #8B7355;
+            color: #A0522D;
+            text-decoration: underline;
         }
 
         .main-content {
@@ -253,8 +257,29 @@
 
         .search-container {
             margin-bottom: 2rem;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
+            padding: 1rem 1.5rem;
+            border: 1px solid #D2B48C;
         }
-
+        .sticky-search {
+            position: sticky;
+            top: 0;
+            z-index: 120;
+            background: #FFFFFF;
+        }
+        .fixed-search {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            max-width: none;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+            border-radius: 0 0 12px 12px;
+            margin: 0;
+        }
         .search-input {
             width: 100%;
             max-width: 500px;
@@ -281,7 +306,7 @@
         }
 
         .tab-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #8B7355;
             margin-bottom: 1.5rem;
@@ -301,6 +326,7 @@
             padding: 1.5rem;
             border: 1px solid #D2B48C;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
         }
 
         .tool-card:hover {
@@ -316,7 +342,7 @@
         }
 
         .tool-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #2F2F2F;
             margin: 0;
@@ -410,7 +436,7 @@
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.3rem;
             }
 
             .platform-grid {
@@ -427,8 +453,7 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <span class="logo-icon">🦏</span>
-                <span class="logo-text">Rhino Knowledge</span>
+                <span class="logo-text">EnneadTabWiki</span>
             </div>
             <nav class="nav">
                 <a href="index.html" class="nav-link">← Back to Knowledge Center</a>
@@ -440,7 +465,7 @@
         <nav class="sidebar-nav"><ul><li><a href="#Block_tab">Block.tab</a></li><li><a href="#Create_tab">Create.tab</a></li><li><a href="#Drafting_tab">Drafting.tab</a></li><li><a href="#EnneadTab_menu">EnneadTab.menu</a></li><li><a href="#File_tab">File.tab</a></li><li><a href="#Fun_tab">Fun.tab</a></li><li><a href="#Knowledge_tab">Knowledge.tab</a></li><li><a href="#Lab_tab">Lab.tab</a></li><li><a href="#Layer_tab">Layer.tab</a></li><li><a href="#Material_tab">Material.tab</a></li><li><a href="#Modify_tab">Modify.tab</a></li><li><a href="#Other">Other</a></li><li><a href="#Render_tab">Render.tab</a></li><li><a href="#Revit_tab">Revit.tab</a></li><li><a href="#Selection_tab">Selection.tab</a></li><li><a href="#Tailor_tab">Tailor.tab</a></li><li><a href="#View_tab">View.tab</a></li><li><a href="#Web_tab">Web.tab</a></li></ul></nav>
         
         <main class="main-content">
-            <div class="search-container">
+            <div class="search-container sticky-search">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." />
             </div>
             
@@ -496,7 +521,7 @@ features:
 - right-click to restore previous view">
                         <header class="tool-header">
                             <h3 class="tool-title">EditDistortedBlock</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Block editing utility for distorted instances.
 
@@ -516,7 +541,7 @@ features:
 - cleans up temporary editing blocks">
                         <header class="tool-header">
                             <h3 class="tool-title">EditDistortedBlockRestoreView</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Restore view after block editing.
 
@@ -536,7 +561,7 @@ features:
 - maintains object properties during projection">
                         <header class="tool-header">
                             <h3 class="tool-title">FallGeosOnGeo</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Project objects onto target geometry.
 
@@ -558,7 +583,7 @@ features:
 - automatic selection of matching instances">
                         <header class="tool-header">
                             <h3 class="tool-title">FilterBlockByName</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Smart block selection utility.
 
@@ -673,7 +698,7 @@ usage:
 4. preview and adjust as needed">
                         <header class="tool-header">
                             <h3 class="tool-title">RandomBlocksOnSrfs</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Advanced block distribution utility for surfaces.
 
@@ -703,7 +728,7 @@ features:
 - animates transformation process">
                         <header class="tool-header">
                             <h3 class="tool-title">RandomizeBlockTransformation</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Randomly transform block transformation for rotation and scale.
 
@@ -728,7 +753,7 @@ features:
 - automatically handles curve segmentation for accurate block placement">
                         <header class="tool-header">
                             <h3 class="tool-title">SampleLayout</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Create sample block layout along crvs to quickly visualize design.
 
@@ -757,7 +782,7 @@ notes:
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">SelectSimilarBlocks</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Selects all block instances that share the same block definition as the selected blocks.
 
@@ -775,7 +800,7 @@ Notes:
                     <article class="tool-card" data-alias="toggleblockcolordisplay" data-doc="toggle on/off for highlighting the different block type. very helpful when you have many block variation.">
                         <header class="tool-header">
                             <h3 class="tool-title">ToggleBlockColorDisplay</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Toggle on/off for highlighting the different block type. Very helpful when you have many block variation.</p>
                     </article>
@@ -806,7 +831,7 @@ features:
 - maintains layer assignments">
                         <header class="tool-header">
                             <h3 class="tool-title">MakeBlockUnique MBU</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Create unique block definitions.
 
@@ -820,6 +845,7 @@ Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Create_tab">
                 <h2 class="tab-title">Create.tab</h2>
@@ -940,7 +966,7 @@ usage:
 note: all parameters are validated in real-time to ensure code compliance.">
                         <header class="tool-header">
                             <h3 class="tool-title">StairMaker</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Create parametric linear stairs with interactive controls and real-time preview.
 
@@ -989,6 +1015,7 @@ Key Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Drafting_tab">
                 <h2 class="tab-title">Drafting.tab</h2>
@@ -1100,7 +1127,7 @@ key features:
 - dynamic layout adjustments.">
                         <header class="tool-header">
                             <h3 class="tool-title">VisualizeExcel</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Convert Excel data into visual diagrams.
 
@@ -1114,6 +1141,7 @@ Key Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="EnneadTab_menu">
                 <h2 class="tab-title">EnneadTab.menu</h2>
@@ -1461,6 +1489,7 @@ demonstrations and workflow guides.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="File_tab">
                 <h2 class="tab-title">File.tab</h2>
@@ -1616,7 +1645,7 @@ key features:
 - comprehensive coordinate system update">
                         <header class="tool-header">
                             <h3 class="tool-title">RebaseFile</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Rebase file geometry and views to new origin point.
 
@@ -1652,6 +1681,7 @@ Key Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Fun_tab">
                 <h2 class="tab-title">Fun.tab</h2>
@@ -1743,6 +1773,7 @@ Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Knowledge_tab">
                 <h2 class="tab-title">Knowledge.tab</h2>
@@ -1810,7 +1841,7 @@ key features:
 - visual command preview">
                         <header class="tool-header">
                             <h3 class="tool-title">SearchCommand LearnEnneadTabForRhino CommandList</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Search and learn EnneadTab commands.
 
@@ -1824,6 +1855,7 @@ Key Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Lab_tab">
                 <h2 class="tab-title">Lab.tab</h2>
@@ -1915,6 +1947,7 @@ Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Layer_tab">
                 <h2 class="tab-title">Layer.tab</h2>
@@ -1982,7 +2015,7 @@ key features:
 - view organization">
                         <header class="tool-header">
                             <h3 class="tool-title">IsolateLayerBySelection</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Show only objects on selected layers.
 
@@ -2026,7 +2059,7 @@ key features:
 - batch processing">
                         <header class="tool-header">
                             <h3 class="tool-title">MergeLayer</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Combine multiple layers into one.
 
@@ -2070,7 +2103,7 @@ key features:
 - batch processing support">
                         <header class="tool-header">
                             <h3 class="tool-title">RandomLayerColor</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Assign random colors to layers.
 
@@ -2093,13 +2126,14 @@ Key Features:
                     <article class="tool-card" data-alias="selectobjectsonsimilarlayer" data-doc="selection objects on the similar layers.">
                         <header class="tool-header">
                             <h3 class="tool-title">SelectObjectsOnSimilarLayer</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Selection objects on the similar layers.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Material_tab">
                 <h2 class="tab-title">Material.tab</h2>
@@ -2167,7 +2201,7 @@ key features:
 - automatic cleanup.">
                         <header class="tool-header">
                             <h3 class="tool-title">MergeMaterials</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Consolidate multiple materials into one.
 
@@ -2211,6 +2245,7 @@ Key Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Modify_tab">
                 <h2 class="tab-title">Modify.tab</h2>
@@ -2305,7 +2340,7 @@ Features:
                     <article class="tool-card" data-alias="offsetfloorborder" data-doc="shrink/expand the border of floor for input srf or polysrfs. the thickness is retained if using polysrf.">
                         <header class="tool-header">
                             <h3 class="tool-title">OffsetFloorBorder</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Shrink/Expand the border of floor for input srf or polysrfs. The thickness is retained if using polysrf.</p>
                     </article>
@@ -2317,7 +2352,7 @@ useful for creating window/curtainwall details with depth.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">PushGlassIn</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Creates recessed glass surfaces from selected surfaces.
 
@@ -2382,6 +2417,7 @@ Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Other">
                 <h2 class="tab-title">Other</h2>
@@ -2397,6 +2433,7 @@ Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Render_tab">
                 <h2 class="tab-title">Render.tab</h2>
@@ -2460,7 +2497,7 @@ perfect for visualization specialists who need precise control over their enscap
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">EnscapeAssetLocator</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Your personal detective for hunting down elusive Enscape assets!
 
@@ -2485,7 +2522,7 @@ Perfect for visualization specialists who need precise control over their Enscap
                     <article class="tool-card" data-alias="importselectedcamera" data-doc="import seleced camera from another file.">
                         <header class="tool-header">
                             <h3 class="tool-title">ImportSelectedCamera</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Import seleced camera from another file.</p>
                     </article>
@@ -2525,13 +2562,14 @@ Perfect for visualization specialists who need precise control over their Enscap
                     <article class="tool-card" data-alias="renameenscapefiles" data-doc="rename the output of enscape files to remove the long bit.">
                         <header class="tool-header">
                             <h3 class="tool-title">RenameEnscapeFiles</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Rename the output of Enscape files to remove the long bit.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Revit_tab">
                 <h2 class="tab-title">Revit.tab</h2>
@@ -2540,7 +2578,7 @@ Perfect for visualization specialists who need precise control over their Enscap
                     <article class="tool-card" data-alias="block2family" data-doc="convert rhino blocks to revit families and place them in project. this tool different from standard rhino2revit because you do not need to manage family creation and it can batch process.">
                         <header class="tool-header">
                             <h3 class="tool-title">Block2Family</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Convert rhino blocks to revit families and place them in project. This tool different from standard Rhino2Revit because you do not need to manage family creation and it can batch process.</p>
                     </article>
@@ -2680,7 +2718,7 @@ Usage:
                     <article class="tool-card" data-alias="rhino2revit" data-doc="export layer contents to 3dm and dwg for rhino2revit in enneadtab for revit.">
                         <header class="tool-header">
                             <h3 class="tool-title">Rhino2Revit</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Export Layer Contents to 3dm and dwg for Rhino2Revit in EnneadTab for Revit.</p>
                     </article>
@@ -2714,13 +2752,14 @@ Features:
                     <article class="tool-card" data-alias="surfacetoadaptivecomponent" data-doc="use the corners of the input surfs as the marker for the adaptive pts in revit.">
                         <header class="tool-header">
                             <h3 class="tool-title">SurfaceToAdaptiveComponent</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Use the corners of the input surfs as the marker for the adaptive pts in Revit.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Selection_tab">
                 <h2 class="tab-title">Selection.tab</h2>
@@ -2740,7 +2779,7 @@ usage:
 3. random subset will be deselected">
                         <header class="tool-header">
                             <h3 class="tool-title">RandomDeselect</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Randomly deselects objects based on percentage.
 
@@ -2798,7 +2837,7 @@ usage:
 3. objects will be randomly distributed">
                         <header class="tool-header">
                             <h3 class="tool-title">RandomSelectionToGroup</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Randomly distributes selected objects into groups.
 
@@ -2816,6 +2855,7 @@ Usage:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Tailor_tab">
                 <h2 class="tab-title">Tailor.tab</h2>
@@ -2899,6 +2939,7 @@ Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="View_tab">
                 <h2 class="tab-title">View.tab</h2>
@@ -2947,7 +2988,7 @@ supports customizable resolution and format settings.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">BatchExportRhinoView</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Exports multiple Rhino views in batch.
 
@@ -2963,7 +3004,7 @@ maintains camera properties while updating names efficiently.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">BatchRenameCamera</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Enables bulk camera renaming operations.
 
@@ -2979,7 +3020,7 @@ provides batch modification capabilities for multiple objects.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">ChangeObjectDisplaySource</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Modifies object display source settings.
 
@@ -3003,7 +3044,7 @@ supports all clipping modes in rhino, with limited enscape compatibility.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">SectionboxByBoundingBox</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Creates section boxes around selected elements.
 
@@ -3039,7 +3080,7 @@ usage:
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">ToggleGFA</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Toggles Gross Floor Area (GFA) visualization and calculation.
 
@@ -3104,6 +3145,7 @@ Click button to toggle between views.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Web_tab">
                 <h2 class="tab-title">Web.tab</h2>
@@ -3127,6 +3169,7 @@ Click button to toggle between views.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
         </main>
     </div>
@@ -3140,18 +3183,39 @@ Click button to toggle between views.</p>
     </footer>
 
     <script>
-        // Search functionality
+        // Search functionality with hiding empty tab sections
         document.getElementById('searchInput').addEventListener('input', function() {
             const query = this.value.toLowerCase();
-            document.querySelectorAll('.tool-card').forEach(card => {
-                const alias = card.getAttribute('data-alias') || '';
-                const doc = card.getAttribute('data-doc') || '';
-                if (alias.includes(query) || doc.includes(query)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
+            document.querySelectorAll('.tab-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.tool-card').forEach(card => {
+                    const alias = card.getAttribute('data-alias') || '';
+                    const doc = card.getAttribute('data-doc') || '';
+                    if (alias.includes(query) || doc.includes(query)) {
+                        card.style.display = '';
+                        hasVisible = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                section.style.display = hasVisible ? '' : 'none';
+                // Also hide the divider after a hidden section
+                const next = section.nextElementSibling;
+                if (next && next.classList.contains('soft-divider')) {
+                    next.style.display = hasVisible ? '' : 'none';
                 }
             });
+        });
+
+        // Sticky search bar
+        const searchBar = document.querySelector('.sticky-search');
+        const stickyOffset = searchBar.offsetTop;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > stickyOffset) {
+                searchBar.classList.add('fixed-search');
+            } else {
+                searchBar.classList.remove('fixed-search');
+            }
         });
 
         // Smooth scrolling for sidebar links

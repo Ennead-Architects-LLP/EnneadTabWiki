@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revit Knowledge - EnneadTab Wiki</title>
+    <title>Revit Knowledge - EnneadTabWiki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         html, body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
             background-color: #F5F5DC;
             color: #2F2F2F;
             line-height: 1.6;
@@ -44,14 +45,11 @@
             gap: 0.75rem;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-        }
-
         .logo-text {
             font-size: 1.5rem;
             font-weight: 600;
             color: #8B7355;
+            letter-spacing: 0.04em;
         }
 
         .nav {
@@ -84,31 +82,40 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 600;
             color: #8B7355;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #A0522D;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #6B6B6B;
             max-width: 600px;
             margin: 0 auto;
         }
 
+        .soft-divider {
+            border: none;
+            border-top: 1.5px solid #D2B48C;
+            margin: 2.5rem 0 2.5rem 0;
+            background: none;
+            opacity: 0.5;
+        }
+
         .stats {
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
 
         .stats-grid {
@@ -127,8 +134,8 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.1rem;
+            font-weight: 600;
             color: #8B7355;
             margin-bottom: 0.5rem;
         }
@@ -141,7 +148,7 @@
         }
 
         .platforms {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .platform-grid {
@@ -166,13 +173,8 @@
             box-shadow: 0 12px 32px rgba(139, 115, 85, 0.1);
         }
 
-        .platform-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
         .platform-title {
-            font-size: 1.75rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: #8B7355;
             margin-bottom: 1rem;
@@ -214,15 +216,17 @@
         }
 
         .sidebar-nav {
-            min-width: 250px;
+            min-width: 220px;
+            max-width: 260px;
+            margin-right: 2rem;
             background: #FFFFFF;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
-            border: 1px solid #D2B48C;
-            height: fit-content;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+            padding: 1.5rem 1rem;
             position: sticky;
-            top: 100px;
+            top: 110px;
+            height: fit-content;
+            align-self: flex-start;
         }
 
         .sidebar-nav ul {
@@ -230,20 +234,20 @@
         }
 
         .sidebar-nav li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .sidebar-nav a {
-            color: #2F2F2F;
+            color: #8B7355;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.05rem;
             transition: color 0.2s;
-            display: block;
-            padding: 0.5rem 0;
         }
 
         .sidebar-nav a:hover {
-            color: #8B7355;
+            color: #A0522D;
+            text-decoration: underline;
         }
 
         .main-content {
@@ -253,8 +257,29 @@
 
         .search-container {
             margin-bottom: 2rem;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
+            padding: 1rem 1.5rem;
+            border: 1px solid #D2B48C;
         }
-
+        .sticky-search {
+            position: sticky;
+            top: 0;
+            z-index: 120;
+            background: #FFFFFF;
+        }
+        .fixed-search {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            max-width: none;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+            border-radius: 0 0 12px 12px;
+            margin: 0;
+        }
         .search-input {
             width: 100%;
             max-width: 500px;
@@ -281,7 +306,7 @@
         }
 
         .tab-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #8B7355;
             margin-bottom: 1.5rem;
@@ -301,6 +326,7 @@
             padding: 1.5rem;
             border: 1px solid #D2B48C;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
         }
 
         .tool-card:hover {
@@ -316,7 +342,7 @@
         }
 
         .tool-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #2F2F2F;
             margin: 0;
@@ -410,7 +436,7 @@
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.3rem;
             }
 
             .platform-grid {
@@ -427,8 +453,7 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <span class="logo-icon">🏗️</span>
-                <span class="logo-text">Revit Knowledge</span>
+                <span class="logo-text">EnneadTabWiki</span>
             </div>
             <nav class="nav">
                 <a href="index.html" class="nav-link">← Back to Knowledge Center</a>
@@ -440,7 +465,7 @@
         <nav class="sidebar-nav"><ul><li><a href="#ACE">ACE</a></li><li><a href="#Browser">Browser</a></li><li><a href="#Contents">Contents</a></li><li><a href="#Import_Export">Import Export</a></li><li><a href="#Manage">Manage</a></li><li><a href="#No_Tab">No Tab</a></li><li><a href="#Personal">Personal</a></li><li><a href="#Proj__1643">Proj. 1643</a></li><li><a href="#Proj__1900">Proj. 1900</a></li><li><a href="#Proj__2001">Proj. 2001</a></li><li><a href="#Proj__2108">Proj. 2108</a></li><li><a href="#Proj__2125">Proj. 2125</a></li><li><a href="#Proj__2128">Proj. 2128</a></li><li><a href="#Proj__2135">Proj. 2135</a></li><li><a href="#Proj__2142">Proj. 2142</a></li><li><a href="#Proj__2151">Proj. 2151</a></li><li><a href="#Proj__2233">Proj. 2233</a></li><li><a href="#Proj__2246">Proj. 2246</a></li><li><a href="#Proj__2306">Proj. 2306</a></li><li><a href="#Proj__2314">Proj. 2314</a></li><li><a href="#Proj__2317">Proj. 2317</a></li><li><a href="#Proj__2330">Proj. 2330</a></li><li><a href="#Proj__2412">Proj. 2412</a></li><li><a href="#Proj__2418">Proj. 2418</a></li><li><a href="#Proj__2419">Proj. 2419</a></li><li><a href="#Proj__2512">Proj. 2512</a></li><li><a href="#Proj__Princeton">Proj. Princeton</a></li><li><a href="#Resource">Resource</a></li><li><a href="#Tester">Tester</a></li><li><a href="#Tools">Tools</a></li><li><a href="#UI">UI</a></li></ul></nav>
         
         <main class="main-content">
-            <div class="search-container">
+            <div class="search-container sticky-search">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search tools..." />
             </div>
             
@@ -460,7 +485,7 @@ each workset will get a 3d view that only have this workset turned on.
 if there are no 'views_$group' and 'views_$series' in the view parameter, such as the case in using other firm file setup, the tool will not introduce 'views_$group' and 'views_$series' to them, the new 3d workset views will be just using revit default '???' group.">
                         <header class="tool-header">
                             <h3 class="tool-title">3D Workset Views</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Create 3D workset checking view in your working folder.
 Each workset will get a 3D view that only have this workset turned on.
@@ -519,7 +544,7 @@ Components:
                     <article class="tool-card" data-alias="check phase mapping" data-doc="get the phase mapping of mutiple documents.">
                         <header class="tool-header">
                             <h3 class="tool-title">Check Phase Mapping</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Get the phase mapping of mutiple documents.</p>
                     </article>
@@ -537,7 +562,7 @@ Components:
                     <article class="tool-card" data-alias="colorscheme to excel" data-doc="use me tp export selected color scheme to excel. you have the option to exclude unused color.">
                         <header class="tool-header">
                             <h3 class="tool-title">ColorScheme To Excel</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Use me tp export selected Color Scheme To Excel. You have the option to exclude unused color.</p>
                     </article>
@@ -554,7 +579,7 @@ Components:
 if you need help on what kind of excel to prepare, you can open a sample excel and begin from there.">
                         <header class="tool-header">
                             <h3 class="tool-title">Create Sheets By Excel</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Create new sheets based on data from Excel.
 If you need help on what kind of Excel to prepare, you can open a sample excel and begin from there.</p>
@@ -564,7 +589,7 @@ If you need help on what kind of Excel to prepare, you can open a sample excel a
 you can the options to create any or all from below:">
                         <header class="tool-header">
                             <h3 class="tool-title">Create Worksets</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Create Worksets following the standard Ennead Workset Structure.
 You can the options to create any or all from below:</p>
@@ -603,7 +628,7 @@ This tool allows you to:
                     <article class="tool-card" data-alias="export filled region types" data-doc="export the filled region color setting to excel so you can use it elsewhere.">
                         <header class="tool-header">
                             <h3 class="tool-title">Export Filled Region Types</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Export the filled region color setting to excel so you can use it elsewhere.</p>
                     </article>
@@ -616,7 +641,7 @@ you also have the option to dig inside the nesting family and save them.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">Family RePath</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Find family file path. And remap the path to a folder you picked. In this folder, families will be organised based on their category.
 This will also load the repathed families back to central model.
@@ -637,7 +662,7 @@ You also have the option to dig inside the nesting family and save them.
                     <article class="tool-card" data-alias="inspect excel formula" data-doc="excel formula validation tool that reveals hidden calculation relationships. this quality control utility inspects spreadsheets for embedded formulas, highlighting cells with dependencies to help verify calculation accuracy. perfect for validating critical data before importing into revit or when reviewing calculations from external sources to prevent errors in your documentation.">
                         <header class="tool-header">
                             <h3 class="tool-title">Inspect Excel Formula</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Excel formula validation tool that reveals hidden calculation relationships. This quality control utility inspects spreadsheets for embedded formulas, highlighting cells with dependencies to help verify calculation accuracy. Perfect for validating critical data before importing into Revit or when reviewing calculations from external sources to prevent errors in your documentation.</p>
                     </article>
@@ -645,7 +670,7 @@ You also have the option to dig inside the nesting family and save them.
                     <article class="tool-card" data-alias="inspect local graphic override" data-doc="for views on selected sheets, inspect if there are local graphic override or local hidden objects that is not controlled by template.">
                         <header class="tool-header">
                             <h3 class="tool-title">Inspect Local Graphic Override</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">For views on selected sheets, inspect if there are local graphic override or local hidden objects that is not controlled by template.</p>
                     </article>
@@ -653,7 +678,7 @@ You also have the option to dig inside the nesting family and save them.
                     <article class="tool-card" data-alias="keynote assistant" data-doc="comprehensive keynote management system that extends revit's standard functionality. this powerful utility provides an intuitive interface for creating, editing, and organizing keynotes with additional features for categorization, search, batch operations, and translation capabilities. perfect for maintaining consistent documentation standards and streamlining the keynoting workflow across complex projects.">
                         <header class="tool-header">
                             <h3 class="tool-title">Keynote Assistant</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Comprehensive keynote management system that extends Revit's standard functionality. This powerful utility provides an intuitive interface for creating, editing, and organizing keynotes with additional features for categorization, search, batch operations, and translation capabilities. Perfect for maintaining consistent documentation standards and streamlining the keynoting workflow across complex projects.</p>
                     </article>
@@ -664,7 +689,7 @@ if you have been wondering about those question, this tool can help you with it.
 it list all the current locations for the schedules and legend, with a clickable link!">
                         <header class="tool-header">
                             <h3 class="tool-title">Legend&Schedule Where?</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Which Legand and Schedule were used? Where are they?
 If you have been wondering about those question, this tool can help you with it.
@@ -789,7 +814,7 @@ Please note that Chinese translation will require special care when saving excel
                     <article class="tool-card" data-alias="qaqc reporter" data-doc="ai-powered quality control assistant that transforms complex model data into actionable insights. this innovative tool generates comprehensive qaqc reports for your current document and features a natural language interface powered by openai, allowing you to interrogate the results through simple conversation. perfect for project milestones, coordination reviews, or when preparing deliverables that require rigorous quality verification.">
                         <header class="tool-header">
                             <h3 class="tool-title">QAQC Reporter</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">AI-powered quality control assistant that transforms complex model data into actionable insights. This innovative tool generates comprehensive QAQC reports for your current document and features a natural language interface powered by OpenAI, allowing you to interrogate the results through simple conversation. Perfect for project milestones, coordination reviews, or when preparing deliverables that require rigorous quality verification.</p>
                     </article>
@@ -816,7 +841,7 @@ you can also requist to locate and rename based on other rules.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">Rename Nesting Family</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Scans through project families and their nested components to remove '*ConflictingName' string.
             
@@ -843,7 +868,7 @@ You can also requist to locate and rename based on other rules.
                     <article class="tool-card" data-alias="smart egress path" data-doc="intelligent egress path creation tool that automates code-compliant exit routing. this utility helps you create and maintain accurate egress paths with smart dynamic updating capabilities, ensuring proper path widths and distances to exits are maintained as the design evolves. perfect for life safety documentation and code compliance verification.">
                         <header class="tool-header">
                             <h3 class="tool-title">Smart Egress Path</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Intelligent egress path creation tool that automates code-compliant exit routing. This utility helps you create and maintain accurate egress paths with smart dynamic updating capabilities, ensuring proper path widths and distances to exits are maintained as the design evolves. Perfect for life safety documentation and code compliance verification.</p>
                     </article>
@@ -851,7 +876,7 @@ You can also requist to locate and rename based on other rules.
                     <article class="tool-card" data-alias="smart match grid extend" data-doc="get all floor plans and area plans for each view, find all grids. then for each end of the grid decide if it should show bubble or not based on the status of same bubble from same level in ref dict.">
                         <header class="tool-header">
                             <h3 class="tool-title">Smart Match Grid Extend</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Get all floor plans and area plans for each view, find all grids. Then for each end of the grid decide if it should show bubble or not based on the status of same bubble from same level in REF dict.</p>
                     </article>
@@ -861,7 +886,7 @@ when you inherated from older file some parameter is carried over and now you ha
 use this to cleanup the parameter panel">
                         <header class="tool-header">
                             <h3 class="tool-title">Transfer Parameter Data</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Transfer some data from one parameter to another. 
 When you inherated from older file some parameter is carried over and now you have duplcated parameter container. 
@@ -887,13 +912,14 @@ Use this to cleanup the parameter panel</p>
                     <article class="tool-card" data-alias="wall type diagram" data-doc="generate walltype legand view as well as view filter. the color is picked based on related filled region type, if not avaibale then pick new color for you.">
                         <header class="tool-header">
                             <h3 class="tool-title">Wall Type Diagram</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Generate walltype legand view as well as view filter. The color is picked based on related filled region type, if not avaibale then pick new color for you.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Browser">
                 <h2 class="tab-title">Browser</h2>
@@ -921,6 +947,7 @@ Disclaimer: EnneadTab only help you find the family, but is not participating in
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Contents">
                 <h2 class="tab-title">Contents</h2>
@@ -936,6 +963,7 @@ Disclaimer: EnneadTab only help you find the family, but is not participating in
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Import_Export">
                 <h2 class="tab-title">Import Export</h2>
@@ -953,7 +981,7 @@ this tool processes all recent output jobs from rhino2revit in rhino and:
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">BigRhino2Revit</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Convert recent Rhino2Revit output jobs into Revit families and load them into the project.
 
@@ -983,7 +1011,7 @@ output: revit family instances with matching geometry and parameters
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">Block2Family</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Converts Rhino blocks to Revit families.
 
@@ -1012,7 +1040,7 @@ Output: Revit family instances with matching geometry and parameters
                     <article class="tool-card" data-alias="content transfer" data-doc="a simple window that enables the transfer of view templates, object styles (subcategory), and materials. the primary distinction between this tool and the default 'transfer project standard' is its selective transfer capabilities.">
                         <header class="tool-header">
                             <h3 class="tool-title">Content Transfer</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">A simple window that enables the transfer of view templates, object styles (SubCategory), and materials. The primary distinction between this tool and the default 'Transfer Project Standard' is its selective transfer capabilities.</p>
                     </article>
@@ -1024,7 +1052,7 @@ this tool does not change other existing setting for this export setting.
 it makes life in rhino easier after exporting contents over.">
                         <header class="tool-header">
                             <h3 class="tool-title">DWG Export Update Layer</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Randomize the layer color, and rename the layer to to format below:
     Category_SubCategory
@@ -1036,7 +1064,7 @@ It makes life in Rhino easier after exporting contents over.</p>
                     <article class="tool-card" data-alias="ennead exporter" data-doc="professional export solution that handles multiple file formats and workflows. this comprehensive utility manages pdf, dwg, and jpg exports simultaneously with intelligent organization by prefix and file type. features include email notifications with folder links, accurate time estimation, color/bw export control, revision-based filtering, and option to sync and close after completion. perfect for meeting tight deadlines while maintaining project organization.">
                         <header class="tool-header">
                             <h3 class="tool-title">Ennead Exporter</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Professional export solution that handles multiple file formats and workflows. This comprehensive utility manages PDF, DWG, and JPG exports simultaneously with intelligent organization by prefix and file type. Features include email notifications with folder links, accurate time estimation, color/BW export control, revision-based filtering, and option to sync and close after completion. Perfect for meeting tight deadlines while maintaining project organization.</p>
                     </article>
@@ -1120,7 +1148,7 @@ currently handle wall/floor/roof/column/stair
 this tool primarily deal with the system family category that normally will be difficult to seperate in dwg export.">
                         <header class="tool-header">
                             <h3 class="tool-title">Isolated Export By System Family Type</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Pick category and type for the dwg export. It will isolate elements by types in the view and give individual .dwg file.
 
@@ -1155,7 +1183,7 @@ report any issues to the enneadtab team.
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">Move2Origin</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Move family instances to the internal origin while maintaining current orientation.
 
@@ -1212,7 +1240,7 @@ some rhino command to consider:
 it also support nurbs crv or srf with nurbs edge, and it support areaboundaryline and roomseperationline drafting.">
                         <header class="tool-header">
                             <h3 class="tool-title">Rhino Drafter</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">A drafter that allow you to take advantage of Rhino fast editing power. You can operate however you want for crvs and surfaces in Rhino, and transfer those content to Revit detail lines and filled regions with matching linestyle and filled region type.
 
@@ -1254,7 +1282,7 @@ format support:
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">Rhino2Revit</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Convert .3dm and .dwg files into native Revit family elements.
 Compared to shape2family and block2family, this tool give you the maximual control over subCategory mapping to existing category so you revit will be the most clean.
@@ -1308,7 +1336,7 @@ This tool creates a simplified diagram representation of Rooms or Areas in Rhino
                     <article class="tool-card" data-alias="schedule2excel" data-doc="export and open schedule in excel.">
                         <header class="tool-header">
                             <h3 class="tool-title">Schedule2Excel</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Export and open schedule in excel.</p>
                     </article>
@@ -1331,6 +1359,7 @@ This tool creates a simplified diagram representation of Rooms or Areas in Rhino
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Manage">
                 <h2 class="tab-title">Manage</h2>
@@ -1374,7 +1403,7 @@ you can find, select, zoom any dwgs with detailed infor on creator, view associa
 for linked dwgs, you might also open file directly, open folder directly, and repath links to a selected folder.">
                         <header class="tool-header">
                             <h3 class="tool-title">DWG Manager</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">A simple window that help you manage DWG in the files. 
 You can find, select, zoom any dwgs with detailed infor on creator, view association, hidden status, workset, file path and file size. 
@@ -1385,7 +1414,7 @@ For linked dwgs, you might also open file directly, open folder directly, and re
                     <article class="tool-card" data-alias="family parameter batch creation" data-doc="help you get started with many families by adding many useful parameter quickly.">
                         <header class="tool-header">
                             <h3 class="tool-title">Family Parameter Batch Creation</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Help you get started with many families by adding many useful parameter quickly.</p>
                     </article>
@@ -1410,7 +1439,7 @@ perfect for maintaining consistent fire separation documentation and ensuring
 building code requirements are clearly communicated in your drawings.">
                         <header class="tool-header">
                             <h3 class="tool-title">Fire Rating Graphic</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Fire Rating Graphic Manager
 
@@ -1441,7 +1470,7 @@ the same go for the element keynote types.
 user keynote, since no one should really use it, will be highlighted as blue.">
                         <header class="tool-header">
                             <h3 class="tool-title">Identify Wrong Type Of KeynoteTAG</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">You should avoid using user keynotes, but if someone already did in the project, you can find them here.
 
@@ -1467,7 +1496,7 @@ This tool allows you to show or hide all internal textnotes at once.</p>
 as you are fixing it, you will see the warning count going down. when you sync baack after all the fix, the ea coins will be rewarded..">
                         <header class="tool-header">
                             <h3 class="tool-title">Isolate Warnings</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">In the standalone window, you can zoom in with section box to a region that have a warning.
 
@@ -1485,7 +1514,7 @@ As you are fixing it, you will see the warning count going down. When you sync b
                     <article class="tool-card" data-alias="load family from link" data-doc="load family from linked revit file without open those links. non-editable families (in-place and system) will be skipped.">
                         <header class="tool-header">
                             <h3 class="tool-title">Load Family From Link</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Load family from linked revit file without open those links. Non-editable families (in-place and system) will be skipped.</p>
                     </article>
@@ -1499,7 +1528,7 @@ As you are fixing it, you will see the warning count going down. When you sync b
 have bonus option to sync and close after done. and have option to pre-pick shared family loading behaviour. handy for loading big family at end of day.">
                         <header class="tool-header">
                             <h3 class="tool-title">Load Multiple Families To Multiple Docs</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Pick many families, and load them to many projects. You can:
 	- 1 family >> x projects
@@ -1513,7 +1542,7 @@ Have bonus option to sync and close after done. And have option to pre-pick shar
                     <article class="tool-card" data-alias="manage working views" data-doc="powerful working view management system that helps maintain a clean project environment. this interactive interface allows you to quickly identify, review, and organize unsheeted views with intelligent filtering by creator, view type, and more. features include thumbnail previews for rapid visual assessment, batch view name prefixing to identify creators, and direct view deletion capabilities - all without leaving the interface. perfect for project cleanup before submissions or when transitioning between project phases.">
                         <header class="tool-header">
                             <h3 class="tool-title">Manage Working Views</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Powerful working view management system that helps maintain a clean project environment. This interactive interface allows you to quickly identify, review, and organize unsheeted views with intelligent filtering by creator, view type, and more. Features include thumbnail previews for rapid visual assessment, batch view name prefixing to identify creators, and direct view deletion capabilities - all without leaving the interface. Perfect for project cleanup before submissions or when transitioning between project phases.</p>
                     </article>
@@ -1529,7 +1558,7 @@ if you find no ideal target type, you may also choose to create a new type under
 this tool will work for most 2d and 3d families, as well as tags.">
                         <header class="tool-header">
                             <h3 class="tool-title">Merge Family</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Merge a few family types to a target family type: 
 
@@ -1567,7 +1596,7 @@ features:
 - find elements with negative areas or missing department assignments">
                         <header class="tool-header">
                             <h3 class="tool-title">Remove Not Placed Area and Rooms</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">This tool allows you to manage room and area accuracy by identifying and removing elements that are not properly placed in the project.
 
@@ -1591,7 +1620,7 @@ This tool moved all tags on the selected sheets back-and-forth by a tiny amount 
                     <article class="tool-card" data-alias="track detail group" data-doc="detail group detective that helps you track down where groups are used throughout your project. this bidirectional search tool allows you to find all instances of a specific detail group across views, or identify all detail groups used within selected views. perfect for understanding dependencies before making changes to detail groups or when cleaning up unused content.">
                         <header class="tool-header">
                             <h3 class="tool-title">Track Detail Group</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Detail group detective that helps you track down where groups are used throughout your project. This bidirectional search tool allows you to find all instances of a specific detail group across views, or identify all detail groups used within selected views. Perfect for understanding dependencies before making changes to detail groups or when cleaning up unused content.</p>
                     </article>
@@ -1599,13 +1628,14 @@ This tool moved all tags on the selected sheets back-and-forth by a tiny amount 
                     <article class="tool-card" data-alias="workset manager" data-doc="advanced workset organization tool that brings order to collaborative projects. this floating interface provides multiple ways to reassign elements to appropriate worksets - by category, by host element, or by type. even handles elements inside design options (as long as they're not in groups). perfect for cleaning up workset assignments after imports or when standardizing project collaboration structure.">
                         <header class="tool-header">
                             <h3 class="tool-title">WorkSet Manager</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Advanced workset organization tool that brings order to collaborative projects. This floating interface provides multiple ways to reassign elements to appropriate worksets - by category, by host element, or by type. Even handles elements inside design options (as long as they're not in groups). Perfect for cleaning up workset assignments after imports or when standardizing project collaboration structure.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="No_Tab">
                 <h2 class="tab-title">No Tab</h2>
@@ -1677,6 +1707,7 @@ This tool moved all tags on the selected sheets back-and-forth by a tiny amount 
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Personal">
                 <h2 class="tab-title">Personal</h2>
@@ -1870,6 +1901,7 @@ Key Features:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__1643">
                 <h2 class="tab-title">Proj. 1643</h2>
@@ -2093,6 +2125,7 @@ It is the best invention since ketchup.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__1900">
                 <h2 class="tab-title">Proj. 1900</h2>
@@ -2108,6 +2141,7 @@ It is the best invention since ketchup.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2001">
                 <h2 class="tab-title">Proj. 2001</h2>
@@ -2131,6 +2165,7 @@ It is the best invention since ketchup.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2108">
                 <h2 class="tab-title">Proj. 2108</h2>
@@ -2154,6 +2189,7 @@ It is the best invention since ketchup.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2125">
                 <h2 class="tab-title">Proj. 2125</h2>
@@ -2217,6 +2253,7 @@ Requested by J.H.Park</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2128">
                 <h2 class="tab-title">Proj. 2128</h2>
@@ -2232,6 +2269,7 @@ Requested by J.H.Park</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2135">
                 <h2 class="tab-title">Proj. 2135</h2>
@@ -3013,6 +3051,7 @@ Handy after you brought in many contents from container file on day one and one 
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2142">
                 <h2 class="tab-title">Proj. 2142</h2>
@@ -3036,6 +3075,7 @@ Handy after you brought in many contents from container file on day one and one 
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2151">
                 <h2 class="tab-title">Proj. 2151</h2>
@@ -3205,6 +3245,7 @@ For the Site file it do the additional super summery.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2233">
                 <h2 class="tab-title">Proj. 2233</h2>
@@ -3220,6 +3261,7 @@ For the Site file it do the additional super summery.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2246">
                 <h2 class="tab-title">Proj. 2246</h2>
@@ -3235,6 +3277,7 @@ For the Site file it do the additional super summery.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2306">
                 <h2 class="tab-title">Proj. 2306</h2>
@@ -3374,6 +3417,7 @@ Make sure all sheets show in shecule</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2314">
                 <h2 class="tab-title">Proj. 2314</h2>
@@ -3401,6 +3445,7 @@ This is also hooked to the sync event for this project.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2317">
                 <h2 class="tab-title">Proj. 2317</h2>
@@ -3466,6 +3511,7 @@ This script will:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2330">
                 <h2 class="tab-title">Proj. 2330</h2>
@@ -3481,6 +3527,7 @@ This script will:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2412">
                 <h2 class="tab-title">Proj. 2412</h2>
@@ -3496,6 +3543,7 @@ This script will:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2418">
                 <h2 class="tab-title">Proj. 2418</h2>
@@ -3511,6 +3559,7 @@ This script will:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2419">
                 <h2 class="tab-title">Proj. 2419</h2>
@@ -3542,6 +3591,7 @@ This script will:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__2512">
                 <h2 class="tab-title">Proj. 2512</h2>
@@ -3565,6 +3615,7 @@ boundary lines are grouped by view for easier management.</p>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Proj__Princeton">
                 <h2 class="tab-title">Proj. Princeton</h2>
@@ -3602,6 +3653,7 @@ Optional:
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Resource">
                 <h2 class="tab-title">Resource</h2>
@@ -3747,6 +3799,7 @@ Perfect for both beginners and power users who want to maximize their productivi
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Tester">
                 <h2 class="tab-title">Tester</h2>
@@ -3770,6 +3823,7 @@ Perfect for both beginners and power users who want to maximize their productivi
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="Tools">
                 <h2 class="tab-title">Tools</h2>
@@ -3778,7 +3832,7 @@ Perfect for both beginners and power users who want to maximize their productivi
                     <article class="tool-card" data-alias="ai translate" data-doc="intelligent translation assistant for your revit project. seamlessly translate sheet names, view names, and project text elements between languages. the ai-powered engine handles context-appropriate translations with approval workflow to ensure accuracy before implementation.">
                         <header class="tool-header">
                             <h3 class="tool-title">AI Translate</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Intelligent translation assistant for your Revit project. Seamlessly translate sheet names, view names, and project text elements between languages. The AI-powered engine handles context-appropriate translations with approval workflow to ensure accuracy before implementation.</p>
                     </article>
@@ -3802,7 +3856,7 @@ Perfect for both beginners and power users who want to maximize their productivi
                     <article class="tool-card" data-alias="apply panel radius" data-doc="advanced curtain panel radius management tool that automatically applies host wall curvature to panel elements. intelligently identifies curved curtain walls and transfers radius values to panel parameters, ensuring consistent curvature throughout the facade system. customizable parameter mapping allows for flexible implementation across different panel families.">
                         <header class="tool-header">
                             <h3 class="tool-title">Apply Panel Radius</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Advanced curtain panel radius management tool that automatically applies host wall curvature to panel elements. Intelligently identifies curved curtain walls and transfers radius values to panel parameters, ensuring consistent curvature throughout the facade system. Customizable parameter mapping allows for flexible implementation across different panel families.</p>
                     </article>
@@ -3823,7 +3877,7 @@ usage:
 ">
                         <header class="tool-header">
                             <h3 class="tool-title">Batch Cut Elements</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Powerful batch cutting utility for curtain wall systems.
 
@@ -3844,7 +3898,7 @@ Usage:
                     <article class="tool-card" data-alias="color-code design option" data-doc="visual design option manager that transforms how you work with alternatives. automatically color-codes elements belonging to different design options across selected views, making it instantly clear which elements belong to which option. perfect for presentations, design reviews, and maintaining clarity when working with complex option sets.">
                         <header class="tool-header">
                             <h3 class="tool-title">Color-Code Design Option</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Visual design option manager that transforms how you work with alternatives. Automatically color-codes elements belonging to different design options across selected views, making it instantly clear which elements belong to which option. Perfect for presentations, design reviews, and maintaining clarity when working with complex option sets.</p>
                     </article>
@@ -3860,7 +3914,7 @@ Usage:
                     <article class="tool-card" data-alias="dim text helper" data-doc="floating dimension annotation assistant that enhances documentation productivity. quickly add industry-standard dimension text (fog, eos, ftf, etc.) to selected dimensions with precise control over text positioning. create custom annotations on-the-fly and save frequently used dimension texts for future use. streamlines the tedious task of dimension annotation across your project.">
                         <header class="tool-header">
                             <h3 class="tool-title">Dim Text Helper</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Floating dimension annotation assistant that enhances documentation productivity. Quickly add industry-standard dimension text (FOG, EOS, FTF, etc.) to selected dimensions with precise control over text positioning. Create custom annotations on-the-fly and save frequently used dimension texts for future use. Streamlines the tedious task of dimension annotation across your project.</p>
                     </article>
@@ -3868,7 +3922,7 @@ Usage:
                     <article class="tool-card" data-alias="healthcare helper" data-doc="your ultimate healthcare project companion! provides a comprehensive suite of tools for managing healthcare projects in revit - from design guidelines and project setup to dgsf chart management and color palette customization. access all healthcare-related functionality from this centralized command center.">
                         <header class="tool-header">
                             <h3 class="tool-title">HealthCare Helper</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Your ultimate healthcare project companion! Provides a comprehensive suite of tools for managing healthcare projects in Revit - from design guidelines and project setup to DGSF chart management and color palette customization. Access all healthcare-related functionality from this centralized command center.</p>
                     </article>
@@ -3955,7 +4009,7 @@ Perfect for teams working with large projects that take significant time to open
 this tool streamlines the tedious process of maintaining naming consistency throughout your project.">
                         <header class="tool-header">
                             <h3 class="tool-title">Super Renamer</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">A powerful simple window that provides efficient access to a comprehensive suite of renaming functions.
     - Add or remove prefixes for selected views with a single click
@@ -3978,7 +4032,7 @@ This tool streamlines the tedious process of maintaining naming consistency thro
                     <article class="tool-card" data-alias="sync all open proj and close" data-doc="end-of-day project synchronization tool that tidies up your work environment with one click. this utility automatically synchronizes all open project documents with their central files, then cleanly closes everything. perfect for when you're heading home and want to make sure all your work is safely submitted to the central model.">
                         <header class="tool-header">
                             <h3 class="tool-title">Sync All Open Proj and Close</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">End-of-day project synchronization tool that tidies up your work environment with one click. This utility automatically synchronizes all open project documents with their central files, then cleanly closes everything. Perfect for when you're heading home and want to make sure all your work is safely submitted to the central model.</p>
                     </article>
@@ -3994,13 +4048,14 @@ This tool streamlines the tedious process of maintaining naming consistency thro
                     <article class="tool-card" data-alias="toggle contents" data-doc="master visibility controller for revit elements. efficiently manage pin/unpin status, visibility settings, and annotation bubble heads across multiple categories and views. perfect for cleaning up views, preparing documentation, and enforcing standards across your project.">
                         <header class="tool-header">
                             <h3 class="tool-title">Toggle Contents</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Master visibility controller for Revit elements. Efficiently manage pin/unpin status, visibility settings, and annotation bubble heads across multiple categories and views. Perfect for cleaning up views, preparing documentation, and enforcing standards across your project.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
             <section class="tab-section" id="UI">
                 <h2 class="tab-title">UI</h2>
@@ -4046,7 +4101,7 @@ you can enable multiple category at same time.
 let sen.z know if you would like to add more to the category list.">
                         <header class="tool-header">
                             <h3 class="tool-title">Prefilter Selection</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Just like the prefilter selection in Rhino, this allow you to narrow down selection beofre heavy window selection and post filter.
 Very helpful when the drawing is very crowded.
@@ -4059,7 +4114,7 @@ Let Sen.Z know if you would like to add more to the category list.</p>
                     <article class="tool-card" data-alias="search command" data-doc="intelligent command search engine for revit. this powerful search utility helps you locate tools across both enneadtab and native revit interfaces with ranked results based on name and documentation matches. features include visual previews of tool locations, direct activation capability, and detailed documentation display with links to help resources. perfect for quickly accessing functions without navigating through ribbon panels or when you can't remember where tools are located.">
                         <header class="tool-header">
                             <h3 class="tool-title">Search Command</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">Intelligent command search engine for Revit. This powerful search utility helps you locate tools across both EnneadTab and native Revit interfaces with ranked results based on name and documentation matches. Features include visual previews of tool locations, direct activation capability, and detailed documentation display with links to help resources. Perfect for quickly accessing functions without navigating through ribbon panels or when you can't remember where tools are located.</p>
                     </article>
@@ -4075,13 +4130,14 @@ Let Sen.Z know if you would like to add more to the category list.</p>
                     <article class="tool-card" data-alias="what happened?" data-doc="a simple window that give you information of the creator, editor and owner of selected elements and active view.">
                         <header class="tool-header">
                             <h3 class="tool-title">What Happened?</h3>
-                            <span class="popular-badge">⭐ Popular</span>
+                            <span class="popular-badge">Popular</span>
                         </header>
                         <p class="tool-description">A simple window that give you information of the creator, editor and owner of selected elements and active view.</p>
                     </article>
                 
                 </div>
             </section>
+            <hr class='soft-divider' />
             
         </main>
     </div>
@@ -4095,18 +4151,39 @@ Let Sen.Z know if you would like to add more to the category list.</p>
     </footer>
 
     <script>
-        // Search functionality
+        // Search functionality with hiding empty tab sections
         document.getElementById('searchInput').addEventListener('input', function() {
             const query = this.value.toLowerCase();
-            document.querySelectorAll('.tool-card').forEach(card => {
-                const alias = card.getAttribute('data-alias') || '';
-                const doc = card.getAttribute('data-doc') || '';
-                if (alias.includes(query) || doc.includes(query)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
+            document.querySelectorAll('.tab-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.tool-card').forEach(card => {
+                    const alias = card.getAttribute('data-alias') || '';
+                    const doc = card.getAttribute('data-doc') || '';
+                    if (alias.includes(query) || doc.includes(query)) {
+                        card.style.display = '';
+                        hasVisible = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                section.style.display = hasVisible ? '' : 'none';
+                // Also hide the divider after a hidden section
+                const next = section.nextElementSibling;
+                if (next && next.classList.contains('soft-divider')) {
+                    next.style.display = hasVisible ? '' : 'none';
                 }
             });
+        });
+
+        // Sticky search bar
+        const searchBar = document.querySelector('.sticky-search');
+        const stickyOffset = searchBar.offsetTop;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > stickyOffset) {
+                searchBar.classList.add('fixed-search');
+            } else {
+                searchBar.classList.remove('fixed-search');
+            }
         });
 
         // Smooth scrolling for sidebar links

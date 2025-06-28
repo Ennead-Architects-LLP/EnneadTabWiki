@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnneadTab Knowledge Center</title>
+    <title>EnneadTabWiki Knowledge Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         html, body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
             background-color: #F5F5DC;
             color: #2F2F2F;
             line-height: 1.6;
@@ -44,14 +45,11 @@
             gap: 0.75rem;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-        }
-
         .logo-text {
             font-size: 1.5rem;
             font-weight: 600;
             color: #8B7355;
+            letter-spacing: 0.04em;
         }
 
         .nav {
@@ -84,31 +82,40 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 600;
             color: #8B7355;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #A0522D;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #6B6B6B;
             max-width: 600px;
             margin: 0 auto;
         }
 
+        .soft-divider {
+            border: none;
+            border-top: 1.5px solid #D2B48C;
+            margin: 2.5rem 0 2.5rem 0;
+            background: none;
+            opacity: 0.5;
+        }
+
         .stats {
-            margin-bottom: 4rem;
+            margin-bottom: 2.5rem;
         }
 
         .stats-grid {
@@ -127,8 +134,8 @@
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.1rem;
+            font-weight: 600;
             color: #8B7355;
             margin-bottom: 0.5rem;
         }
@@ -141,7 +148,7 @@
         }
 
         .platforms {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .platform-grid {
@@ -166,13 +173,8 @@
             box-shadow: 0 12px 32px rgba(139, 115, 85, 0.1);
         }
 
-        .platform-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
         .platform-title {
-            font-size: 1.75rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: #8B7355;
             margin-bottom: 1rem;
@@ -214,15 +216,17 @@
         }
 
         .sidebar-nav {
-            min-width: 250px;
+            min-width: 220px;
+            max-width: 260px;
+            margin-right: 2rem;
             background: #FFFFFF;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
-            border: 1px solid #D2B48C;
-            height: fit-content;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+            padding: 1.5rem 1rem;
             position: sticky;
-            top: 100px;
+            top: 110px;
+            height: fit-content;
+            align-self: flex-start;
         }
 
         .sidebar-nav ul {
@@ -230,20 +234,20 @@
         }
 
         .sidebar-nav li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .sidebar-nav a {
-            color: #2F2F2F;
+            color: #8B7355;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.05rem;
             transition: color 0.2s;
-            display: block;
-            padding: 0.5rem 0;
         }
 
         .sidebar-nav a:hover {
-            color: #8B7355;
+            color: #A0522D;
+            text-decoration: underline;
         }
 
         .main-content {
@@ -253,8 +257,29 @@
 
         .search-container {
             margin-bottom: 2rem;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
+            padding: 1rem 1.5rem;
+            border: 1px solid #D2B48C;
         }
-
+        .sticky-search {
+            position: sticky;
+            top: 0;
+            z-index: 120;
+            background: #FFFFFF;
+        }
+        .fixed-search {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            max-width: none;
+            box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+            border-radius: 0 0 12px 12px;
+            margin: 0;
+        }
         .search-input {
             width: 100%;
             max-width: 500px;
@@ -281,7 +306,7 @@
         }
 
         .tab-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #8B7355;
             margin-bottom: 1.5rem;
@@ -301,6 +326,7 @@
             padding: 1.5rem;
             border: 1px solid #D2B48C;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
         }
 
         .tool-card:hover {
@@ -316,7 +342,7 @@
         }
 
         .tool-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: #2F2F2F;
             margin: 0;
@@ -410,7 +436,7 @@
             }
 
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.3rem;
             }
 
             .platform-grid {
@@ -427,8 +453,7 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <span class="logo-icon">🦢</span>
-                <span class="logo-text">EnneadTab</span>
+                <span class="logo-text">EnneadTabWiki</span>
             </div>
             <nav class="nav">
                 <span class="nav-subtitle">Knowledge Center</span>
@@ -438,13 +463,13 @@
 
     <main class="main">
         <section class="hero">
-            <h1 class="hero-title">EnneadTab Knowledge</h1>
+            <h1 class="hero-title">EnneadTabWiki Knowledge</h1>
             <p class="hero-subtitle">Comprehensive guides for Rhino and Revit workflows</p>
             <p class="hero-description">
                 Discover our extensive collection of tools, tips, and techniques to enhance your design workflow.
             </p>
         </section>
-
+        <hr class="soft-divider" />
         <section class="stats">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -465,11 +490,10 @@
                 </div>
             </div>
         </section>
-
+        <hr class="soft-divider" />
         <section class="platforms">
             <div class="platform-grid">
                 <div class="platform-card" onclick="window.location.href='rhino.html'">
-                    <div class="platform-icon">🦏</div>
                     <h2 class="platform-title">Rhino</h2>
                     <p class="platform-description">
                         Modeling, drafting, interoperability, and workflow tools for Rhino.
@@ -481,7 +505,6 @@
                 </div>
 
                 <div class="platform-card" onclick="window.location.href='revit.html'">
-                    <div class="platform-icon">🏗️</div>
                     <h2 class="platform-title">Revit</h2>
                     <p class="platform-description">
                         Workflow, modeling, QAQC, data management, and project tailoring for Revit.
