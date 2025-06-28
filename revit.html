@@ -1,9 +1,3441 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>EnneadTab Wiki</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revit Knowledge - EnneadTab Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #e74c3c;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #e74c3c;
+        }
+
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-description {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .hero-section {
+                padding: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .tool-card {
+                padding: 1rem;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>EnneadTab Wiki</h1>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <span class="logo-icon">🏗️</span>
+                <span class="logo-text">Revit Knowledge</span>
+            </div>
+            <a href="index.html" class="nav-button">
+                ← Back to Knowledge Center
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1 class="hero-title">Revit Knowledge Base</h1>
+            <p class="hero-subtitle">Master EnneadTab's Revit Integration</p>
+            <p class="hero-description">
+                Explore comprehensive guides, tutorials, and resources for leveraging EnneadTab's powerful tools within Revit. 
+                From basic operations to advanced techniques, learn how to enhance your Revit experience and boost productivity 
+                with our advanced features and best practices.
+            </p>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">327</div>
+                    <div class="stat-label">Total Tools</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">51</div>
+                    <div class="stat-label">Popular Tools</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">31</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">327</div>
+                    <div class="stat-label">Documented</div>
+                </div>
+            </div>
+        </section>
+
+        
+            <div class="tab-section">
+                <h2 class="tab-title">ACE</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">3D Workset Views</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Create 3D workset checking view in your working folder.
+Each workset will get a 3D view that only have this workset turned on.
+
+If there are no 'Views_$Group' and 'Views_$Series' in the view parameter...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Batch Format Family Name</h3>
+                            
+                        </div>
+                        <p class="tool-description">Batch rename family names to follow Healthcare standard naming convention.
+
+Format: 
+    CATEGORY_MainDescription_FIRM[_AdditionalInfo][_HOSTING]
+
+Examples:
+    LITE_PendantLamp_EA_Vitra_CH
+    DOOR_T...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Check Linked-View Relationship</h3>
+                            
+                        </div>
+                        <p class="tool-description">View dependency analyzer that identifies all linked-view relationships throughout your project. This diagnostic tool generates a comprehensive report showing which views reference others, helping iden...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Check Phase Mapping</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Get the phase mapping of mutiple documents.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Collect Textures</h3>
+                            
+                        </div>
+                        <p class="tool-description">Choose a new destination for texture images. Then Collect Textures copies all material texture images to this new location, and updates texture image path.
+</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">ColorScheme To Excel</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Use me tp export selected Color Scheme To Excel. You have the option to exclude unused color.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">ColorScheme To FilledRegion Types</h3>
+                            
+                        </div>
+                        <p class="tool-description">Doc string not set</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Create Sheets By Excel</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Create new sheets based on data from Excel.
+If you need help on what kind of Excel to prepare, you can open a sample excel and begin from there.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Create Worksets</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Create Worksets following the standard Ennead Workset Structure.
+You can the options to create any or all from below:</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Door Calc Pt Visualizer</h3>
+                            
+                        </div>
+                        <p class="tool-description">Visualize door calculation points by drawing detail lines from To/From points to door insertion points. Blue lines for ToRoom, red lines for FromRoom. Works on selected views.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Duplicate Area Scheme</h3>
+                            
+                        </div>
+                        <p class="tool-description">Duplicates a Revit area scheme to a new area scheme with all boundaries and areas.
+
+This tool allows you to:
+1. Select an existing area scheme to duplicate
+2. Provide a new unique name for the duplica...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Export Filled Region Types</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Export the filled region color setting to excel so you can use it elsewhere.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Family RePath</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Find family file path. And remap the path to a folder you picked. In this folder, families will be organised based on their category.
+This will also load the repathed families back to central model.
+
+...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Family Tree</h3>
+                            
+                        </div>
+                        <p class="tool-description">Family hierarchy visualization tool that reveals the complete nesting structure of complex Revit families. This utility generates a clear, hierarchical display of all nested components within the curr...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Inspect Excel Formula</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Excel formula validation tool that reveals hidden calculation relationships. This quality control utility inspects spreadsheets for embedded formulas, highlighting cells with dependencies to help veri...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Inspect Local Graphic Override</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">For views on selected sheets, inspect if there are local graphic override or local hidden objects that is not controlled by template.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Keynote Assistant</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Comprehensive keynote management system that extends Revit's standard functionality. This powerful utility provides an intuitive interface for creating, editing, and organizing keynotes with additiona...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Legend&Schedule Where?</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Which Legand and Schedule were used? Where are they?
+If you have been wondering about those question, this tool can help you with it.
+
+It list all the current locations for the schedules and legend, w...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Lines-In-View Locator</h3>
+                            
+                        </div>
+                        <p class="tool-description">Line usage analysis tool that helps identify views with excessive detail and model lines. This diagnostic utility generates a ranked report of views containing the most line elements, helping pinpoint...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Links2Worksets</h3>
+                            
+                        </div>
+                        <p class="tool-description">Convert each revit link into its own workset.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">List Families</h3>
+                            
+                        </div>
+                        <p class="tool-description">Lists selected families in organized views.
+
+This script allows listing of both 2D detail items and 3D families in dedicated views.
+Detail items are placed in a drafting view while 3D families can be ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Merge Object Style</h3>
+                            
+                        </div>
+                        <p class="tool-description">Consider using Ideate instead</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Monitor Link Status</h3>
+                            
+                        </div>
+                        <p class="tool-description">Monitor and compare grid and level elements between current document and linked documents.
+This tool helps track differences in grids and levels between the host document and its linked models.
+It ide...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Open Sample Excel</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get a sample excel to fill out data in similar format.
+Using those format will make it easy to generate dummy sheets in Revit.
+Please note that Chinese translation will require special care when savin...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Project Initiating</h3>
+                            
+                        </div>
+                        <p class="tool-description">A simple window that give you quick access to all kinds of function needed when a new project is starting.
+
++Default Workset Creation
++New Sheet Created From Excel
++Quick project info filling</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Property Line From Excel</h3>
+                            
+                        </div>
+                        <p class="tool-description">Generate detail line from the Excel survey pt data. Best used for property line geneation.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">QAQC Reporter</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">AI-powered quality control assistant that transforms complex model data into actionable insights. This innovative tool generates comprehensive QAQC reports for your current document and features a nat...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Relationship Diagram</h3>
+                            
+                        </div>
+                        <p class="tool-description">Interactive convas to draw relationship diagram.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Rename Nesting Family</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Scans through project families and their nested components to remove '*ConflictingName' string.
+            
+PROCESS:
+- Iterates through all families in current project
+- Opens each family document
+- ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Repath Dwg Drive Letter</h3>
+                            
+                        </div>
+                        <p class="tool-description">Pick the old and new drive letters to repath all linked DWGs.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Smart Egress Path</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Intelligent egress path creation tool that automates code-compliant exit routing. This utility helps you create and maintain accurate egress paths with smart dynamic updating capabilities, ensuring pr...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Smart Match Grid Extend</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Get all floor plans and area plans for each view, find all grids. Then for each end of the grid decide if it should show bubble or not based on the status of same bubble from same level in REF dict.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Transfer Parameter Data</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Transfer some data from one parameter to another. 
+When you inherated from older file some parameter is carried over and now you have duplcated parameter container. 
+Use this to cleanup the parameter ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update DOB Page Number</h3>
+                            
+                        </div>
+                        <p class="tool-description">For DOB submission in NYC there reuqires a page number on the titleblock.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">View Reference Tree</h3>
+                            
+                        </div>
+                        <p class="tool-description">Generate sheet and view relationship data for visualization. Data is saved to DUMP folder for later use with visualization tools.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Wall Type Diagram</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Generate walltype legand view as well as view filter. The color is picked based on related filled region type, if not avaibale then pick new color for you.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Browser</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Family Browser</h3>
+                            
+                        </div>
+                        <p class="tool-description">A simple window that can help you search the family from AppliedComputing Library.
+
+Disclaimer: EnneadTab only help you find the family, but is not participating in the creation and maintainance of th...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">MetaData Exporter</h3>
+                            
+                        </div>
+                        <p class="tool-description">Process all the family file to generate a metadata file for usage later.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Contents</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">How to Use Ennead Library</h3>
+                            
+                        </div>
+                        <p class="tool-description">Click the icon to load the family, some older revit version family will be upgraded during the process. Then you can start to use it.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Import Export</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">BigRhino2Revit</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Convert recent Rhino2Revit output jobs into Revit families and load them into the project.
+
+This tool processes all recent output jobs from Rhino2Revit in Rhino and:
+1. Creates new generic families fr...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Block2Family</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Converts Rhino blocks to Revit families.
+
+This script processes block data exported from Rhino to create or update corresponding families in Revit.
+Key features:
+- Creates new families from Rhino bloc...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Brep2Mass</h3>
+                            
+                        </div>
+                        <p class="tool-description">Based on the brep data exported from EnneadTab for Rhino, create adaptive mass shape as native Revit object.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Content Transfer</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">A simple window that enables the transfer of view templates, object styles (SubCategory), and materials. The primary distinction between this tool and the default 'Transfer Project Standard' is its se...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DWG Export Update Layer</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Randomize the layer color, and rename the layer to to format below:
+    Category_SubCategory
+    
+This tool does not change other existing setting for this export setting.
+It makes life in Rhino easie...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Ennead Exporter</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Professional export solution that handles multiple file formats and workflows. This comprehensive utility manages PDF, DWG, and JPG exports simultaneously with intelligent organization by prefix and f...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Ennead Exporter</h3>
+                            
+                        </div>
+                        <p class="tool-description">A great helper for your print on deadline. Feastures include:
+  -pdf, dwg, jpg export together
+  -Package export files to subfolders in destination folder by assigned prefix and file type
+  -Prefix fo...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Export SubCategory Material Table</h3>
+                            
+                        </div>
+                        <p class="tool-description">Export the OST and material table so it can be used in Rhino import when using 'map Revit SubC'.
+
+With this tool, the layer in Rhino can be assigned with similar Revit material based on layer names.
+I...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Import Rhino Camera</h3>
+                            
+                        </div>
+                        <p class="tool-description">Work with Camera exported in Rhino side to recreate the same perspective camera.
+
+It can be useful for Enscape view recreation in Revit.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Import Rhino Material</h3>
+                            
+                        </div>
+                        <p class="tool-description">Import material definitions from Rhino into Revit. Creates new materials or updates existing ones based on Rhino material properties.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Isolated Export By System Family Type</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Pick category and type for the dwg export. It will isolate elements by types in the view and give individual .dwg file.
+
+The child elements such as shared family will be isolated as well.
+
+Use EnneadT...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Map Rhino Block to Revit Family</h3>
+                            
+                        </div>
+                        <p class="tool-description">Transform the Rhino block orientation to Adaptive Revit Family. It will be searching for same name as block name.
+ The biggest benift is You will no longer be restricted by level based vertical up fam...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Move2Origin</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Move family instances to the internal origin while maintaining current orientation.
+
+Three operation modes are available:
+1: Family is placed in 3D view with incorrect location - Select it and move it...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Review On Miro</h3>
+                            
+                        </div>
+                        <p class="tool-description">Intelligent Miro integration for continuous design review workflows. This powerful utility exports sheets directly to Miro with automatic version tracking - new sheets get blue crosses, updated sheets...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Revit2Rhino</h3>
+                            
+                        </div>
+                        <p class="tool-description">
+Script for exporting Revit Family Instances to Rhino.
+It converts each FamilyInstance's geometry into a Rhino block containing all its Breps
+(or fallback Meshes). 
+
+Block names in Rhino follow the fo...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Rhino Drafter</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">A drafter that allow you to take advantage of Rhino fast editing power. You can operate however you want for crvs and surfaces in Rhino, and transfer those content to Revit detail lines and filled reg...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Rhino2Revit</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Convert .3dm and .dwg files into native Revit family elements.
+Compared to shape2family and block2family, this tool give you the maximual control over subCategory mapping to existing category so you r...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">RoomOrArea2Diagram</h3>
+                            
+                        </div>
+                        <p class="tool-description">Export Revit Rooms/Areas to Rhino as color-coded diagrams.
+
+This tool creates a simplified diagram representation of Rooms or Areas in Rhino:
+- Exports boundaries with filleted corners
+- Maintains col...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Schedule2Excel</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Export and open schedule in excel.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Shape2Family</h3>
+                            
+                        </div>
+                        <p class="tool-description">This is to handle all the incoming geometry made from Rhino's shape2revit command.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Srf2Adp</h3>
+                            
+                        </div>
+                        <p class="tool-description">Convert surface in Rhino into Revit Adaptive. The sequence of the adaptive corner needs to be defined in previous step at Rhino.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Manage</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Change Family Unit</h3>
+                            
+                        </div>
+                        <p class="tool-description">Convert between a typical imperial family and metric family by setting up unit.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">CurtainWall Location Manager</h3>
+                            
+                        </div>
+                        <p class="tool-description">Manager your curtain wall locations by converting walls in current plan to abstract line.
+You can then modify/confirm the location of CW wall in that diagram and update the actual CW wall with this to...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DWG Manager</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">A simple window that help you manage DWG in the files. 
+You can find, select, zoom any dwgs with detailed infor on creator, view association, hidden status, workset, file path and file size. 
+
+For lin...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Family Parameter Batch Creation</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Help you get started with many families by adding many useful parameter quickly.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Fire Rating Graphic</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Fire Rating Graphic Manager
+
+A comprehensive fire rating management system that streamlines code compliance documentation.
+This powerful utility helps you:
+- Assign and track fire ratings across wall ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Identify Wrong Type Of KeynoteTAG</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">You should avoid using user keynotes, but if someone already did in the project, you can find them here.
+
+Also, element keynote and material keynote should be used by it repsected types. 
+If there is ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Internal Textnote Handler</h3>
+                            
+                        </div>
+                        <p class="tool-description">Handle internal textnotes in the project.
+This tool allows you to show or hide all internal textnotes at once.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Isolate Warnings</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">In the standalone window, you can zoom in with section box to a region that have a warning.
+
+As you are fixing it, you will see the warning count going down. When you sync baack after all the fix, the...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">KeynoteTAG Reset Color</h3>
+                            
+                        </div>
+                        <p class="tool-description">Reset all keynote tag local override color to default. It might got its color from the other checking type button.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Load Family From Link</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Load family from linked revit file without open those links. Non-editable families (in-place and system) will be skipped.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Load Multiple Families To Multiple Docs</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Pick many families, and load them to many projects. You can:
+	- 1 family >> x projects
+	- x families >> 1 projects
+	- x families >> x projects
+	- 1 family >> 1 project
+
+Have bonus option to sync and c...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Manage Working Views</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Powerful working view management system that helps maintain a clean project environment. This interactive interface allows you to quickly identify, review, and organize unsheeted views with intelligen...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Merge Family</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Merge a few family types to a target family type: 
+
+For instance parameters, the tool tries to record as much information as it can, so after the merging, similar data can be applied back to maintain ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Proj. Parameter Batch Adding</h3>
+                            
+                        </div>
+                        <p class="tool-description">Batch adding shared parameters to multiple project files. 
+This can reduce mistake during manual operation of repeating task.
+
+If this shared parameter has been added before, it will not add again.
+No...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Remove Not Placed Area and Rooms</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">This tool allows you to manage room and area accuracy by identifying and removing elements that are not properly placed in the project.
+
+Features:
+- Remove unplaced rooms and areas
+- Identify unbounde...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Shake All Tags</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sometimes the tag will not update after updating the component info. This can be resolved by shifting the tags up and down to force them to update.
+This tool moved all tags on the selected sheets back...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Track Detail Group</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Detail group detective that helps you track down where groups are used throughout your project. This bidirectional search tool allows you to find all instances of a specific detail group across views,...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">WorkSet Manager</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Advanced workset organization tool that brings order to collaborative projects. This floating interface provides multiple ways to reassign elements to appropriate worksets - by category, by host eleme...</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">No Tab</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">01_Family Path BIM360</h3>
+                            
+                        </div>
+                        <p class="tool-description">Order by GD</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Alias not set</h3>
+                            
+                        </div>
+                        <p class="tool-description">Prefix selected ref plane with 'W_' in the name</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Check Design Option(Depreciated)</h3>
+                            
+                        </div>
+                        <p class="tool-description">See what is inside your design option by colorize them.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Rename Level</h3>
+                            
+                        </div>
+                        <p class="tool-description">Remove '_' in level names, and replace 'C' to 'E'</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Show Category Temporarily</h3>
+                            
+                        </div>
+                        <p class="tool-description">for selected sheets, and selected categories, turn on the categories temperarly.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">rename Grids</h3>
+                            
+                        </div>
+                        <p class="tool-description">Replace _ with - in grid names</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">rename scopebox</h3>
+                            
+                        </div>
+                        <p class="tool-description">Rename scopebox by removing all '_' in scopebox name</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">test_get_rvt_link_data_in_template</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Personal</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Alias not set</h3>
+                            
+                        </div>
+                        <p class="tool-description">xxx</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Alias not set</h3>
+                            
+                        </div>
+                        <p class="tool-description">Shift Detail NUmber on viewport of current sheet by adding 10</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Discover Line Pattern</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find the line patterns that are similar in definition but silightly different.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Export GIF From Archive Model</h3>
+                            
+                        </div>
+                        <p class="tool-description">Attempt to export the same axon view from archive files</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Find Louvers</h3>
+                            
+                        </div>
+                        <p class="tool-description">Filter selection for panels with 'is_double pane spandrel' and 'is_louver lower' checked.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Floor Drafter</h3>
+                            
+                        </div>
+                        <p class="tool-description">TO-DO: this has potential, should revisit when there is a demand</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">GUI Match Pink</h3>
+                            
+                        </div>
+                        <p class="tool-description">Attemp to match sketch element. DO NOT USE, see newer api for eketch class.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Hide Section in Elevation by Orientation</h3>
+                            
+                        </div>
+                        <p class="tool-description">Hide the wall section marks in elevations if its defined orientation does not match the orienation of the elevation. 
+
+This will resolve the issue of seeing wall section mark from the other side of th...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">List All Unit Ids</h3>
+                            
+                        </div>
+                        <p class="tool-description">List all ForgeId for units</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Modify LineStyle in Group(For A.Chi)</h3>
+                            
+                        </div>
+                        <p class="tool-description">WORK IN PROGRESS, attempt to edit the linestyle usage that is bound to groups.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Refomula Label</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Rename All Fam</h3>
+                            
+                        </div>
+                        <p class="tool-description">Batch rename Revit families by replacing '_INT' and '_EXT' suffixes with company suffix.
+
+Key Features:
+- Processes all families in the current document
+- Handles naming conflicts automatically
+- Prov...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Replace Keynote With Symbol</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find and replace user keynote with annotation symbol.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Temp</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Temp Graphic Test</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Transfer Parameter Data</h3>
+                            
+                        </div>
+                        <p class="tool-description">Pick a family or system cateogry, pick to copy instance parameter data from A to B.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Transfer Sheet Order</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get the sheet order parameter value to a new format.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">resize_wall_tags</h3>
+                            
+                        </div>
+                        <p class="tool-description">Resize wall tags leader length to a user defined model space distance.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">sum_area_from_link</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sum all the area from link.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">test_coloner</h3>
+                            
+                        </div>
+                        <p class="tool-description">Test to clone from url using LibGit2Sharp.dll</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">test_schema</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 1643</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(OLD)Excel2Diagram</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Align Key Plams</h3>
+                            
+                        </div>
+                        <p class="tool-description">Align all keyplan to one source location viewpotty.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">AreaPlan to RoomPlan</h3>
+                            
+                        </div>
+                        <p class="tool-description">Convert all area boundary line to room seperation line, area to room in current view</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Assign Linked Views to PlanSet 7</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Excel2Diagram</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Fillet Area Corner</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Load Color Template</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update color scheme with office template excel version
+J:\1643\2_Master File\B-70_Programming\01_Program & Analysis\2024-04-11 Color Scheme_LHH.xls.
+NOTE: excel should be saved with .xls instead of .x...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Match Phase Sheet Layout</h3>
+                            
+                        </div>
+                        <p class="tool-description">Use me to batch align viewports over many sheet. It search the matching rule by detail number, then apply same title offset and title line length. This is built or LHH phasing diagrams and works way b...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Phase Diagram Layout update</h3>
+                            
+                        </div>
+                        <p class="tool-description">layout viewport on sheet based on the phasing and level name</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Rename Views</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Smart Match Grid Graphic</h3>
+                            
+                        </div>
+                        <p class="tool-description">This use the grphaical extend setup on all main LifeSafety view as guide to set all plan view grid visual. 
+
+It is the best invention since ketchup.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Text Area --> Area</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get the text type parameter value to area value by removing the 'SF' in the value and convert to float type</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Keyplan</h3>
+                            
+                        </div>
+                        <p class="tool-description">Auto pick keyplan based on the first doc view phase</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Life Safety Info</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update the life safety information data</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update WWR chart</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update the window wall ratio chart by reading filled region in groups</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">capitalize_data</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make all area data capitalized</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">change_para_key_group</h3>
+                            
+                        </div>
+                        <p class="tool-description">Change parameter keygroup of LifeSafetKey</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">grid_magic_name</h3>
+                            
+                        </div>
+                        <p class="tool-description">Format grid name</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">publish_360</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">shift_phase</h3>
+                            
+                        </div>
+                        <p class="tool-description">shift the created phase from 7 to 6</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">update_delta_area_graphic</h3>
+                            
+                        </div>
+                        <p class="tool-description">update the delta area graphic</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">update_grid_bldgId</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update grid bldgId with its scopebox information</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">update_level_relative_value</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update the relative value of the level so one level can display two set of datum.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 1900</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Open Favorite Views by Set</h3>
+                            
+                        </div>
+                        <p class="tool-description">Open many views by picking from print sets.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2001</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Assign Target</h3>
+                            
+                        </div>
+                        <p class="tool-description">Assign targets for symbol families. Pick a symbol family and assign glass/opaque targets.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Window Wall Ratio Sum</h3>
+                            
+                        </div>
+                        <p class="tool-description">Facade Glass vs Opaque Study for Cost estimation</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2108</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Block2Family</h3>
+                            
+                        </div>
+                        <p class="tool-description">After getting all the block data from Rhino side, create/update family in Revit.If the edit is about moving/rotating in rhino, the revit side will remove old family instance and get a new one based on...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Detail Line By Excel</h3>
+                            
+                        </div>
+                        <p class="tool-description">(Depreciated, moving to Tool in main E-tab)Generate detail line from the Excel survey pt data. Best used for property line geneation.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2125</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">2124_Replace Room Tag</h3>
+                            
+                        </div>
+                        <p class="tool-description">Replacing one type of roomtag on many sheets to another type.
+
+This process is not the same as merging. It is just doing selected replacement.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Align Viewports</h3>
+                            
+                        </div>
+                        <p class="tool-description">Align selected viewports to the right handside, with view title coming to right as well.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Find All Door Not Tagged</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find doors from this project that are not tagged yet. You can pick sheets to process. Only plan views will be considered.
+
+Requested by J.H.Park</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Find dup BEA room number</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find room with duplicated BEA room number per phase.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Offset View Crop</h3>
+                            
+                        </div>
+                        <p class="tool-description">Expand or shrink view crop on multiple viewports.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Set Filled Region Boundary Linestyle</h3>
+                            
+                        </div>
+                        <p class="tool-description">Set the filled region border line to a specific line style</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2128</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Randomly Reduce Panel Selection to 5 pack, requested by Chiwhei</h3>
+                            
+                        </div>
+                        <p class="tool-description">Randomly deselect from selection input.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2135</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">01_remove not placed area(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now in review panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">02_fill in default discount ratio if has not been filled</h3>
+                            
+                        </div>
+                        <p class="tool-description">Doc string not set</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">03.0_Assign Bldg ID data  by Scopebox</h3>
+                            
+                        </div>
+                        <p class="tool-description">xxx</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">03.2_change furnichure level by bldg id</h3>
+                            
+                        </div>
+                        <p class="tool-description">Relocate the furnichure level of the selected elements by building ID</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">04.1_efficiency block data filler</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get the data reading based on the rule from Efficiency schedule, process them and fill to the graphical symbal data calculator on sheets, which shows the workstation seat count, net area and gross are...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">05_area to excel 2.0, N3 Only</h3>
+                            
+                        </div>
+                        <p class="tool-description">Gather the data of GFA area plans and publish it to Excel in the format requested by the client.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">06_fix keyplan</h3>
+                            
+                        </div>
+                        <p class="tool-description">Batch apply keyplan instance parameter to many sheets.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">07_sheet, floor, level and grid plot number</h3>
+                            
+                        </div>
+                        <p class="tool-description">Assign plot ID to all sheet, floor, level and grid elements in project. This is critical for having a accurate shcedule from linked file.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">08_prefix views</h3>
+                            
+                        </div>
+                        <p class="tool-description">Prefix user input text before view names. Good for organizing workings such as slab edge drawings and GFA drawings.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">09_add node to surf, N3 spehere only</h3>
+                            
+                        </div>
+                        <p class="tool-description">Set surface divider number on selected face.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">10_By List: multiple panel radius by host wall</h3>
+                            
+                        </div>
+                        <p class="tool-description">pick panel types to be fixed, it will update the 'R' or 'r' parameter based on the curved host wall</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">11_prefix grids</h3>
+                            
+                        </div>
+                        <p class="tool-description">Prefix grid name with 'temp'</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">12_turn on elevator note and update data</h3>
+                            
+                        </div>
+                        <p class="tool-description">Turn on elevator notes about the base level and top level of the elevator model, its usage mark, and when was the last time this scheck was run.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">15.1_fix color_room department 2.0</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find the room department that is using names other than agreed name list. And attempt to fix it. 
+
+Name list location: 
+
+I:\2135\6_Team\CH\2022-03-05 Color Scheme\Room Department Script.txt</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">16_fix color_area department</h3>
+                            
+                        </div>
+                        <p class="tool-description">If area department is not part of user allowed list, find them and replace them.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">17_fix color_area office layout function</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get areas with department assignment outside predefined name list. And attempt to fix them.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">18_set bullit point by/to revision on sheet</h3>
+                            
+                        </div>
+                        <p class="tool-description">Transfer the data between issing parameter and titleblock revision schedule. Also can transfer issue data from last round to current round.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">19_[PDF and DWG and JPG exporter] <------</h3>
+                            
+                        </div>
+                        <p class="tool-description">The original flavour auto-exporter. It export pdf and dwgs and jpg, package them to different folders, and control the print by issuing parameter. The paper size and color setting is picked automatica...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">20_copy material from link, load family(beta) from link</h3>
+                            
+                        </div>
+                        <p class="tool-description">Copy graphical property of material from link, but keep the keynote data untouched.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">21.1_Open Many Bili Proj</h3>
+                            
+                        </div>
+                        <p class="tool-description">Open many Bili projects together.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">23_frit gradient</h3>
+                            
+                        </div>
+                        <p class="tool-description">Apply grediant frit pattern to the ADP family instance.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">24.1_Show/Hide Markups and Office layout 2.0</h3>
+                            
+                        </div>
+                        <p class="tool-description">For office markup elements( internal textnotes, sketch dims, etc), the tool goes thru the entire file and find them on each view, then it either hide and show them based on your choice.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">25_remove near or overlapped area or room tags</h3>
+                            
+                        </div>
+                        <p class="tool-description">Remove area tag or room tags that is visually very close on same view.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">26_align dim acroos sheet</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">27_TAG MANY VIEWS---</h3>
+                            
+                        </div>
+                        <p class="tool-description">Select views from project browser, remove tags that are too close to other tags( if they are taging the same element).
+
+It then tags Objects with user selected type</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">28_Set/Reset Empty Titleblock.</h3>
+                            
+                        </div>
+                        <p class="tool-description">Some LDI prefer a totally empty titleblock. Unfortunately, the revision schedule cannot be turned on/off by parameter control. SO this tool, will remove the sheet revisions, and store that information...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">29_transfer area to other scheme</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get the area boundary lines and areas from one area scheme to another.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">3.3_recreate room on correct level</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get the rooms that does not have associate level matching building id, then try to recreate this room in the coorect associate level. This is a common problem in early SD/DD where rooms are created in...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">30_remove dup area boundary line</h3>
+                            
+                        </div>
+                        <p class="tool-description">Remove duplicated the area boundary line for each view.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">31_what is in design option?(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now you can do better in color code design option</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">33_check monitoring status(Site File only)</h3>
+                            
+                        </div>
+                        <p class="tool-description">In the revit file with copy/monitor status, compare how many levels and grids have two way monitor status and how many have one way monitor.
+
+This usually happens when somewhere in the life cycle one ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">34_uncheck view note and translation from template</h3>
+                            
+                        </div>
+                        <p class="tool-description">Unbind the checkbox for view note and translation parameter from the view templates.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">35_Elevation and Grid orth-direction</h3>
+                            
+                        </div>
+                        <p class="tool-description">Check if all of your grids and elevations is orthoganal.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">36_repeat ADP</h3>
+                            
+                        </div>
+                        <p class="tool-description">For selected ADP componenets that have been placed. Run 'Repeat' Command for all of them. This saves you huge time on waiting for recalculating patterned placement.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">37A_set protected element(grid, level, scopebox)(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">37B_set protected element without name(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">37C_review protected elements(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">38_Purge SubC</h3>
+                            
+                        </div>
+                        <p class="tool-description">Purge Subcategory(Danger)</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">39_wall max_height</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find the geometrical max height of walls and store that data at 'Element_Max_Height_Report' parameter</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">40_Floor to Filled region</h3>
+                            
+                        </div>
+                        <p class="tool-description">Recreate a filled region using the same shape as the floor.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">41_ check if sheet on schedule</h3>
+                            
+                        </div>
+                        <p class="tool-description">Force to make all sheets check this 'Appears In Sheet List'. You are suggested to always use other method to filter sheets in schedule, becasue a QAQC sheet schedule should be able to see every sheet,...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">42_inspect material keynote, material, family and object style</h3>
+                            
+                        </div>
+                        <p class="tool-description">Inspect the material keynote, material, subCategory relationship and where there are being used.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">44.1_update internal dim selection set</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find the dims of internal dim type, and update the selection filter set for filter control.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">44_set/recover no color elevation/sections/plans</h3>
+                            
+                        </div>
+                        <p class="tool-description">For many cateogries, set or recover the color and surface pattern status so the dwg can have non-solid hatch. Many LDI prefer the dwg this way, while office pdf would prefer to show full foreground an...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">45_transfer material color background</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make material foreground graphic to background graphic</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">46A_move elements south 4500 thru copy/delete(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">46B_move elements south 4500 thru move(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">47_Isolate export type for Wall/Floor/Roof/Column/Stair(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now in Output panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">48_load many families to many docs</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, not under Family Panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">49_Export No Sheet View as Jpgs(Depreciated)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Depreciated</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">50_Delete view based on jpgs in folder(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now in view panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">51_rename detail num</h3>
+                            
+                        </div>
+                        <p class="tool-description">
+This function renames views in Revit based on their associated level and name. It first selects the views to be renamed. It then loops through each view in the selection and extracts the associated l...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">52_Assign Walltype Filter</h3>
+                            
+                        </div>
+                        <p class="tool-description">Batch create walltype filters with defined color to many view templates. 
+
+This is handy when doing the colored wall type diagram elevation.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">53_Make walltype legend(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now do it in output panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">54_Create Shared Para(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now do output panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">55_Add field to schedule(Depreciated)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Depreciated</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">56_Create revisions(Depreciated)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Depreciated</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">57_break composite floor</h3>
+                            
+                        </div>
+                        <p class="tool-description">For composite floor element, recreate the finish and structrue slab as seperate element. It will use the source footprint for both outcomes.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">58_Copy selected template to other open doc</h3>
+                            
+                        </div>
+                        <p class="tool-description">Copy selected view templates to other open models.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">60_detect_FOG</h3>
+                            
+                        </div>
+                        <p class="tool-description">Detect the FOG of curtain to the nearest palleral grid line.
+
+The result is ranked by how off the distance are to the nearest whole number.
+
+It also provide links to the problem curtain wall, and will...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">61_Import Rhino camera(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now in view panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">62_check sheet value</h3>
+                            
+                        </div>
+                        <p class="tool-description">Check esential sheet value has been assigned.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">63_Get model GUID</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get the GUID for current model. This is the identifier on BIM360 server.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">64_3D workset views(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now do it in view panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">65_replace_dim_text</h3>
+                            
+                        </div>
+                        <p class="tool-description">Replace the dim text that is below the dim number in current document from A to B. 
+
+For example, changing from 'FOG' to 'F.O.G.'</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">66_bundle Rhino(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">67_mark preserve color fillregion and detail item type</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sometimes you want to set certain filled region and detail item to be graphically controlled seperately from the category graphic. So you can use filter to assign special graphic. But the setting insi...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">68_stair_end_with_riser(Checker)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Check if the stairs are ending with a riser.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">69_stair_end_with_riser(Fixer)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Try to fix stairs that has end with a riser checked.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">70_FRW Dims(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE, attemp to auto dimension distence between FRW windows</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">71_check_level_id</h3>
+                            
+                        </div>
+                        <p class="tool-description">Print out all levels, ranked by elevation, to show level names and its level id data</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">72_fix_area_view_title(NOT IN USE)</h3>
+                            
+                        </div>
+                        <p class="tool-description">NOT IN USE</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">73_find_EOS_in_FOG_family</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find the modular marker family that have the EOS instance parameter turned on/off.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">74_bring_size_from_old_door</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get door size data from old file. Apply to current file by matching GUID.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">75_Fix Wall And Room sp_line Overlap</h3>
+                            
+                        </div>
+                        <p class="tool-description">In the standalone window, you can zoom in with section box to a region that have wall and room seperation line overlay warning.
+
+As you are fixing it, you will see the wanring count going down.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">76_load 2D family from container link(Legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now in family panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">77_Create/Update detail item from CAD</h3>
+                            
+                        </div>
+                        <p class="tool-description">For each selected dwg file, create new detail item family and load in the dwg, save family as the same name as the dwg, then load the family to project.
+
+This batch process is handy when your consalta...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">78_Mark RFR</h3>
+                            
+                        </div>
+                        <p class="tool-description">Mark detail items on this QAQC view with info about how many of this instance have been placed on other views of the document. And if more than one, which view.
+
+Handy after you brought in many conten...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">79_map_instance_property(legacy)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Legacy, now under family panel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">80_tag_room_too_high</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get rooms that is overlapping other rooms, and tag them in views from selected sheets.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">81_find_section_mark_not_from_sheet</h3>
+                            
+                        </div>
+                        <p class="tool-description">Locate sections in the viewport of the sheet that is refering to views from other sheet. For system drawing, most detail section mark should refer to current sheet.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">82_Link Dummy Callout To View From Link</h3>
+                            
+                        </div>
+                        <p class="tool-description">Assign a stable ID when creating the dummy reference. So even if future session, the dummy callout can still find the desired view data in the link file, and update the view detail number and sheet nu...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">83_Update Linked Dummy Callout</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update the view detail number and sheet number data based on the linked dummy callout. You need to have the related link loaded for it to find the linked view.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">84_sheet_translator</h3>
+                            
+                        </div>
+                        <p class="tool-description">DO NOT USE, use newer AI translator</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">85_adjust_line_pattern_definition</h3>
+                            
+                        </div>
+                        <p class="tool-description">Adjusting the line pattern definition to remove very similar but different definition, WIP</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">88_find_empty_tag</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find keynote tags that is current empty.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">89_identify_level_for_cw_panel</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find the nearest level by boundingbox lowest Z, then apply vent level as Comments</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">92_adjust_fin</h3>
+                            
+                        </div>
+                        <p class="tool-description">Adjust fin height by intersecting detail line.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Alias not set</h3>
+                            
+                        </div>
+                        <p class="tool-description">xxx</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Note: toolbar version 12.1</h3>
+                            
+                        </div>
+                        <p class="tool-description">If 2135 toolset not working for you, restart you revit to receive current update</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2142</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Bind New Shared Para</h3>
+                            
+                        </div>
+                        <p class="tool-description">Bind new shared parameters to Room category from Excel file. Requires a worksheet named 'Shared Paras To Add' with parameter names and types. User selects which columns contain parameter names and par...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Room Data Sheet Helper</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2151</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Un)Register Area Comment Live Updater</h3>
+                            
+                        </div>
+                        <p class="tool-description">Registration tool for automatic Area comment updates from Excel data. Monitors area elements for changes and syncs with external data.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Colorize Pills</h3>
+                            
+                        </div>
+                        <p class="tool-description">Colorize the diagram pills, requested by Gayatri</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DEPRECIATED: Confirm RGB</h3>
+                            
+                        </div>
+                        <p class="tool-description">Even when you type in the RGB value in excel, that might get changed by someone in the future and cannot be trusted. I suggest to NOT include RGB value in the excel so there is only one source of trut...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DEPRECIATED: Load Color Template</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update color scheme with office template excel version
+J:\2151\2_Master File\B-70_Programming\03_Colors\Color Scheme_NYULI_Active.xls.
+NOTE: excel should be saved with .xls instead of .xlsx format
+Als...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DEPRECIATED: Query Main Excel</h3>
+                            
+                        </div>
+                        <p class="tool-description">Use the shaed excel file to read the correct naming for department and program type. Provide solution to batch fix.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DEPRECIATED:Detailed Program Chart Update</h3>
+                            
+                        </div>
+                        <p class="tool-description">Basic area summery checker that update the data in special calculator. 
+
+This is also hooked to the sync event for this project. Request by Gayatri</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">DGSF Area Data Name Check</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Match Container</h3>
+                            
+                        </div>
+                        <p class="tool-description">
+Use container file as base to compare BIM data to other major NYULI docs for consistency.
+</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Pick Name</h3>
+                            
+                        </div>
+                        <p class="tool-description">Pick your pill, then assign name from a list. Request by Gayatri</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Set Linked View</h3>
+                            
+                        </div>
+                        <p class="tool-description">Set linked view for projects by a map.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Show Parking Mark</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Transfer In Excel Target</h3>
+                            
+                        </div>
+                        <p class="tool-description">Extract program information from Excel and transfer target value based on program name.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Dummy Patient Room</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update the data for dummy patient room so its data is correct in schedule.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Material Setting</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Parking Data</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update tehe parking dataso it make sense in schedeul.
+
+Note: this tool is to be run so first all parking stall update instance parameter.
+For the Site file it do the additional super summery.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2233</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Get Special Selection</h3>
+                            
+                        </div>
+                        <p class="tool-description">Based on the special brep defined in Rhino file, highlight specific panel instances in the current document.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2246</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Checker Board Selection</h3>
+                            
+                        </div>
+                        <p class="tool-description">Get checker board A/B selection from the curtain wall, requested by Furui</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2306</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Depreciated)Format Egress Doors</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make sure all door with Egress Id is accounted in the calculator collection.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Depreciated)Format Egress Stairs</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make sure all egress stair has consistent width on run, and push that to calculator stair width</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Depreciated)Format New Area</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make sure all areas have at least a valid discount data.
+
+Make sure all areas have department data.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Depreciated)Format New Rooms</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make sure all room 'Rooms_$LS_Occupancy Manual' is at-least zero.
+
+Also transfer the name of the life safety key to the title so you can see it on tags.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Depreciated)Format New Sheets</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make sure all sheets have a default Print_In_Color value.
+
+Make sure all sheets show in shecule</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">(Depreciated)Update Stair Capacity Calculator</h3>
+                            
+                        </div>
+                        <p class="tool-description">Gather the room life safety data from rooms of each level can sum and feed into the Stair Capacity Calculator for capacity required.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">All Cap Sheet Name and View Name</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make sure all sheet names and view names are capped.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Auto Detail Num</h3>
+                            
+                        </div>
+                        <p class="tool-description">Set the smallest detail number on sheet viewport to be 10.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">CAP_ALL_ROOM_NAME</h3>
+                            
+                        </div>
+                        <p class="tool-description">Make all room name as full CAP</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Excel Sheet Creator</h3>
+                            
+                        </div>
+                        <p class="tool-description">Create new sheets based on data from Excel</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Factory Internal All-In-One Check</h3>
+                            
+                        </div>
+                        <p class="tool-description">All In One Checker</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Line2Structure</h3>
+                            
+                        </div>
+                        <p class="tool-description">Convert line in Rhino into Revit Structure frame. Become a archi-column, strcutre column or frame needs to be defined in previous step at Rhino.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Remove Sheet Name Prefix Underscore</h3>
+                            
+                        </div>
+                        <p class="tool-description">Remove the sheet name underscore prefix.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Set Revision By BlackSquare</h3>
+                            
+                        </div>
+                        <p class="tool-description">Transfer the data between issing parameter and titleblock revision schedule. Also can transfer issue data from last round to current round.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Transfer Old Room Data</h3>
+                            
+                        </div>
+                        <p class="tool-description">Transfer room occupancy load data from old parameter to new parameter. See detail in script</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2314</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">All In One Checker</h3>
+                            
+                        </div>
+                        <p class="tool-description">Basic area summery checker that update the data in special calculator. 
+
+This is also hooked to the sync event for this project.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Assign Mirrored Panels</h3>
+                            
+                        </div>
+                        <p class="tool-description">For Ethan's beautiful diagram.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2317</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Assign Door Mat</h3>
+                            
+                        </div>
+                        <p class="tool-description">Assign materials to door panels and frames in the current phase using instance parameters Door_$Panel_Material and Door_$Frame_Material</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Check DWG Export Layer Mapping</h3>
+                            
+                        </div>
+                        <p class="tool-description">check NYU CAD export layer mapping rule</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Cleanup Dr Tag</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Room To Door Mark</h3>
+                            
+                        </div>
+                        <p class="tool-description">Update door marks based on their To Room parameter values. If multiple doors lead to the same room, append A, B, C etc. to make them unique.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Test Door Data</h3>
+                            
+                        </div>
+                        <p class="tool-description">Process door fire rating parameters by transferring 'Bad' values to other fire rating parameters.
+This script will:
+1. Find all doors with 'Bad' fire rating values
+2. Transfer these values to other fi...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Dr Style Name</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2330</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Update Life Safety</h3>
+                            
+                        </div>
+                        <p class="tool-description">This tool updates life safety parameters in a Revit project, ensuring compliance with occupancy and egress requirements.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2412</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Welcome Sparc</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2418</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Make Filter Legend</h3>
+                            
+                        </div>
+                        <p class="tool-description">Create view filters based on Generic Model family names, apply colors from CSS definitions, and generate a legend.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2419</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Chained Family Loading</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Chained Family Opening</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Print All Family Name</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. 2512</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Room Bounding To Area Boundary Lines</h3>
+                            
+                        </div>
+                        <p class="tool-description">Creates area boundary lines from room boundaries in selected Area Plan views.
+
+The tool processes each selected Area Plan view, finds all rooms on the associated level,
+and creates area boundary lines...</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Proj. Princeton</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Fire Door Checker</h3>
+                            
+                        </div>
+                        <p class="tool-description">Find rated walls and doors in the model and highlight them in schedules.
+
+Main Steps:
+1. Locate all rated walls based on fire rating parameter
+2. Find doors hosted on rated walls
+3. Cross reference wi...</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Resource</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">App Store</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Assistant</h3>
+                            
+                        </div>
+                        <p class="tool-description">Your all-in-one resource center for EnneadTab and Revit mastery! 
+
+This comprehensive assistant provides quick access to:
+- Learning resources and tutorials for Revit, Rhino, and CAD
+- YouTube trainin...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Beer Tab</h3>
+                            
+                        </div>
+                        <p class="tool-description">Designer's break companion that helps you maintain proper work-life balance. This essential utility provides quick access to local refreshment options when you need a mental reset. Perfect for those m...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">ChatGPT</h3>
+                            
+                        </div>
+                        <p class="tool-description">Integrated AI assistant that brings ChatGPT directly into your Revit environment. This powerful tool provides instant answers to Revit-related questions, code compliance inquiries, design challenges, ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Display Revit Warning History</h3>
+                            
+                        </div>
+                        <p class="tool-description">Doc string not set</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Documentation Hint</h3>
+                            
+                        </div>
+                        <p class="tool-description">Quickly print all the [Did you know] documentations.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">EnneadTab Setting</h3>
+                            
+                        </div>
+                        <p class="tool-description">Personalization control center for your EnneadTab experience. This comprehensive settings manager allows you to customize tab visibility, color schemes, notification preferences, and duck behavior. In...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">MiniBank</h3>
+                            
+                        </div>
+                        <p class="tool-description">Virtual achievement system that tracks your productivity and EnneadTab usage. This simple window displays your current MiniBank balance and leaderboard ranking, celebrating your contributions to the f...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Open Ecosystem Folder</h3>
+                            
+                        </div>
+                        <p class="tool-description">Jump to the ecosystem folder where you can inspect all the magic.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Reload EnneadTab</h3>
+                            
+                        </div>
+                        <p class="tool-description">Reload entire UI so can get newer buttons.....</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Remote Fix Code</h3>
+                            
+                        </div>
+                        <p class="tool-description">Emergency code fix tool for remote debugging and editing using VS Code Dev</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Soft Reload</h3>
+                            
+                        </div>
+                        <p class="tool-description">Just download the new repo and unzip. This will not reload the Reevit for UI change.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Tell Me Version</h3>
+                            
+                        </div>
+                        <p class="tool-description">Version information utility that displays the current build details for all EnneadTab components. This diagnostic tool provides complete version numbers, build dates, and update status for your instal...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Unit Test</h3>
+                            
+                        </div>
+                        <p class="tool-description">Diagnostic validation tool that verifies core EnneadTab modules are functioning correctly. This utility runs a comprehensive series of tests on critical system components to ensure proper operation ac...</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Tester</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Associate Parameter To Family</h3>
+                            
+                        </div>
+                        <p class="tool-description">Associate parameters to family, to be fillfulled by Colin</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Test Encoder 2025</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">Tools</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">AI Translate</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Intelligent translation assistant for your Revit project. Seamlessly translate sheet names, view names, and project text elements between languages. The AI-powered engine handles context-appropriate t...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Align H. Curtain Grid To Detail Lines/Levels(Elevation)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Horizontal curtain grid alignment wizard that saves hours of manual adjustments. This tool automatically snaps horizontal curtain grids to the nearest intersecting detail lines or level datums in elev...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Align V. Curtain Grid To Detail Lines/Grids(Plan)</h3>
+                            
+                        </div>
+                        <p class="tool-description">Precision curtain grid alignment tool that automatically snaps vertical curtain grids to intersecting detail lines and datum grids. Perfect for quickly coordinating facade layouts with architectural p...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Apply Panel Radius</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Advanced curtain panel radius management tool that automatically applies host wall curvature to panel elements. Intelligently identifies curved curtain walls and transfers radius values to panel param...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Batch Cut Elements</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Powerful batch cutting utility for curtain wall systems.
+
+This tool enables efficient creation of void cuts across multiple curtain panels.
+Features:
+- Batch process curtain walls or individual panels...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Color-Code Design Option</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Visual design option manager that transforms how you work with alternatives. Automatically color-codes elements belonging to different design options across selected views, making it instantly clear w...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Detail Line By Excel</h3>
+                            
+                        </div>
+                        <p class="tool-description">Precision detail line generator that imports survey point data directly from Excel spreadsheets. Automatically converts coordinate data into properly positioned Revit detail lines, creating grouped el...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Dim Text Helper</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Floating dimension annotation assistant that enhances documentation productivity. Quickly add industry-standard dimension text (FOG, EOS, FTF, etc.) to selected dimensions with precise control over te...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">HealthCare Helper</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Your ultimate healthcare project companion! Provides a comprehensive suite of tools for managing healthcare projects in Revit - from design guidelines and project setup to DGSF chart management and co...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Join All Column/Floor</h3>
+                            
+                        </div>
+                        <p class="tool-description">Automates the tedious task of joining columns and floors throughout your model. This time-saving utility identifies all column and floor elements and applies join geometry operations between them, pro...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Make Template From Current View</h3>
+                            
+                        </div>
+                        <p class="tool-description">The big different from the Revit version is that you can use this to fix the wrong view type template that was resulted from duplicating wrong view teyp and cause revit default type group to display w...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Open Doc(s) Siliently</h3>
+                            
+                        </div>
+                        <p class="tool-description">Batch opener for Revit files with enhanced reliability. Opens multiple documents while automatically handling warnings that would normally interrupt the process. Includes support for audit mode and de...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Orient Scopebox</h3>
+                            
+                        </div>
+                        <p class="tool-description">Intelligent scopebox alignment tool that precisely orients view boundaries to match model geometry. Using reference model lines as guides, this utility automatically calculates and applies the optimal...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Reset Join/Cut</h3>
+                            
+                        </div>
+                        <p class="tool-description">Troubleshooting utility for element join and cut relationships. Analyzes selected elements and removes all cutting and joining relationships, providing a detailed report of each operation. Perfect for...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">See You Again</h3>
+                            
+                        </div>
+                        <p class="tool-description">Smart session scheduler that prepares your Revit environment for your next work session. 
+
+This time-saving utility allows you to:
+- Schedule your current Revit files to reopen automatically
+- Choose ...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Set FilledRegion Border Style</h3>
+                            
+                        </div>
+                        <p class="tool-description">Specialized filled region styling tool that allows precise control over border line appearance. Quickly apply consistent line styles to multiple filled regions simultaneously, enhancing drawing clarit...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Super Renamer</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">A powerful simple window that provides efficient access to a comprehensive suite of renaming functions.
+    - Add or remove prefixes for selected views with a single click
+    - Convert Views and Shee...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Sync All Open Proj</h3>
+                            
+                        </div>
+                        <p class="tool-description">Project synchronization tool that keeps all your work up-to-date with a single click. This utility automatically synchronizes every open Revit project with its central file while keeping them open for...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Sync All Open Proj and Close</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">End-of-day project synchronization tool that tidies up your work environment with one click. This utility automatically synchronizes all open project documents with their central files, then cleanly c...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Tag Aligner</h3>
+                            
+                        </div>
+                        <p class="tool-description">Precision tag alignment assistant that brings order to your documentation. This floating interface allows you to quickly align multiple tags horizontally or vertically based on a reference tag. Perfec...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Toggle Contents</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Master visibility controller for Revit elements. Efficiently manage pin/unpin status, visibility settings, and annotation bubble heads across multiple categories and views. Perfect for cleaning up vie...</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="tab-section">
+                <h2 class="tab-title">UI</h2>
+                <div class="tools-grid">
+            
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Open App Store</h3>
+                            
+                        </div>
+                        <p class="tool-description">Sen Zhang has not writed documentation for this tool, but he should!</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Ownership Inspect</h3>
+                            
+                        </div>
+                        <p class="tool-description">Element ownership detective that reveals who's controlling what in your model! This comprehensive scanner examines all categories of elements and reports which team members have ownership of various o...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Pick Absolute Similar</h3>
+                            
+                        </div>
+                        <p class="tool-description">Advanced element matching wizard that finds truly identical elements throughout your model. Unlike Revit's built-in selection tools, this utility performs deep parameter comparison to identify element...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Place Views On Sheets</h3>
+                            
+                        </div>
+                        <p class="tool-description">Monitor for new views in the project and allow quick renaming through a non-blocking interface.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Prefilter Selection</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Just like the prefilter selection in Rhino, this allow you to narrow down selection beofre heavy window selection and post filter.
+Very helpful when the drawing is very crowded.
+
+You can enable multip...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Search Command</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">Intelligent command search engine for Revit. This powerful search utility helps you locate tools across both EnneadTab and native Revit interfaces with ranked results based on name and documentation m...</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">Toggle Warnings</h3>
+                            
+                        </div>
+                        <p class="tool-description">Show warnings in the active view.</p>
+                    </div>
+                
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <h3 class="tool-title">What Happened?</h3>
+                            <span class="popular-badge">⭐ Popular</span>
+                        </div>
+                        <p class="tool-description">A simple window that give you information of the creator, editor and owner of selected elements and active view.</p>
+                    </div>
+                
+                </div>
+            </div>
+            
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>
+                © 2024 EnneadTab. For support and inquiries, contact 
+                <a href="mailto:szhang@ennead.com">szhang@ennead.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tool-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                card.style.opacity = '0';
+            });
+        });
+    </script>
 </body>
 </html>
