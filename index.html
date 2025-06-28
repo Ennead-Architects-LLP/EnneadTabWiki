@@ -10,21 +10,25 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         html, body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #222;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F5F5DC;
+            color: #2F2F2F;
+            line-height: 1.6;
+            font-size: 16px;
         }
+
         .header {
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0 1rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            background: #FFFFFF;
+            border-bottom: 1px solid #D2B48C;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
         }
+
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -33,309 +37,312 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo-section {
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #8B7355;
+        }
+
+        .nav {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-        .logo-icon {
-            font-size: 2.5rem;
-            color: #667eea;
+
+        .nav-subtitle {
+            color: #6B6B6B;
+            font-size: 0.9rem;
         }
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .nav-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+
+        .nav-link {
+            color: #8B7355;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        .nav-button:hover, .card-button:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 24px rgba(102,126,234,0.13);
+
+        .nav-link:hover {
+            color: #A0522D;
         }
-        .main-content-wrapper {
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #8B7355;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #A0522D;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #6B6B6B;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            margin-bottom: 4rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: #FFFFFF;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
+            border: 1px solid #D2B48C;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8B7355;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #6B6B6B;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .platforms {
+            margin-bottom: 4rem;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .platform-card {
+            background: #FFFFFF;
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(139, 115, 85, 0.1);
+            border: 1px solid #D2B48C;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(139, 115, 85, 0.1);
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .platform-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #8B7355;
+            margin-bottom: 1rem;
+        }
+
+        .platform-description {
+            color: #6B6B6B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .platform-stats {
+            color: #A0522D;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-button {
+            display: inline-block;
+            background: #8B7355;
+            color: #FFFFFF;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .platform-button:hover {
+            background: #A0522D;
+        }
+
+        .content-wrapper {
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem;
+            gap: 3rem;
         }
+
         .sidebar-nav {
-            min-width: 220px;
-            max-width: 260px;
-            margin-right: 2rem;
-            background: rgba(255,255,255,0.92);
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-            padding: 1.5rem 1rem;
-            position: sticky;
-            top: 110px;
+            min-width: 250px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
+            border: 1px solid #D2B48C;
             height: fit-content;
-            align-self: flex-start;
+            position: sticky;
+            top: 100px;
         }
+
         .sidebar-nav ul {
             list-style: none;
         }
+
         .sidebar-nav li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
+
         .sidebar-nav a {
-            color: #667eea;
+            color: #2F2F2F;
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.05rem;
             transition: color 0.2s;
+            display: block;
+            padding: 0.5rem 0;
         }
+
         .sidebar-nav a:hover {
-            color: #764ba2;
-            text-decoration: underline;
+            color: #8B7355;
         }
+
         .main-content {
             flex: 1;
             min-width: 0;
         }
-        .search-bar-wrapper {
-            position: sticky;
-            top: 80px;
-            z-index: 99;
-            background: rgba(255,255,255,0.97);
-            padding: 1.2rem 0 0.5rem 0;
-            margin-bottom: 1.5rem;
+
+        .search-container {
+            margin-bottom: 2rem;
         }
-        .search-bar {
+
+        .search-input {
             width: 100%;
             max-width: 500px;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
-            border: 1.5px solid #ddd;
-            font-size: 1.1rem;
+            padding: 0.75rem 1rem;
+            border: 2px solid #D2B48C;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #FFFFFF;
             outline: none;
-            transition: border 0.2s;
-            margin-bottom: 0.5rem;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: border-color 0.2s;
         }
-        .search-bar:focus {
-            border: 1.5px solid #667eea;
+
+        .search-input:focus {
+            border-color: #8B7355;
         }
+
         .tab-section {
-            background: rgba(255,255,255,0.98);
-            border-radius: 20px;
+            background: #FFFFFF;
+            border-radius: 16px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
+            border: 1px solid #D2B48C;
         }
+
         .tab-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #667eea;
+            color: #8B7355;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #D2B48C;
         }
+
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
+
         .tool-card {
-            background: white;
-            border-radius: 15px;
+            background: #F5F5DC;
+            border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s cubic-bezier(.4,0,.2,1);
-            border: 2px solid transparent;
-            position: relative;
+            border: 1px solid #D2B48C;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
         .tool-card:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.13);
-            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
         }
+
         .tool-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1rem;
         }
+
         .tool-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #222;
+            color: #2F2F2F;
             margin: 0;
         }
+
         .popular-badge {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #333;
-            padding: 0.3rem 0.6rem;
-            border-radius: 12px;
+            background: #A0522D;
+            color: #FFFFFF;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
             font-size: 0.7rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
+
         .tool-description {
-            color: #666;
+            color: #6B6B6B;
             line-height: 1.5;
-            font-size: 0.98rem;
-        }
-        .hero-section {
-            background: rgba(255,255,255,0.98);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #764ba2;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        .hero-description {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .stats-section {
-            background: rgba(255,255,255,0.98);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-        }
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-        .stat-label {
-            color: #666;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        .card-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(.4,0,.2,1);
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        }
-        .footer {
-            background: rgba(255,255,255,0.97);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-            border-top: 1px solid #eee;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            color: #888;
-            font-size: 0.98rem;
-        }
-        .footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .shape {
-            position: absolute;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
-        /* Back to Top Button */
+
         .back-to-top {
             position: fixed;
-            right: 2.5rem;
-            bottom: 2.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
+            right: 2rem;
+            bottom: 2rem;
+            background: #8B7355;
+            color: #FFFFFF;
             border: none;
             border-radius: 50%;
             width: 48px;
@@ -343,134 +350,154 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            font-size: 1.2rem;
             cursor: pointer;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s, transform 0.3s;
             z-index: 200;
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
         }
+
         .back-to-top.visible {
             opacity: 1;
             pointer-events: auto;
-            transform: scale(1.08);
         }
-        @media (max-width: 1100px) {
-            .main-content-wrapper {
-                flex-direction: column;
-            }
-            .sidebar-nav {
-                position: static;
-                margin-bottom: 2rem;
-                width: 100%;
-                max-width: 100%;
-            }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: #A0522D;
         }
+
+        .footer {
+            background: #FFFFFF;
+            border-top: 1px solid #D2B48C;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #6B6B6B;
+        }
+
+        .footer a {
+            color: #8B7355;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
             }
-            .main-content-wrapper {
+
+            .content-wrapper {
                 flex-direction: column;
-                padding: 1rem 0.5rem;
-            }
-            .sidebar-nav {
-                margin-right: 0;
-                margin-bottom: 1.5rem;
-                padding: 1rem 0.5rem;
-            }
-            .main-content {
-                padding: 0;
-            }
-            .tab-section {
                 padding: 1rem;
             }
-            .tab-title {
-                font-size: 1.2rem;
+
+            .sidebar-nav {
+                position: static;
+                margin-bottom: 2rem;
             }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
             .tools-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .tool-card {
-                padding: 1rem;
             }
         }
         </style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
     <header class="header">
         <div class="header-content">
-            <div class="logo-section">
+            <div class="logo">
                 <span class="logo-icon">🦢</span>
-                <span class="logo-text">EnneadTab Knowledge</span>
+                <span class="logo-text">EnneadTab</span>
             </div>
+            <nav class="nav">
+                <span class="nav-subtitle">Knowledge Center</span>
+            </nav>
         </div>
     </header>
-    <main class="container">
-        <h1 class="logo">EnneadTab</h1>
-        <p class="subtitle">Knowledge Center</p>
-        <p class="description">
-            Welcome to the comprehensive knowledge base for EnneadTab. Explore our extensive collection of guides for both Rhino and Revit workflows.
-        </p>
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">474</div>
-                <div class="stat-label">Total Tools</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">147</div>
-                <div class="stat-label">Rhino Tools</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">327</div>
-                <div class="stat-label">Revit Tools</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">85</div>
-                <div class="stat-label">Popular Tools</div>
-            </div>
-        </div>
-        <div class="knowledge-grid">
-            <div class="knowledge-card" onclick="window.location.href='rhino.html'">
-                
-                <h2 class="card-title">EnneadTab For Rhino</h2>
-                <p class="card-description">
-                    Workflow, modeling, drafting, interoperability, and fun.
-                </p>
-                <div class="card-stats">
-                    147 tools available • 34 popular tools
-                </div>
-                <a href="rhino.html" class="card-button">Explore EnneadTab For Rhino</a>
-            </div>
 
-            <div class="knowledge-card" onclick="window.location.href='revit.html'">
-                
-                <h2 class="card-title">EnneadTab For Revit</h2>
-                <p class="card-description">
-                    Workflow, modeling, interoperability, QAQC, data management, project tailoring, and fun.
-                </p>
-                <div class="card-stats">
-                    327 tools available • 51 popular tools
+    <main class="main">
+        <section class="hero">
+            <h1 class="hero-title">EnneadTab Knowledge</h1>
+            <p class="hero-subtitle">Comprehensive guides for Rhino and Revit workflows</p>
+            <p class="hero-description">
+                Discover our extensive collection of tools, tips, and techniques to enhance your design workflow.
+            </p>
+        </section>
+
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">474</div>
+                    <div class="stat-label">Total Tools</div>
                 </div>
-                <a href="revit.html" class="card-button">Explore EnneadTab For Revit</a>
+                <div class="stat-card">
+                    <div class="stat-number">147</div>
+                    <div class="stat-label">Rhino Tools</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">327</div>
+                    <div class="stat-label">Revit Tools</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">85</div>
+                    <div class="stat-label">Popular Tools</div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="platforms">
+            <div class="platform-grid">
+                <div class="platform-card" onclick="window.location.href='rhino.html'">
+                    <div class="platform-icon">🦏</div>
+                    <h2 class="platform-title">Rhino</h2>
+                    <p class="platform-description">
+                        Modeling, drafting, interoperability, and workflow tools for Rhino.
+                    </p>
+                    <div class="platform-stats">
+                        147 tools • 34 popular
+                    </div>
+                    <a href="rhino.html" class="platform-button">Explore Rhino Tools</a>
+                </div>
+
+                <div class="platform-card" onclick="window.location.href='revit.html'">
+                    <div class="platform-icon">🏗️</div>
+                    <h2 class="platform-title">Revit</h2>
+                    <p class="platform-description">
+                        Workflow, modeling, QAQC, data management, and project tailoring for Revit.
+                    </p>
+                    <div class="platform-stats">
+                        327 tools • 51 popular
+                    </div>
+                    <a href="revit.html" class="platform-button">Explore Revit Tools</a>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
         <div class="footer-content">
-            <p>
-                © 2025 EnneadTab. For support and inquiries, contact 
-                <a href="mailto:szhang@ennead.com">szhang@ennead.com</a>
-            </p>
+            <p>© 2025 EnneadTab. For support, contact <a href="mailto:szhang@ennead.com">szhang@ennead.com</a></p>
         </div>
     </footer>
 </body>
