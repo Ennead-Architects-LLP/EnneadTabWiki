@@ -10,170 +10,246 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        html, body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #222;
+        }
+        .header {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #333;
+            justify-content: space-between;
         }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 900px;
-            width: 90%;
-            animation: fadeInUp 0.8s ease-out;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #667eea;
         }
-
-        .logo {
-            font-size: 3.5rem;
+        .logo-text {
+            font-size: 2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        .nav-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .nav-button:hover, .card-button:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(102,126,234,0.13);
+        }
+        .main-content-wrapper {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .sidebar-nav {
+            min-width: 220px;
+            max-width: 260px;
+            margin-right: 2rem;
+            background: rgba(255,255,255,0.92);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 1.5rem 1rem;
+            position: sticky;
+            top: 110px;
+            height: fit-content;
+            align-self: flex-start;
+        }
+        .sidebar-nav ul {
+            list-style: none;
+        }
+        .sidebar-nav li {
             margin-bottom: 1rem;
-            letter-spacing: -2px;
         }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-weight: 300;
+        .sidebar-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.2s;
         }
-
-        .description {
+        .sidebar-nav a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .search-bar-wrapper {
+            position: sticky;
+            top: 80px;
+            z-index: 99;
+            background: rgba(255,255,255,0.97);
+            padding: 1.2rem 0 0.5rem 0;
+            margin-bottom: 1.5rem;
+        }
+        .search-bar {
+            width: 100%;
+            max-width: 500px;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            border: 1.5px solid #ddd;
             font-size: 1.1rem;
-            color: #555;
-            line-height: 1.6;
+            outline: none;
+            transition: border 0.2s;
+            margin-bottom: 0.5rem;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .search-bar:focus {
+            border: 1.5px solid #667eea;
+        }
+        .tab-section {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 2rem;
             margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
-
-        .stats-grid {
+        .tab-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin: 2rem 0;
         }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.8);
+        .tool-card {
+            background: white;
             border-radius: 15px;
             padding: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            border: 2px solid transparent;
+            position: relative;
         }
-
+        .tool-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.13);
+            border-color: #667eea;
+        }
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #222;
+            margin: 0;
+        }
+        .popular-badge {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tool-description {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.98rem;
+        }
+        .hero-section {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .hero-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stats-section {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: #667eea;
             margin-bottom: 0.5rem;
         }
-
         .stat-label {
             color: #666;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        .knowledge-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .knowledge-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .knowledge-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .knowledge-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
-        }
-
-        .knowledge-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .rhino-icon {
-            color: #2d5aa0;
-        }
-
-        .revit-icon {
-            color: #e74c3c;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .card-description {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-stats {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 1.5rem;
-        }
-
         .card-button {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -183,53 +259,32 @@
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
             text-decoration: none;
             display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
-
-        .card-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
         .footer {
+            background: rgba(255,255,255,0.97);
+            padding: 2rem;
+            text-align: center;
             margin-top: 3rem;
-            padding-top: 2rem;
             border-top: 1px solid #eee;
-            color: #888;
-            font-size: 0.9rem;
         }
-
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #888;
+            font-size: 0.98rem;
+        }
         .footer a {
             color: #667eea;
             text-decoration: none;
         }
-
         .footer a:hover {
             text-decoration: underline;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 2rem;
-                margin: 1rem;
-            }
-
-            .logo {
-                font-size: 2.5rem;
-            }
-
-            .knowledge-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .knowledge-card {
-                padding: 1.5rem;
-            }
-        }
-
         .floating-shapes {
             position: fixed;
             top: 0;
@@ -239,14 +294,12 @@
             pointer-events: none;
             z-index: -1;
         }
-
         .shape {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.08);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
         }
-
         .shape:nth-child(1) {
             width: 80px;
             height: 80px;
@@ -254,7 +307,6 @@
             left: 10%;
             animation-delay: 0s;
         }
-
         .shape:nth-child(2) {
             width: 120px;
             height: 120px;
@@ -262,7 +314,6 @@
             right: 10%;
             animation-delay: 2s;
         }
-
         .shape:nth-child(3) {
             width: 60px;
             height: 60px;
@@ -270,7 +321,6 @@
             left: 20%;
             animation-delay: 4s;
         }
-
         @keyframes float {
             0%, 100% {
                 transform: translateY(0px) rotate(0deg);
@@ -279,7 +329,77 @@
                 transform: translateY(-20px) rotate(180deg);
             }
         }
-    </style>
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 2.5rem;
+            bottom: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 200;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1.08);
+        }
+        @media (max-width: 1100px) {
+            .main-content-wrapper {
+                flex-direction: column;
+            }
+            .sidebar-nav {
+                position: static;
+                margin-bottom: 2rem;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .main-content-wrapper {
+                flex-direction: column;
+                padding: 1rem 0.5rem;
+            }
+            .sidebar-nav {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+                padding: 1rem 0.5rem;
+            }
+            .main-content {
+                padding: 0;
+            }
+            .tab-section {
+                padding: 1rem;
+            }
+            .tab-title {
+                font-size: 1.2rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .tool-card {
+                padding: 1rem;
+            }
+        }
+        </style>
 </head>
 <body>
     <div class="floating-shapes">
@@ -287,14 +407,20 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-
-    <div class="container">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <span class="logo-icon">🦢</span>
+                <span class="logo-text">EnneadTab Knowledge</span>
+            </div>
+        </div>
+    </header>
+    <main class="container">
         <h1 class="logo">EnneadTab</h1>
         <p class="subtitle">Knowledge Center</p>
         <p class="description">
             Welcome to the comprehensive knowledge base for EnneadTab. Explore our extensive collection of guides for both Rhino and Revit workflows.
         </p>
-
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number">474</div>
@@ -313,7 +439,6 @@
                 <div class="stat-label">Popular Tools</div>
             </div>
         </div>
-
         <div class="knowledge-grid">
             <div class="knowledge-card" onclick="window.location.href='rhino.html'">
                 
@@ -339,29 +464,14 @@
                 <a href="revit.html" class="card-button">Explore EnneadTab For Revit</a>
             </div>
         </div>
-
-        <div class="footer">
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
             <p>
                 © 2025 EnneadTab. For support and inquiries, contact 
                 <a href="mailto:szhang@ennead.com">szhang@ennead.com</a>
             </p>
         </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.knowledge-card');
-            cards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    if (e.target.tagName !== 'A') {
-                        const link = this.querySelector('a');
-                        if (link) {
-                            link.click();
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+    </footer>
 </body>
 </html>
