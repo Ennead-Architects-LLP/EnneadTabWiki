@@ -505,7 +505,28 @@
                 margin-bottom: 1rem;
             }
         }
-        </style>
+        
+    .install-guide-callout {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    .install-guide-btn {
+        background: #8B7355;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
+        transition: background 0.2s;
+        display: inline-block;
+    }
+    .install-guide-btn:hover {
+        background: #A0522D;
+    }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -520,6 +541,11 @@
     </header>
 
     <main class="main">
+        
+        <div class="install-guide-callout">
+            <a href="installation.html" class="install-guide-btn">🛠️ Step-by-Step Installation Guide</a>
+        </div>
+        
         <section class="hero">
             <h1 class="hero-title">EnneadTabWiki Knowledge</h1>
             <p class="hero-subtitle">Comprehensive guides for Rhino and Revit workflows</p>
