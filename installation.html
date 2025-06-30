@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide - EnneadTabWiki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: #f5f5dc; color: #2f2f2f; margin: 0; }
+        .header { background: #fff; border-bottom: 1px solid #d2b48c; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1); }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo-text { font-size: 1.5rem; font-weight: 600; color: #8b7355; letter-spacing: 0.04em; }
+        .nav-link { color: #8b7355; text-decoration: none; font-weight: 500; font-size: 1rem; }
+        .nav-link:hover { color: #a0522d; }
+        .main { max-width: 700px; margin: 2rem auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1); padding: 2rem; }
+        h1 { color: #8b7355; font-size: 2rem; margin-bottom: 1.5rem; }
+        .progress-bar-bg { width: 100%; background: #e6d3b3; border-radius: 8px; height: 18px; margin-bottom: 2rem; }
+        .progress-bar { height: 18px; background: #8b7355; border-radius: 8px; transition: width 0.3s; }
+        .question, .step-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: #a0522d; }
+        .hint { background: #f5f5dc; border-left: 4px solid #a0522d; padding: 0.75rem 1rem; margin-bottom: 1rem; color: #6b6b6b; border-radius: 6px; }
+        .answers { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+        .answer-btn, .next-btn, .back-btn { background: #8b7355; color: #fff; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-right: 1rem; }
+        .answer-btn:hover, .next-btn:hover, .back-btn:hover { background: #a0522d; }
+        .back-btn { background: #d2b48c; color: #2f2f2f; margin-right: 0.5rem; }
+        .back-btn:hover { background: #a0522d; color: #fff; }
+        .step { display: none; }
+        .step.active { display: block; }
+        .guide-img { max-width: 100%; border-radius: 8px; margin: 1rem 0; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.08); }
+        @media (max-width: 600px) { .main { padding: 1rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><span class="logo-text">EnneadTabWiki</span></div>
+            <nav class="nav"><a href="index.html" class="nav-link">← Back to Knowledge Center</a></nav>
+        </div>
+    </header>
+    <main class="main">
+        <h1>Step-by-Step Installation Guide</h1>
+        <div class="progress-bar-bg"><div id="progressBar" class="progress-bar" style="width: 0%"></div></div>
+        <!-- Questionnaire Steps -->
+        <div id="step0" class="step active">
+            <div class="question">Is this your first time installing EnneadTab on this machine?</div>
+            <div class="hint">Hint: If you have never installed EnneadTab before, or you are setting up a new computer, this is your first time. <br>How do you know? If you don't see an "EnneadTab Ecosystem" folder in your Documents, it's your first time.</div>
+            <div class="answers">
+                <button class="answer-btn" onclick="goToStep(1)">Yes, first time</button>
+                <button class="answer-btn" onclick="goToStep(2)">No, I have installed before</button>
+            </div>
+        </div>
+        <div id="step1" class="step">
+            <div class="step-title">Download and run the OS installer</div>
+            <div class="hint">You can get the installer from:<br>
+                <b>Ennead Network:</b> <code>L:\4b_Applied Computing\EnneadTab-DB\Stand Alone Tools\EnneadTab_OS_Installer.exe</code><br>
+                <b>GitHub:</b> <a href="https://github.com/Ennead-Architects-LLP/EA_Dist/blob/main/Installation/EnneadTab_OS_Installer.exe" target="_blank">Download from GitHub</a>
+            </div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToStep(2)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToStep(0)">← Back</button>
+        </div>
+        <div id="step2" class="step">
+            <div class="question">Are you getting ready to use EnneadTab for Rhino, Revit, or Both?</div>
+            <div class="answers">
+                <button class="answer-btn" onclick="chooseProduct('rhino')">Rhino Only</button>
+                <button class="answer-btn" onclick="chooseProduct('revit')">Revit Only</button>
+                <button class="answer-btn" onclick="chooseProduct('both')">Both Rhino and Revit</button>
+            </div>
+            <button class="back-btn" onclick="goToStep(0)">← Back</button>
+        </div>
+        <!-- Rhino Steps -->
+        <div id="rhinoStep0" class="step">
+            <div class="step-title">Uninstall legacy EnneadTab for Rhino (Support dropped in 2023)</div>
+            <div class="hint"><strong>How do I know if I have the legacy version? If your Rhino toolbar says "Ennead" or "Ennead+", instead of the "EnneadTab", you have the legacy version. Drop in the installer.rui and use the uninstall button from the menu and restart Rhino.</strong></div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRhinoStep(1)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToStep(2)">← Back</button>
+        </div>
+        <div id="rhinoStep1" class="step">
+            <div class="step-title">Navigate to the installation folder</div>
+            <div class="hint">Go to <code>C:\Users\[USER_NAME]\Documents\EnneadTab Ecosystem\EA_Dist\Installation</code></div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRhinoStep(2)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRhinoStep(0)">← Back</button>
+        </div>
+        <div id="rhinoStep2" class="step">
+            <div class="step-title">Open ONLY ONE Rhino window</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRhinoStep(3)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRhinoStep(1)">← Back</button>
+        </div>
+        <div id="rhinoStep3" class="step">
+            <div class="step-title">Drag EnneadTab_For_Rhino_Installer.rui into the Rhino window</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRhinoStep(4)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRhinoStep(2)">← Back</button>
+        </div>
+        <div id="rhinoStep4" class="step">
+            <div class="step-title">Find the "Enneaaaaaaaaaaaad" menu and click on "Install"</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRhinoStep(5)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRhinoStep(3)">← Back</button>
+        </div>
+        <div id="rhinoStep5" class="step">
+            <div class="step-title">For Rhino 8 and above: Sidebar not showing up?</div>
+            <div class="hint">Go to Rhino settings and toggle the 'Block' collection or other checkboxes to trigger activation. Make sure to check the Group: Dynamic Rui at the end.</div>
+            <img src="assets/Instruction_toggle_r8_sidebar.png" alt="Rhino sidebar setting" class="guide-img">
+            <div class="answers">
+                <button class="next-btn" onclick="goToRhinoStep(6)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRhinoStep(4)">← Back</button>
+        </div>
+        <div id="rhinoStep6" class="step">
+            <div class="step-title">Restart Rhino</div>
+            <div class="hint">Rhino only remembers the setting of the most recently closed Rhino. Using only one Rhino helps make installation stick.</div>
+            <div class="answers">
+                <button class="next-btn" onclick="afterRhino()">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRhinoStep(5)">← Back</button>
+        </div>
+        <!-- Revit Steps -->
+        <div id="revitStep0" class="step">
+            <div class="step-title">Check your pyRevit version</div>
+            <div class="hint">What version is your pyRevit? (This depends on what year of Revit you will be using.)</div>
+            <ul class="guide-list">
+                <li><b>2026:</b> Need pyRevit 5.1.0 or above</li>
+                <li><b>2025:</b> Need pyRevit 5.0.1 or above</li>
+                <li><b>2024 and before:</b> Need pyRevit 4.8 or above</li>
+            </ul>
+            <div class="hint">To get the latest pyRevit, go to <a href="https://github.com/pyrevitlabs/pyRevit/releases" target="_blank">pyRevit Releases</a> and pick the first one under "Download". No admin rights needed.</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRevitStep(1)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToStep(2)">← Back</button>
+        </div>
+        <div id="revitStep1" class="step">
+            <div class="step-title">No need to uninstall old EnneadTab-For-Revit</div>
+            <div class="hint">It will be handled automatically.</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRevitStep(2)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRevitStep(0)">← Back</button>
+        </div>
+        <div id="revitStep2" class="step">
+            <div class="step-title">Make sure no Revit is running during the installation</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRevitStep(3)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRevitStep(1)">← Back</button>
+        </div>
+        <div id="revitStep3" class="step">
+            <div class="step-title">Navigate to the installation folder</div>
+            <div class="hint">Go to <code>C:\Users\[USER_NAME]\Documents\EnneadTab Ecosystem\EA_Dist\Installation</code></div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRevitStep(4)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRevitStep(2)">← Back</button>
+        </div>
+        <div id="revitStep4" class="step">
+            <div class="step-title">Double click on EnneadTab-For-Revit.exe</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRevitStep(5)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRevitStep(3)">← Back</button>
+        </div>
+        <div id="revitStep5" class="step">
+            <div class="step-title">You can now open Revit</div>
+            <div class="answers">
+                <button class="next-btn" onclick="goToRevitStep(6)">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRevitStep(4)">← Back</button>
+        </div>
+        <div id="revitStep6" class="step">
+            <div class="step-title">(Optional) Configure your Revit's notification level in EnneadTab Revit settings</div>
+            <div class="hint">For a complete command list, see the <a href="https://github.com/Ennead-Architects-LLP/EA_Dist/blob/main/Installation/EnneadTab_For_Revit_HandBook.pdf" target="_blank">EnneadTab For Revit Handbook</a>.</div>
+            <div class="answers">
+                <button class="next-btn" onclick="afterRevit()">Next</button>
+            </div>
+            <button class="back-btn" onclick="goToRevitStep(5)">← Back</button>
+        </div>
+        <!-- Congratulations -->
+        <div id="congratulations" class="step">
+            <div class="guide-section">
+                <div class="guide-title">🎉 Congratulations! Installation Complete</div>
+                <div class="hint">
+                    <p><strong>You have successfully installed EnneadTab!</strong></p>
+                    <p>Here's what you can do next:</p>
+                    <ul class="guide-list">
+                        <li><strong>Open your software:</strong> Launch Rhino and/or Revit to see EnneadTab in action</li>
+                        <li><strong>Explore commands:</strong> Browse through the EnneadTab tabs and try out different tools</li>
+                        <li><strong>Check settings:</strong> Configure notification levels and other preferences in EnneadTab settings</li>
+                        <li><strong>Get help:</strong> Use the search function in EnneadTab or refer to the command handbooks</li>
+                        <li><strong>Stay updated:</strong> Check for updates regularly through the EnneadTab menu</li>
+                    </ul>
+                    <p><strong>Need help?</strong> You can always return to this installation guide or visit the main knowledge center for more information.</p>
+                </div>
+            </div>
+            <div class="answers">
+                <button class="answer-btn" onclick="window.location.href='index.html'">Go to Knowledge Center</button>
+            </div>
+            <button class="back-btn" onclick="goToStep(0)">← Start Over</button>
+        </div>
+    </main>
+    <script>
+        // Questionnaire state
+        let product = null; // 'rhino', 'revit', 'both'
+        let rhinoStep = 0;
+        let revitStep = 0;
+        let totalSteps = 0;
+        let currentStepIndex = 0;
+        let stepOrder = [];
+        // Step counts
+        const rhinoSteps = 7;
+        const revitSteps = 7;
+        // Step navigation
+        function goToStep(idx) {
+            hideAllSteps();
+            document.getElementById('step'+idx).classList.add('active');
+            updateProgress(idx);
+        }
+        function chooseProduct(sel) {
+            product = sel;
+            if (sel === 'rhino') {
+                stepOrder = ['rhinoStep0','rhinoStep1','rhinoStep2','rhinoStep3','rhinoStep4','rhinoStep5','rhinoStep6','congratulations'];
+            } else if (sel === 'revit') {
+                stepOrder = ['revitStep0','revitStep1','revitStep2','revitStep3','revitStep4','revitStep5','revitStep6','congratulations'];
+            } else {
+                stepOrder = ['rhinoStep0','rhinoStep1','rhinoStep2','rhinoStep3','rhinoStep4','rhinoStep5','rhinoStep6','revitStep0','revitStep1','revitStep2','revitStep3','revitStep4','revitStep5','revitStep6','congratulations'];
+            }
+            totalSteps = stepOrder.length;
+            currentStepIndex = 0;
+            goToStepByOrder(0);
+        }
+        function goToRhinoStep(idx) {
+            if (product === 'both') {
+                currentStepIndex = idx;
+                goToStepByOrder(currentStepIndex);
+            } else {
+                hideAllSteps();
+                document.getElementById('rhinoStep'+idx).classList.add('active');
+                updateProgress(idx+1);
+            }
+        }
+        function goToRevitStep(idx) {
+            if (product === 'both') {
+                currentStepIndex = (product==='both'?7:0)+idx;
+                goToStepByOrder(currentStepIndex);
+            } else {
+                hideAllSteps();
+                document.getElementById('revitStep'+idx).classList.add('active');
+                updateProgress(idx+1);
+            }
+        }
+        function afterRhino() {
+            if (product === 'both') {
+                currentStepIndex = 7;
+                goToStepByOrder(currentStepIndex);
+            } else {
+                goToStepByOrder(stepOrder.length-1);
+            }
+        }
+        function afterRevit() {
+            goToStepByOrder(stepOrder.length-1);
+        }
+        function goToStepByOrder(idx) {
+            hideAllSteps();
+            document.getElementById(stepOrder[idx]).classList.add('active');
+            updateProgress(idx+1);
+        }
+        function hideAllSteps() {
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+        }
+        function updateProgress(idx) {
+            let percent = 0;
+            if (product === 'rhino') percent = Math.round((idx)/rhinoSteps*100);
+            else if (product === 'revit') percent = Math.round((idx)/revitSteps*100);
+            else if (product === 'both') percent = Math.round((idx)/14*100);
+            document.getElementById('progressBar').style.width = percent+"%";
+        }
+        // On load, show first step
+        goToStep(0);
+    </script>
+</body>
+</html> 

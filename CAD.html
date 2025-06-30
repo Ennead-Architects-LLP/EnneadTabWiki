@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnneadTab for CAD - EnneadTabWiki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: #f5f5dc; color: #2f2f2f; margin: 0; }
+        .header { background: #fff; border-bottom: 1px solid #d2b48c; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1); }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo-text { font-size: 1.5rem; font-weight: 600; color: #8b7355; letter-spacing: 0.04em; }
+        .nav-link { color: #8b7355; text-decoration: none; font-weight: 500; font-size: 1rem; }
+        .nav-link:hover { color: #a0522d; }
+        .main { max-width: 700px; margin: 2rem auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1); padding: 2rem; }
+        h1 { color: #8b7355; font-size: 2rem; margin-bottom: 1.5rem; }
+        .guide-section { margin-bottom: 2rem; }
+        .guide-title { color: #8b7355; font-size: 1.3rem; margin-bottom: 1rem; }
+        .guide-list { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .guide-img { max-width: 100%; border-radius: 8px; margin: 1rem 0; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.08); }
+        .hint { background: #f5f5dc; border-left: 4px solid #a0522d; padding: 0.75rem 1rem; margin-bottom: 1rem; color: #6b6b6b; border-radius: 6px; }
+        @media (max-width: 600px) { .main { padding: 1rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo"><span class="logo-text">EnneadTabWiki</span></div>
+            <nav class="nav"><a href="index.html" class="nav-link">← Back to Knowledge Center</a></nav>
+        </div>
+    </header>
+    <main class="main">
+        <h1>EnneadTab for CAD</h1>
+        <div class="guide-section">
+            <div class="guide-title">How to Install EnneadTab for CAD</div>
+            <ol class="guide-list">
+                <li>Navigate to <code>C:\Users\[USER_NAME]\Documents\EnneadTab Ecosystem\EA_Dist\Installation</code></li>
+                <li>Find the file <code>EnneadTab_For_CAD.lsp</code></li>
+                <li>Open CAD. Type the command <code>CUI</code> (Customize User Interface)</li>
+                <li>Right click on "LISP Files" and Load "EnneadTab_For_CAD.lsp"</li>
+                <li>Restart CAD.</li>
+            </ol>
+            <img src="assets/Instruction_cad_cui.png" alt="CAD CUI" class="guide-img">
+        </div>
+        <div class="guide-section">
+            <div class="guide-title">CAD Command Reference</div>
+            <ul class="guide-list">
+                <li><b>EA_EXPLODE_ALL_BLOCKS</b>: Explode all blocks including nesting blocks. If you want to import to Rhino you may consider flattening the CAD dynamic block by this command. Otherwise you will see all version of block overlapping in Rhino. If you are planning to import to Revit, this step is not needed.</li>
+                <li><b>EA_DELETE_ALL_SOLID_HATCH</b>: Remove all solid hatch, including inside the blocks</li>
+                <li><b>EA_ALL_COLOR_BY_LAYER</b>: Set all objects display color by layer</li>
+                <li><b>EA_REMOVE_ALL_DIM</b>: Remove all dim objs</li>
+                <li><b>EA_EXPLODE_NON_SOLID_HATCH</b>: Freeze the appearance of CAD hatch before going to Revit. CAD hatch on small scale will become black solid in revit. There is not way around since 1985. So here this command explode the hatch into elements so its appearance is preserved regardless of the scale.</li>
+                <li><b>EA_PREP_CAD_FOR_REVIT</b>: Quick alias for: DELETE_ALL_SOLID_HATCH + ALL_COLOR_BY_LAYER + EA_REMOVE_ALL_DIM + EA_EXPLODE_NON_SOLID_HATCH</li>
+                <li><b>EA_PREP_CAD_FOR_RHINO</b>: Quick alias for: DELETE_ALL_SOLID_HATCH + ALL_COLOR_BY_LAYER + EA_REMOVE_ALL_DIM + EA_EXPLODE_ALL_BLOCKS + EA_EXPLODE_NON_SOLID_HATCH</li>
+            </ul>
+            <div class="hint">For a video demo, see <a href="https://youtu.be/KOidXxsioCg" target="_blank">this YouTube tutorial</a>.</div>
+        </div>
+    </main>
+</body>
+</html> 
