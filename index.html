@@ -204,8 +204,25 @@
             padding: 1.5rem 1rem;
             position: sticky;
             top: 110px;
-            height: fit-content;
+            max-height: calc(100vh - 130px);
+            overflow-y: auto;
             align-self: flex-start;
+            /* Custom scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: #D2B48C transparent;
+        }
+        .sidebar-nav::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar-nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-nav::-webkit-scrollbar-thumb {
+            background-color: #D2B48C;
+            border-radius: 3px;
+        }
+        .sidebar-nav::-webkit-scrollbar-thumb:hover {
+            background-color: #8B7355;
         }
         .sidebar-nav ul {
             list-style: none;
@@ -219,10 +236,22 @@
             font-weight: 500;
             font-size: 1.05rem;
             transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .sidebar-nav a:hover {
             color: #A0522D;
             text-decoration: underline;
+        }
+        .tab-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .tab-name {
+            flex: 1;
         }
         .main-content {
             flex: 1;
@@ -238,20 +267,13 @@
         }
         .sticky-search {
             position: sticky;
-            top: 0;
-            z-index: 120;
+            top: 100px;
+            z-index: 90;
             background: #FFFFFF;
-        }
-        .fixed-search {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100vw;
-            max-width: none;
+            margin-bottom: 2rem;
+            border-radius: 12px;
             box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
-            border-radius: 0 0 12px 12px;
-            margin: 0;
+            transition: all 0.3s ease;
         }
         .search-input {
             width: 100%;
@@ -275,10 +297,26 @@
             box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
             border: 1px solid #D2B48C;
         }
+        .tab-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .tab-section-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .tab-title {
+            margin: 0;
+        }
         .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            column-count: auto;
+            column-width: 320px;
+            column-gap: 1.5rem;
+            column-fill: balance;
         }
         .tool-card {
             background: #F5F5DC;
@@ -287,16 +325,47 @@
             border: 1px solid #D2B48C;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 2px 8px rgba(139, 115, 85, 0.1);
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            width: 100%;
         }
         .tool-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
         }
+        .tool-content {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .tool-icon-column {
+            width: 40px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 0.25rem;
+        }
+        .tool-text-column {
+            flex: 1;
+            min-width: 0;
+        }
         .tool-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .tool-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        .tool-icon-placeholder {
+            width: 24px;
+            height: 24px;
+            background: transparent;
         }
         .popular-badge {
             background: #A0522D;
@@ -310,6 +379,7 @@
             color: #6B6B6B;
             line-height: 1.5;
             font-size: 0.9rem;
+            margin: 0;
         }
         .back-to-top {
             position: fixed;
@@ -368,19 +438,71 @@
             .content-wrapper {
                 flex-direction: column;
                 padding: 1rem;
+                gap: 1rem;
             }
             .sidebar-nav {
                 position: static;
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
+                margin-right: 0;
+                min-width: auto;
+                max-width: none;
+                max-height: none;
+                overflow-y: visible;
+                padding: 1rem;
+            }
+            .sidebar-nav ul {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.75rem;
+                list-style: none;
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .sidebar-nav a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.25rem;
+                padding: 0.75rem 0.5rem;
+                background: #FFFFFF;
+                border: 1px solid #D2B48C;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #8B7355;
+                transition: all 0.2s ease;
+                box-shadow: 0 2px 4px rgba(139, 115, 85, 0.1);
+            }
+            .sidebar-nav a:hover {
+                background: #8B7355;
+                color: #FFFFFF;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 8px rgba(139, 115, 85, 0.1);
             }
             .hero-title {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
             }
             .platform-grid {
                 grid-template-columns: 1fr;
             }
             .tools-grid {
-                grid-template-columns: 1fr;
+                column-count: 1;
+                column-width: auto;
+            }
+            .search-container {
+                margin-bottom: 1rem;
+            }
+            .sticky-search {
+                top: 80px;
+            }
+            .tool-card {
+                margin-bottom: 1rem;
             }
         }
         </style>
