@@ -564,7 +564,7 @@
             
             <section class="hero">
                 <h1 class="hero-title">Rhino Knowledge</h1>
-                <p class="hero-subtitle">Explore 147 tools organized by category</p>
+                <p class="hero-subtitle">Explore 148 tools organized by category</p>
             </section>
             
             
@@ -2610,6 +2610,45 @@ Key Features:
 - Progress tracking
 - Search result summary
 - File origin tracking</p>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="tool-card" data-alias="forcelayerpackage" data-doc="detach selected geometry and blocks to a chosen system_ layer.
+
+workflow:
+1. detect or create system_xx root layers.
+2. ask user to choose the target system_ layer through a list-box.
+3. migrate non-block geometry first, preserving any sub-layer structure.
+4. make each block definition in the selection unique so that edits do not
+   affect instances outside the selection.
+5. update every object (including objects inside the new block definitions)
+   so that their layers live under the chosen system_ layer.
+
+the implementation is written as a group of small helper functions for
+future reuse.">
+                        <div class="tool-content">
+                            <div class="tool-icon-column">
+                                <div class="tool-icon-placeholder"></div>
+                            </div>
+                            <div class="tool-text-column">
+                                <header class="tool-header">
+                                    <h3 class="tool-title">ForceLayerPackage</h3>
+                                    
+                                </header>
+                                <p class="tool-description">Detach selected geometry and blocks to a chosen SYSTEM_ layer.
+
+Workflow:
+1. Detect or create SYSTEM_XX root layers.
+2. Ask user to choose the target SYSTEM_ layer through a list-box.
+3. Migrate non-block geometry first, preserving any sub-layer structure.
+4. Make each block definition in the selection unique so that edits do not
+   affect instances outside the selection.
+5. Update every object (including objects inside the new block definitions)
+   so that their layers live under the chosen SYSTEM_ layer.
+
+The implementation is written as a group of small helper functions for
+future reuse.</p>
                             </div>
                         </div>
                     </article>
