@@ -129,7 +129,7 @@ h3, .tool-title {
 }
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 2rem;
 }
 .stat-card {
@@ -283,12 +283,11 @@ h3, .tool-title {
     border-color: var(--purple-accent);
 }
 .tab-section {
-    background: var(--main-purple);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.1);
-    border: 1px solid var(--purple-accent);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 0 2rem 0;
+    box-sizing: border-box;
 }
 .tab-header {
     display: flex;
@@ -307,22 +306,21 @@ h3, .tool-title {
 }
 .tools-grid {
     column-count: auto;
-    column-width: 320px;
+    column-width: auto;
     column-gap: 1.5rem;
     column-fill: balance;
 }
 .tool-card {
-    position: relative;
-    background: var(--main-purple);
-    border-radius: 1.5rem;
-    padding: 1.5rem;
-    border: 1px solid var(--purple-border);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 12px #544e7344;
-    break-inside: avoid;
-    margin-bottom: 1.5rem;
-    display: inline-block;
     width: 100%;
+    min-width: 0;
+    min-height: 160px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    vertical-align: top;
+    break-inside: avoid;
+    box-sizing: border-box;
+    padding: 1.2rem;
 }
 .tool-card:hover {
     transform: translateY(-2px);
@@ -338,7 +336,7 @@ h3, .tool-title {
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    padding: 0;
+    padding: 0 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -346,6 +344,7 @@ h3, .tool-title {
 .tool-text-column {
     flex: 1;
     min-width: 0;
+    padding-left: 0.5rem;
 }
 .tool-header {
     display: flex;
@@ -1121,12 +1120,11 @@ body {
 /* --- Responsive Tool Grid --- */
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  max-width: calc(4 * 260px + 3 * 2.5rem); /* 4 cards + 3 gaps */
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 2.5rem;
-  align-items: start;
-  grid-auto-flow: dense;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
 @media (max-width: 1200px) {
   .tool-grid {
@@ -1145,14 +1143,16 @@ body {
   }
 }
 .tool-card {
-  width: 260px;
+  width: 100%;
+  min-width: 0;
   min-height: 160px;
-  height: auto;
-  margin-bottom: 1.5rem;
+  margin: 0;
   display: flex;
   flex-direction: column;
   vertical-align: top;
   break-inside: avoid;
+  box-sizing: border-box;
+  padding: 1.2rem;
 }
 
 /* 1. Installation page: match landing page styles (reuse .landing-bg-video, .landing-container, etc.) */
