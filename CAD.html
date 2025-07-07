@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EnneadTab for CAD - EnneadTabWiki</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+      // Debug: Check if CSS is loaded
+      window.addEventListener('load', function() {
+        const styles = document.styleSheets;
+        let cssLoaded = false;
+        for (let i = 0; i < styles.length; i++) {
+          if (styles[i].href && styles[i].href.includes('style.css')) {
+            cssLoaded = true;
+            break;
+          }
+        }
+        console.log('CSS loaded:', cssLoaded);
+        console.log('Page URL:', window.location.href);
+        console.log('CSS file path:', document.querySelector('link[href*="style.css"]')?.href);
+        
+        if (!cssLoaded) {
+          console.error('CSS file not loaded properly');
+          document.body.style.backgroundColor = '#ff0000';
+          document.body.innerHTML = '<div style="color: white; padding: 20px; text-align: center;"><h1>CSS Loading Error</h1><p>The stylesheet failed to load. Please check the file path.</p><p>Current URL: ' + window.location.href + '</p></div>' + document.body.innerHTML;
+        }
+      });
+    </script>
 </head>
 <body>
     <header class="header">
