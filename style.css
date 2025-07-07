@@ -1121,14 +1121,17 @@ body {
 /* --- Responsive Tool Grid --- */
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  max-width: calc(4 * 260px + 3 * 2.5rem); /* 4 cards + 3 gaps */
+  margin: 0 auto;
   gap: 2.5rem;
   align-items: start;
   grid-auto-flow: dense;
 }
-@supports (grid-template-rows: masonry) {
+@media (max-width: 1200px) {
   .tool-grid {
-    grid-template-rows: masonry;
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 900px) {
@@ -1312,3 +1315,121 @@ body {
   align-items: center;
   margin: 0;
 } 
+
+/* Content section styles */
+.content-section {
+  background: var(--main-purple);
+  padding: 4rem 0;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.diagram-container {
+  flex: 1 1 350px;
+  max-width: 420px;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.content-diagram {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+.content-text {
+  flex: 2 1 400px;
+  color: var(--white);
+  line-height: 1.8;
+  min-width: 0;
+}
+
+.content-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.content-text h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: 2rem 0 1rem 0;
+  color: var(--white);
+}
+
+.content-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.content-text ul {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.content-text li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .content-flex {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .diagram-container, .content-text {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .content-diagram {
+    max-width: 90%;
+  }
+}
+
+/* Diagram styles */
+.diagram-container {
+  text-align: center;
+  margin: 2rem 0 3rem 0;
+}
+
+.content-diagram {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .diagram-container {
+    margin: 1.5rem 0 2rem 0;
+  }
+  
+  .content-diagram {
+    max-width: 90%;
+  }
+}
