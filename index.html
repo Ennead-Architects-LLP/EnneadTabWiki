@@ -11,7 +11,7 @@
 <div class='landing-bg-video'>
   <video src='assets/background-video.mp4' autoplay loop muted playsinline poster='#412653'></video>
   <div class='landing-bg-blur'></div>
-            </div>
+</div>
 <div class='landing-container'>
   <div class='landing-left'>
     <div class='landing-headline'>EnneadTabWiki</div>
@@ -19,15 +19,48 @@
       Discover 475 tools<br>
       <span style='color:#D174D2;font-weight:600;'>Popular: 85</span><br><br>
       Explore the documentation for Rhino and Revit.
-        </div>
+    </div>
     <div class='landing-nav-col'>
       <a class='landing-nav-btn' href='installation.html'>Installation</a>
       <a class='landing-nav-btn' href='rhino.html'>Rhino Wiki</a>
       <a class='landing-nav-btn' href='revit.html'>Revit Wiki</a>
       <a class='landing-nav-btn' href='CAD.html'>CAD Wiki</a>
-            </div>
-        </div>
-                </div>
+    </div>
+  </div>
+</div>
+<div class='youtube-section'>
+  <div class='youtube-container'>
+    <iframe width="75%" src="https://www.youtube.com/embed/videoseries?si=FYvw0c-BFqAMUipP&amp;list=PLz3VQzyVrU1iyoGV-kzWhCPsmh9cQWWoV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class='youtube-caption'>
+      <ul class='youtube-bullets'>
+        <li>EnneadTab For X is a crossplatform plugin system for architects with easy to use tools without visual scripting skill needed.</li>
+        <li>It provides functions in modeling, scheduling, drafting, QAQC, documentation, pre-rendering, model cleanup, interoperability, etc.</li>
+        <li>It also has many tools tailored specifically to project teams.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class='index-slideshow'>
+  <img src='assets/sample_tool.png' alt='Sample Tool Screenshot' class='slideshow-img' style='opacity:1;'>
+  <img src='assets/toolbar_revit.png' alt='Toolbar in Revit' class='slideshow-img' style='opacity:0;'>
+  <img src='assets/toolbar_rhino.png' alt='Toolbar in Rhino' class='slideshow-img' style='opacity:0;'>
+</div>
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slideshow-img');
+  let idx = 0;
+  setInterval(() => {
+    slides[idx].style.opacity = 0;
+    idx = (idx + 1) % slides.length;
+    slides[idx].style.opacity = 1;
+  }, 3500);
+})();
+</script>
+
+
+<footer class='site-footer'>All rights reserved © EnneadTab 2025</footer>
 
 </body>
 </html>
