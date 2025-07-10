@@ -43,13 +43,18 @@
 
 
 <div class='index-slideshow'>
-  <img src='assets/sample_tool.png' alt='Sample Tool Screenshot' class='slideshow-img' style='opacity:1;'>
-  <img src='assets/toolbar_revit.png' alt='Toolbar in Revit' class='slideshow-img' style='opacity:0;'>
-  <img src='assets/toolbar_rhino.png' alt='Toolbar in Rhino' class='slideshow-img' style='opacity:0;'>
+  <img src="assets/sample_tool_1.png" alt="Sample Tool Screenshot 1" class="slideshow-img" style="opacity:1;">
+  <img src="assets/sample_tool_2.png" alt="Sample Tool Screenshot 2" class="slideshow-img" style="opacity:0;">
+  <img src="assets/sample_tool_3.png" alt="Sample Tool Screenshot 3" class="slideshow-img" style="opacity:0;">
+  <img src="assets/toolbar_1.png" alt="Toolbar Screenshot 1" class="slideshow-img" style="opacity:0;">
+  <img src="assets/toolbar_2.png" alt="Toolbar Screenshot 2" class="slideshow-img" style="opacity:0;">
+  <img src="assets/toolbar_3.png" alt="Toolbar Screenshot 3" class="slideshow-img" style="opacity:0;">
 </div>
 <script>
 (function() {
   const slides = document.querySelectorAll('.slideshow-img');
+  if (slides.length === 0) return;
+  
   let idx = 0;
   setInterval(() => {
     slides[idx].style.opacity = 0;
