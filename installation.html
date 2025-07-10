@@ -87,7 +87,10 @@
             <div id="rhinoStep5" class="step">
                 <div class="step-title hero-subtitle">For Rhino 8 and above: What if the Sidebar is not showing up?</div>
                 <div class="hint description-text">Go to Rhino settings and toggle the 'Block' collection or other checkboxes to trigger activation. Make sure to check the Group: Dynamic Rui at the end.</div>
-                <img src="assets/Instruction_toggle_r8_sidebar.mp4" alt="Rhino sidebar setting" class="guide-img">
+                <video src="assets/Instruction_toggle_r8_sidebar.mp4" alt="Rhino sidebar setting" class="guide-img" autoplay loop muted playsinline>
+                    <source src="assets/Instruction_toggle_r8_sidebar.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <div class="answers">
                     <button class="next-btn button-text" onclick="goToRhinoStep(6)">Next</button>
                 </div>
@@ -257,6 +260,40 @@
         }
         // On load, show first step
         goToStep(0);
+        
+        // Video handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                // Ensure video plays when it comes into view
+                video.addEventListener('loadedmetadata', function() {
+                    video.play().catch(function(error) {
+                        console.log("Video autoplay failed:", error);
+                    });
+                });
+                
+                // Add click to play/pause functionality
+                video.addEventListener('click', function() {
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                });
+                
+                // Add keyboard controls
+                video.addEventListener('keydown', function(e) {
+                    if (e.code === 'Space') {
+                        e.preventDefault();
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html> 

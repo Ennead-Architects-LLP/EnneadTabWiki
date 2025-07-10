@@ -564,6 +564,32 @@ h3, .tool-title {
     margin: 1rem 0;
     box-shadow: 0 2px 8px rgba(139, 115, 85, 0.08);
 }
+
+/* Video styling for guide videos */
+.guide-img[src*=".mp4"], .guide-img video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(139, 115, 85, 0.15);
+    background: #000;
+    cursor: pointer;
+}
+
+.guide-img video {
+    display: block;
+    margin: 1rem auto;
+}
+
+/* Video controls styling */
+.guide-img video::-webkit-media-controls {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+}
+
+.guide-img video::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0.7);
+}
 .guide-section {
     margin-bottom: 2rem;
 }
@@ -1624,4 +1650,50 @@ body {
   margin-top: 2.5rem;
   letter-spacing: 0.03em;
   opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .wiki-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin: 0 0.7rem 1rem 0.7rem;
+    position: relative;
+  }
+  .hero-title {
+    font-size: 1.25rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0.2rem;
+  }
+  .return-home-btn {
+    position: static;
+    margin-top: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6rem 0.5rem;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+  }
+  .search-bar {
+    max-width: 100%;
+    margin: 1.2rem 0.2rem 1.2rem 0.2rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .tool-card {
+    padding: 0.7rem;
+    font-size: 0.98rem;
+  }
+  .tab-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .sidebar-toggle {
+    top: 1rem;
+    left: 0.5rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
 }
