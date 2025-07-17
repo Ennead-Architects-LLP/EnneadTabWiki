@@ -16,7 +16,7 @@
   <div class='landing-left'>
     <div class='landing-headline'>EnneadTabWiki</div>
     <div class='landing-desc'>
-      Discover 475 tools<br>
+      Discover 477 tools<br>
       <span style='color:#D174D2;font-weight:600;'>Popular: 85</span><br><br>
       Explore the documentation for Rhino and Revit.
     </div>
@@ -41,6 +41,28 @@
   </div>
 </div>
 
+
+<div class='index-slideshow'>
+  <img src="assets/sample_tool_1.png" alt="Sample Tool Screenshot 1" class="slideshow-img" style="opacity:1;">
+  <img src="assets/sample_tool_2.png" alt="Sample Tool Screenshot 2" class="slideshow-img" style="opacity:0;">
+  <img src="assets/sample_tool_3.png" alt="Sample Tool Screenshot 3" class="slideshow-img" style="opacity:0;">
+  <img src="assets/toolbar_1.png" alt="Toolbar Screenshot 1" class="slideshow-img" style="opacity:0;">
+  <img src="assets/toolbar_2.png" alt="Toolbar Screenshot 2" class="slideshow-img" style="opacity:0;">
+  <img src="assets/toolbar_3.png" alt="Toolbar Screenshot 3" class="slideshow-img" style="opacity:0;">
+</div>
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slideshow-img');
+  if (slides.length === 0) return;
+  
+  let idx = 0;
+  setInterval(() => {
+    slides[idx].style.opacity = 0;
+    idx = (idx + 1) % slides.length;
+    slides[idx].style.opacity = 1;
+  }, 3500);
+})();
+</script>
 
 
 <footer class='site-footer'>All rights reserved © EnneadTab 2025</footer>

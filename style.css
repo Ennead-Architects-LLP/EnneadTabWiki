@@ -1102,6 +1102,105 @@ body {
   }
 }
 
+/* Search Results Container Styles */
+#search-results-container {
+  background: var(--main-purple);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(139, 115, 85, 0.1);
+  border: 1px solid var(--purple-accent);
+}
+
+.search-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--purple-accent);
+}
+
+.search-results-header h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin: 0;
+}
+
+#search-results-count {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  color: var(--purple-accent);
+  font-weight: 400;
+}
+
+.search-tab-label {
+  margin: 2rem 0 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.search-tab-label h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--purple-accent);
+  margin: 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+}
+
+.search-tab-label:first-child {
+  margin-top: 0;
+}
+
+/* Ensure search results grid matches default tool-grid layout */
+#search-results-grid {
+  column-count: 3;
+  column-gap: 2.2rem;
+  margin-top: 1rem;
+}
+
+/* Ensure search results cards are properly styled */
+#search-results-grid .tool-card {
+  display: block;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  min-width: 220px;
+  min-height: 160px;
+  vertical-align: top;
+}
+
+#search-results-grid .tool-card .tool-content {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  #search-results-grid {
+    column-count: 2;
+  }
+  
+  .search-results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #search-results-grid {
+    column-count: 1;
+  }
+  
+  #search-results-container {
+    padding: 1.5rem;
+  }
+}
+
 /* --- Search Bar --- */
 .search-bar {
   width: 100%;
