@@ -75,7 +75,7 @@ you have the option to sync and close after the long-boring reloading.
 you also have the option to dig inside the nesting family and save them.
 ' data-tab='ACE'>
     <div class='tool-content'>
-      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family RePath_pushbutton_icon.png' class='tool-icon' alt='Family RePath icon'></div>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_Family RePath_pushbutton_icon.png' class='tool-icon' alt='Family RePath icon'></div>
       <div class='tool-text-column'>
         <header class='tool-header'>
           <h3 class='tool-title'>Family RePath</h3>
@@ -85,6 +85,146 @@ This will also load the repathed families back to central model.
 
 You have the option to sync and close after the long-boring reloading.
 You also have the option to dig inside the nesting family and save them.
+</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='batch format family name' data-doc='batch rename family names to follow healthcare standard naming convention.
+
+format: 
+    category_maindescription_firm[_additionalinfo][_hosting]
+
+examples:
+    lite_pendantlamp_ea_vitra_ch
+    door_telescopic_ec_twopanel_wh
+    furn_chair_ea_tack
+    
+components:
+    - category: category abbreviation or csi division no. (e.g., lite, door, furn)
+    - maindescription: camelcase, no underscores or spaces (e.g., pendantlamp, telescopic)
+    - firm: ea (enneadarchitects) or ec (ewingcole)
+    - additionalinfo: optional - shape/brand/note
+    - hosting: optional - wh(wall)/ch(ceiling)/fh(floor)/fc(face)
+' data-tab='ACE'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_batch_fix_family_name_pushbutton_icon.png' class='tool-icon' alt='Batch Format Family Name icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>Batch Format Family Name</h3>
+                                </header>
+        <p class='tool-description'>Batch rename family names to follow Healthcare standard naming convention.
+
+Format: 
+    CATEGORY_MainDescription_FIRM[_AdditionalInfo][_HOSTING]
+
+Examples:
+    LITE_PendantLamp_EA_Vitra_CH
+    DOOR_Telescopic_EC_TwoPanel_WH
+    FURN_Chair_EA_Tack
+    
+Components:
+    - CATEGORY: Category abbreviation or CSI Division No. (e.g., LITE, DOOR, FURN)
+    - MainDescription: CamelCase, no underscores or spaces (e.g., PendantLamp, Telescopic)
+    - FIRM: EA (EnneadArchitects) or EC (EwingCole)
+    - AdditionalInfo: Optional - Shape/Brand/Note
+    - HOSTING: Optional - WH(Wall)/CH(Ceiling)/FH(Floor)/FC(Face)
+</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='family tree' data-doc='family hierarchy visualization tool that reveals the complete nesting structure of complex revit families. this utility generates a clear, hierarchical display of all nested components within the current family, showing parent-child relationships and dependency chains. perfect for understanding complex families, troubleshooting parameter inheritance, or documenting family architecture.' data-tab='ACE'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_family_tree_pushbutton_icon.png' class='tool-icon' alt='Family Tree icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>Family Tree</h3>
+                                </header>
+        <p class='tool-description'>Family hierarchy visualization tool that reveals the complete nesting structure of complex Revit families. This utility generates a clear, hierarchical display of all nested components within the current family, showing parent-child relationships and dependency chains. Perfect for understanding complex families, troubleshooting parameter inheritance, or documenting family architecture.</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='list families' data-doc='lists selected families in organized views.
+
+this script allows listing of both 2d detail items and 3d families in dedicated views.
+detail items are placed in a drafting view while 3d families can be placed in either
+a 3d view or floor plan view. families are organized by category with labels and optional tags.
+
+key features:
+- supports both 2d detail items and 3d families
+- organizes families by category with clear labeling
+- creates dedicated views for family display
+- optional tagging support
+- handles hosted families with appropriate host elements
+- creates category-specific filtered views
+
+note: 
+3d families will be visible in all project views. the script creates an internal level 
+far from the main project levels to minimize interference.
+' data-tab='ACE'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_list_family_pushbutton_icon.png' class='tool-icon' alt='List Families icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>List Families</h3>
+                                </header>
+        <p class='tool-description'>Lists selected families in organized views.
+
+This script allows listing of both 2D detail items and 3D families in dedicated views.
+Detail items are placed in a drafting view while 3D families can be placed in either
+a 3D view or floor plan view. Families are organized by category with labels and optional tags.
+
+Key Features:
+- Supports both 2D detail items and 3D families
+- Organizes families by category with clear labeling
+- Creates dedicated views for family display
+- Optional tagging support
+- Handles hosted families with appropriate host elements
+- Creates category-specific filtered views
+
+Note: 
+3D families will be visible in all project views. The script creates an internal level 
+far from the main project levels to minimize interference.
+</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='rename nesting family' data-doc='scans through project families and their nested components to remove '*conflictingname' string.
+            
+process:
+- iterates through all families in current project
+- opens each family document
+- checks nested families for '*conflictingname' string
+- renames affected nested families by removing the conflicting string
+- loads modified families back to project
+- logs all changes made during the process
+
+you can also requist to locate and rename based on other rules.
+' data-tab='ACE'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_rename_nesting_family_pushbutton_icon.png' class='tool-icon' alt='Rename Nesting Family icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>Rename Nesting Family</h3>
+                                </header>
+        <p class='tool-description'>Scans through project families and their nested components to remove '*ConflictingName' string.
+            
+PROCESS:
+- Iterates through all families in current project
+- Opens each family document
+- Checks nested families for '*ConflictingName' string
+- Renames affected nested families by removing the conflicting string
+- Loads modified families back to project
+- Logs all changes made during the process
+
+You can also requist to locate and rename based on other rules.
 </p>
                             </div>
                         </div>
@@ -186,51 +326,6 @@ You can the options to create any or all from below:</p>
           <h3 class='tool-title'>Links2Worksets</h3>
                                 </header>
         <p class='tool-description'>Convert each revit link into its own workset.</p>
-                            </div>
-                        </div>
-    
-                    </article>
-                
-  <article class='tool-card' data-alias='batch format family name' data-doc='batch rename family names to follow healthcare standard naming convention.
-
-format: 
-    category_maindescription_firm[_additionalinfo][_hosting]
-
-examples:
-    lite_pendantlamp_ea_vitra_ch
-    door_telescopic_ec_twopanel_wh
-    furn_chair_ea_tack
-    
-components:
-    - category: category abbreviation or csi division no. (e.g., lite, door, furn)
-    - maindescription: camelcase, no underscores or spaces (e.g., pendantlamp, telescopic)
-    - firm: ea (enneadarchitects) or ec (ewingcole)
-    - additionalinfo: optional - shape/brand/note
-    - hosting: optional - wh(wall)/ch(ceiling)/fh(floor)/fc(face)
-' data-tab='ACE'>
-    <div class='tool-content'>
-      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_batch_fix_family_name_pushbutton_icon.png' class='tool-icon' alt='Batch Format Family Name icon'></div>
-      <div class='tool-text-column'>
-        <header class='tool-header'>
-          <h3 class='tool-title'>Batch Format Family Name</h3>
-                                </header>
-        <p class='tool-description'>Batch rename family names to follow Healthcare standard naming convention.
-
-Format: 
-    CATEGORY_MainDescription_FIRM[_AdditionalInfo][_HOSTING]
-
-Examples:
-    LITE_PendantLamp_EA_Vitra_CH
-    DOOR_Telescopic_EC_TwoPanel_WH
-    FURN_Chair_EA_Tack
-    
-Components:
-    - CATEGORY: Category abbreviation or CSI Division No. (e.g., LITE, DOOR, FURN)
-    - MainDescription: CamelCase, no underscores or spaces (e.g., PendantLamp, Telescopic)
-    - FIRM: EA (EnneadArchitects) or EC (EwingCole)
-    - AdditionalInfo: Optional - Shape/Brand/Note
-    - HOSTING: Optional - WH(Wall)/CH(Ceiling)/FH(Floor)/FC(Face)
-</p>
                             </div>
                         </div>
     
@@ -341,19 +436,6 @@ This tool allows you to:
     
                     </article>
                 
-  <article class='tool-card' data-alias='family tree' data-doc='family hierarchy visualization tool that reveals the complete nesting structure of complex revit families. this utility generates a clear, hierarchical display of all nested components within the current family, showing parent-child relationships and dependency chains. perfect for understanding complex families, troubleshooting parameter inheritance, or documenting family architecture.' data-tab='ACE'>
-    <div class='tool-content'>
-      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_family_tree_pushbutton_icon.png' class='tool-icon' alt='Family Tree icon'></div>
-      <div class='tool-text-column'>
-        <header class='tool-header'>
-          <h3 class='tool-title'>Family Tree</h3>
-                                </header>
-        <p class='tool-description'>Family hierarchy visualization tool that reveals the complete nesting structure of complex Revit families. This utility generates a clear, hierarchical display of all nested components within the current family, showing parent-child relationships and dependency chains. Perfect for understanding complex families, troubleshooting parameter inheritance, or documenting family architecture.</p>
-                            </div>
-                        </div>
-    
-                    </article>
-                
   <article class='tool-card' data-alias='inspect local graphic override' data-doc='for views on selected sheets, inspect if there are local graphic override or local hidden objects that is not controlled by template.' data-tab='ACE'>
     <div class='tool-content'>
       <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_inspect_local_graphic_override_pushbutton_icon.png' class='tool-icon' alt='Inspect Local Graphic Override icon'></div>
@@ -388,53 +470,6 @@ This tool allows you to:
           <h3 class='tool-title'>Lines-In-View Locator</h3>
                                 </header>
         <p class='tool-description'>Line usage analysis tool that helps identify views with excessive detail and model lines. This diagnostic utility generates a ranked report of views containing the most line elements, helping pinpoint potential performance bottlenecks or documentation management issues. Perfect for troubleshooting slow performance or when establishing documentation standards for line usage.</p>
-                            </div>
-                        </div>
-    
-                    </article>
-                
-  <article class='tool-card' data-alias='list families' data-doc='lists selected families in organized views.
-
-this script allows listing of both 2d detail items and 3d families in dedicated views.
-detail items are placed in a drafting view while 3d families can be placed in either
-a 3d view or floor plan view. families are organized by category with labels and optional tags.
-
-key features:
-- supports both 2d detail items and 3d families
-- organizes families by category with clear labeling
-- creates dedicated views for family display
-- optional tagging support
-- handles hosted families with appropriate host elements
-- creates category-specific filtered views
-
-note: 
-3d families will be visible in all project views. the script creates an internal level 
-far from the main project levels to minimize interference.
-' data-tab='ACE'>
-    <div class='tool-content'>
-      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_list_family_pushbutton_icon.png' class='tool-icon' alt='List Families icon'></div>
-      <div class='tool-text-column'>
-        <header class='tool-header'>
-          <h3 class='tool-title'>List Families</h3>
-                                </header>
-        <p class='tool-description'>Lists selected families in organized views.
-
-This script allows listing of both 2D detail items and 3D families in dedicated views.
-Detail items are placed in a drafting view while 3D families can be placed in either
-a 3D view or floor plan view. Families are organized by category with labels and optional tags.
-
-Key Features:
-- Supports both 2D detail items and 3D families
-- Organizes families by category with clear labeling
-- Creates dedicated views for family display
-- Optional tagging support
-- Handles hosted families with appropriate host elements
-- Creates category-specific filtered views
-
-Note: 
-3D families will be visible in all project views. The script creates an internal level 
-far from the main project levels to minimize interference.
-</p>
                             </div>
                         </div>
     
@@ -496,41 +531,6 @@ It identifies elements that exist in one document but not in others, and checks 
     
                     </article>
                 
-  <article class='tool-card' data-alias='rename nesting family' data-doc='scans through project families and their nested components to remove '*conflictingname' string.
-            
-process:
-- iterates through all families in current project
-- opens each family document
-- checks nested families for '*conflictingname' string
-- renames affected nested families by removing the conflicting string
-- loads modified families back to project
-- logs all changes made during the process
-
-you can also requist to locate and rename based on other rules.
-' data-tab='ACE'>
-    <div class='tool-content'>
-      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_rename_nesting_family_pushbutton_icon.png' class='tool-icon' alt='Rename Nesting Family icon'></div>
-      <div class='tool-text-column'>
-        <header class='tool-header'>
-          <h3 class='tool-title'>Rename Nesting Family</h3>
-                                </header>
-        <p class='tool-description'>Scans through project families and their nested components to remove '*ConflictingName' string.
-            
-PROCESS:
-- Iterates through all families in current project
-- Opens each family document
-- Checks nested families for '*ConflictingName' string
-- Renames affected nested families by removing the conflicting string
-- Loads modified families back to project
-- Logs all changes made during the process
-
-You can also requist to locate and rename based on other rules.
-</p>
-                            </div>
-                        </div>
-    
-                    </article>
-                
   <article class='tool-card' data-alias='repath dwg drive letter' data-doc='pick the old and new drive letters to repath all linked dwgs.' data-tab='ACE'>
     <div class='tool-content'>
       <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_repath_dwg_drive_letter_pushbutton_icon.png' class='tool-icon' alt='Repath Dwg Drive Letter icon'></div>
@@ -539,6 +539,19 @@ You can also requist to locate and rename based on other rules.
           <h3 class='tool-title'>Repath Dwg Drive Letter</h3>
                                 </header>
         <p class='tool-description'>Pick the old and new drive letters to repath all linked DWGs.</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='revision cloud color manager' data-doc='manage revision cloud colors based on revision id. enable/disable color display and set custom colors for each revision across all documents.' data-tab='ACE'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_revision_cloud_color_manager_pushbutton_icon.png' class='tool-icon' alt='Revision Cloud Color Manager icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>Revision Cloud Color Manager</h3>
+                                </header>
+        <p class='tool-description'>Manage revision cloud colors based on revision ID. Enable/disable color display and set custom colors for each revision across all documents.</p>
                             </div>
                         </div>
     
