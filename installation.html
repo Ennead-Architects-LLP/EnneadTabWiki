@@ -256,6 +256,11 @@
             if (product === 'rhino') percent = Math.round((idx)/rhinoSteps*100);
             else if (product === 'revit') percent = Math.round((idx)/revitSteps*100);
             else if (product === 'both') percent = Math.round((idx)/14*100);
+            
+            // Ensure percent doesn't exceed 100%
+            percent = Math.min(percent, 100);
+            percent = Math.max(percent, 0);
+            
             document.getElementById('progressBar').style.width = percent+"%";
         }
         // On load, show first step
