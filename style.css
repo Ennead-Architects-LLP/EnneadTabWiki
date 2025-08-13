@@ -1644,6 +1644,14 @@ body {
   }
   .sidebar-toggle {
     display: block;
+    position: fixed;
+    z-index: 1000;
+  }
+  .search-bar {
+    margin-left: 3.5rem;
+  }
+  .search-bar.sticky {
+    margin-left: 3.5rem;
   }
 }
 
@@ -1749,7 +1757,7 @@ body {
 /* --- Search Bar --- */
 .search-bar {
   width: 100%;
-  max-width: 600px;
+  max-width: 420px;
   margin: 2.5rem auto 2rem auto;
   display: flex;
   align-items: center;
@@ -1775,7 +1783,7 @@ body {
   font-size: 1.6rem;
   cursor: pointer;
   margin-left: 0.5rem;
-  border-radius: 50%;
+  border-radius: 1.2rem;
   width: 2.2rem;
   height: 2.2rem;
   display: flex;
@@ -1883,7 +1891,7 @@ body {
   pointer-events: auto;
 }
 /* 5. Calm, modern button style for nav/action buttons */
-.landing-nav-btn, .platform-button, .action-btn, .nav-btn, .search-bar .clear-btn {
+.landing-nav-btn, .platform-button, .action-btn, .nav-btn {
   background: var(--main-purple);
   color: var(--white);
   border: 1.5px solid #fff;
@@ -1898,7 +1906,7 @@ body {
   letter-spacing: 0.01em;
   cursor: pointer;
 }
-.landing-nav-btn:hover, .platform-button:hover, .action-btn:hover, .nav-btn:hover, .search-bar .clear-btn:hover {
+.landing-nav-btn:hover, .platform-button:hover, .action-btn:hover, .nav-btn:hover {
   background: #2a2f3a;
   color: var(--white);
   box-shadow: 0 4px 24px #0006;
@@ -2355,44 +2363,63 @@ body {
   .wiki-header-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.7rem;
-    margin: 0 0.7rem 1rem 0.7rem;
+    gap: 1rem;
+    margin: 0 1rem 1.5rem 1rem;
     position: relative;
+    padding-top: 1rem;
   }
   .hero-title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     text-align: left;
     width: 100%;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
   .return-home-btn {
     position: static;
     margin-top: 0.5rem;
     width: 100%;
-    font-size: 1rem;
-    padding: 0.6rem 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
     box-sizing: border-box;
     display: block;
     text-align: center;
+    border-radius: 0.8rem;
   }
   .search-bar {
     max-width: 100%;
-    margin: 1.2rem 0.2rem 1.2rem 0.2rem;
-    padding: 0.3rem 0.7rem;
+    margin: 1rem 1rem 1.5rem 3.5rem;
+    padding: 0.8rem 1rem;
+    border-radius: 1.5rem;
+  }
+  .search-bar.sticky {
+    margin-left: 3.5rem;
+    margin-right: 1rem;
   }
   .tool-card {
-    padding: 0.7rem;
-    font-size: 0.98rem;
+    padding: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
   }
   .tab-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+  }
+  .knowledge-container {
+    padding-top: 0;
   }
   .sidebar-toggle {
-    top: 1rem;
-    left: 0.5rem;
-    width: 38px;
-    height: 38px;
-    font-size: 1.3rem;
+    position: fixed;
+    top: 1.2rem;
+    left: 0.8rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.4rem;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.8rem;
+    backdrop-filter: blur(10px);
   }
 }
