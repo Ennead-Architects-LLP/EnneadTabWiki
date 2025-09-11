@@ -107,6 +107,13 @@ components:
     - firm: ea (enneadarchitects) or ec (ewingcole)
     - additionalinfo: optional - shape/brand/note
     - hosting: optional - wh(wall)/ch(ceiling)/fh(floor)/fc(face)
+
+features:
+    - fix category prefix only: automatically updates family name prefixes to match current categories
+      * handles wrong prefixes (e.g., wall_door_ea -> door_door_ea)
+      * handles missing prefixes (e.g., door_ea -> door_door_ea)
+    - fix by excel: export/import workflow for manual editing
+    - analyze hosting behaviors and category mappings
 ' data-tab='ACE'>
     <div class='tool-content'>
       <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_batch_fix_family_name_pushbutton_icon.png' class='tool-icon' alt='Batch Format Family Name icon'></div>
@@ -130,7 +137,27 @@ Components:
     - FIRM: EA (EnneadArchitects) or EC (EwingCole)
     - AdditionalInfo: Optional - Shape/Brand/Note
     - HOSTING: Optional - WH(Wall)/CH(Ceiling)/FH(Floor)/FC(Face)
+
+Features:
+    - Fix Category Prefix Only: Automatically updates family name prefixes to match current categories
+      * Handles wrong prefixes (e.g., WALL_Door_EA -> DOOR_Door_EA)
+      * Handles missing prefixes (e.g., Door_EA -> DOOR_Door_EA)
+    - Fix by Excel: Export/import workflow for manual editing
+    - Analyze hosting behaviors and category mappings
 </p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='change family category' data-doc='batch change family categories with user-friendly interface and comprehensive reporting.' data-tab='ACE'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab_tab_ACE_panel_Family_pulldown_change_family_category_pushbutton_icon.png' class='tool-icon' alt='Change Family Category icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>Change Family Category</h3>
+                                </header>
+        <p class='tool-description'>Batch change family categories with user-friendly interface and comprehensive reporting.</p>
                             </div>
                         </div>
     
