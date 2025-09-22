@@ -1417,13 +1417,13 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  filter: blur(16px) brightness(0.7) saturate(1.1);
+  filter: blur(8px) brightness(0.8) saturate(1.2);
 }
 .landing-bg-blur {
   position: absolute;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
   z-index: 1;
   pointer-events: none;
 }
