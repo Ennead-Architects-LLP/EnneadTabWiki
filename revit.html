@@ -5225,18 +5225,58 @@ This script will:
     
                     </article>
                 
-  <article class='tool-card' data-alias='transfer door location' data-doc='transfer door location based on room analysis across phases. 
-automatically sets door location parameter based on connected rooms, 
-prioritizing non-corridor rooms and smaller rooms when both sides are valid.' data-tab='Proj. 2317'>
+  <article class='tool-card' data-alias='transfer door location' data-doc='transfer door location and mark based on room analysis across phases. 
+
+location parameter:
+- analyzes all phases to find connected rooms
+- prioritizes non-corridor rooms over corridors
+- for two valid rooms, selects the smaller one
+- sets location to room name
+
+mark parameter:
+- single door to a room: mark = room number (e.g., "101")
+- multiple doors to same room: mark = room number + a/b/c (e.g., "101a", "101b")
+- doors sorted by element id for consistent suffix assignment
+
+special cases:
+- normal room: location=room name, mark=room number
+- corridor: location="corridor", mark=corridor room number
+- no room around door: location="no room", mark="no room"
+- room exists but no name: location="missing room name", mark=room number
+- room exists but no number: location=room name, mark="missing room number"
+
+phases:
+- skips doors created in "existing" phase
+- processes all other phases until a valid room is found' data-tab='Proj. 2317'>
     <div class='tool-content'>
       <div class='tool-icon-column'><img src='assets/_revit_EnneaDuck_extension_EnneadTab Tailor_tab_Proj_ 2317_panel_Kimmel_pulldown_transfer_door_location_pushbutton_icon.png' class='tool-icon' alt='Transfer Door Location icon'></div>
       <div class='tool-text-column'>
         <header class='tool-header'>
           <h3 class='tool-title'>Transfer Door Location</h3>
                                 </header>
-        <p class='tool-description'>Transfer door location based on room analysis across phases. 
-Automatically sets door location parameter based on connected rooms, 
-prioritizing non-corridor rooms and smaller rooms when both sides are valid.</p>
+        <p class='tool-description'>Transfer door location and mark based on room analysis across phases. 
+
+LOCATION PARAMETER:
+- Analyzes all phases to find connected rooms
+- Prioritizes non-corridor rooms over corridors
+- For two valid rooms, selects the smaller one
+- Sets location to room name
+
+MARK PARAMETER:
+- Single door to a room: Mark = Room Number (e.g., "101")
+- Multiple doors to same room: Mark = Room Number + A/B/C (e.g., "101A", "101B")
+- Doors sorted by Element ID for consistent suffix assignment
+
+SPECIAL CASES:
+- Normal room: Location=Room Name, Mark=Room Number
+- Corridor: Location="CORRIDOR", Mark=Corridor Room Number
+- No room around door: Location="no room", Mark="no room"
+- Room exists but no name: Location="missing room name", Mark=Room Number
+- Room exists but no number: Location=Room Name, Mark="missing room number"
+
+PHASES:
+- Skips doors created in "Existing" phase
+- Processes all other phases until a valid room is found</p>
                             </div>
                         </div>
     

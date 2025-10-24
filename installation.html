@@ -20,7 +20,7 @@
             <!-- Questionnaire Steps -->
             <div id="step0" class="step active">
                 <div class="question hero-subtitle">Is this your first time installing EnneadTab on this machine?</div>
-                <div class="hint description-text">Hint: If you have never installed EnneadTab before, or you are setting up a new computer, this is your first time. <br>How do you know? If you don't see an "EnneadTab Ecosystem" folder in your Documents, it's your first time.</div>
+                <div class="hint description-text">Hint: If you have never installed EnneadTab before(never use EnneadTab for Rhino or Revit), or you are setting up a new computer, this is your first time. <br>How do you know? If you don't see an "EnneadTab Ecosystem" folder in your Documents, it's your first time.</div>
                 <div class="answers">
                     <button class="answer-btn button-text" onclick="goToStep(1)">Yes, first time</button>
                     <button class="answer-btn button-text" onclick="goToStep(2)">No, I have installed before</button>
@@ -98,7 +98,7 @@
             </div>
             <div id="rhinoStep6" class="step">
                 <div class="step-title hero-subtitle">Restart Rhino</div>
-                <div class="hint description-text">Rhino only remembers the setting of the most recently closed Rhino. Using only one Rhino helps make installation stick.<br>For a complete command list, see the <a href="https://github.com/Ennead-Architects-LLP/EA_Dist/blob/main/Installation/EnneadTab_For_Rhino_HandBook.pdf" target="_blank">EnneadTab-For-Rhino Handbook.pdf</a>, or visit <a href="https://zsenarchitect.github.io/EnneadTabWiki/rhino.html" target="_blank">EnneadTab-For-Rhino Wiki</a>.</div>
+                <div class="hint description-text">Rhino only remembers the setting of the most recently closed Rhino. Using only one Rhino helps make installation stick.<br>For a complete command list, see the <a href="https://github.com/Ennead-Architects-LLP/EA_Dist/blob/main/Installation/EnneadTab_For_Rhino_HandBook.pdf" target="_blank">EnneadTab-For-Rhino Handbook.pdf</a>, or visit <a href="https://ennead-architects-llp.github.io/EnneadTabWiki/rhino.html" target="_blank">EnneadTab-For-Rhino Wiki</a>.</div>
                 <div class="answers">
                     <button class="next-btn button-text" onclick="afterRhino()">Next</button>
                 </div>
@@ -114,6 +114,7 @@
                     <li><b>2024 and before:</b> Need pyRevit 4.8 or above</li>
                 </ul>
                 <div class="hint description-text">To get the latest pyRevit, go to <a href="https://github.com/pyrevitlabs/pyRevit/releases" target="_blank" class="link-text">pyRevit Releases</a> and pick the first one under "Download". No admin rights needed.</div>
+                <div class="hint description-text" style="color: #d32f2f; font-weight: bold; margin-top: 12px;">⚠️ DO NOT USE the pyRevit from Company Portal. That version is admin version and will cause issues for us later.</div>
                 <div class="answers">
                     <button class="next-btn button-text" onclick="goToRevitStep(1)">Next</button>
                 </div>
@@ -158,7 +159,7 @@
             </div>
             <div id="revitStep6" class="step">
                 <div class="step-title hero-subtitle">(Optional) Configure your Revit's notification level in EnneadTab Revit settings</div>
-                <div class="hint description-text">For a complete command list, see the <a href="https://github.com/Ennead-Architects-LLP/EA_Dist/blob/main/Installation/EnneadTab_For_Revit_HandBook.pdf" target="_blank">EnneadTab-For-Revit Handbook.pdf</a>, or visit <a href="https://zsenarchitect.github.io/EnneadTabWiki/revit.html" target="_blank">EnneadTab-For-Revit Wiki</a>.</div>
+                <div class="hint description-text">For a complete command list, see the <a href="https://github.com/Ennead-Architects-LLP/EA_Dist/blob/main/Installation/EnneadTab_For_Revit_HandBook.pdf" target="_blank">EnneadTab-For-Revit Handbook.pdf</a>, or visit <a href="https://ennead-architects-llp.github.io/EnneadTabWiki/revit.html" target="_blank">EnneadTab-For-Revit Wiki</a>.</div>
                 <div class="answers">
                     <button class="next-btn button-text" onclick="afterRevit()">Next</button>
                 </div>
