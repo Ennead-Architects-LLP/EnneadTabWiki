@@ -2588,6 +2588,19 @@ Perfect for visualization specialists who need precise control over their Enscap
     
                     </article>
                 
+  <article class='tool-card' data-alias='getinspired' data-doc='opens render polisher website (https://render-polisher.vercel.app/) in the default browser' data-tab='Render.tab'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><img src='assets/_rhino_Render_tab_get_inspired_button_icon.png' class='tool-icon' alt='GetInspired icon'></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>GetInspired</h3>
+                                </header>
+        <p class='tool-description'>Opens Render Polisher website (https://render-polisher.vercel.app/) in the default browser</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
   <article class='tool-card' data-alias='importselectedcamera' data-doc='import seleced camera from another file.' data-tab='Render.tab'>
     <div class='tool-content'>
       <div class='tool-icon-column'><img src='assets/_rhino_Render_tab_import_selected_camera_button_icon.png' class='tool-icon' alt='ImportSelectedCamera icon'></div>
@@ -2661,6 +2674,37 @@ Perfect for visualization specialists who need precise control over their Enscap
           <h3 class='tool-title'>RenameEnscapeFiles</h3>
                                 </header>
         <p class='tool-description'>Rename the output of Enscape files to remove the long bit.</p>
+                            </div>
+                        </div>
+    
+                    </article>
+                
+  <article class='tool-card' data-alias='renderpolisher' data-doc='launch the render polisher application for enhancing and refining your renders!
+
+this tool opens the renderpolisher.exe application that helps you:
+- polish and enhance render outputs
+- apply post-processing effects
+- refine render quality and appearance
+- streamline your rendering workflow
+
+perfect for visualization specialists looking to take their renders to the next level.
+' data-tab='Render.tab'>
+    <div class='tool-content'>
+      <div class='tool-icon-column'><div class='tool-icon-placeholder'></div></div>
+      <div class='tool-text-column'>
+        <header class='tool-header'>
+          <h3 class='tool-title'>RenderPolisher</h3>
+                                </header>
+        <p class='tool-description'>Launch the Render Polisher application for enhancing and refining your renders!
+
+This tool opens the RenderPolisher.exe application that helps you:
+- Polish and enhance render outputs
+- Apply post-processing effects
+- Refine render quality and appearance
+- Streamline your rendering workflow
+
+Perfect for visualization specialists looking to take their renders to the next level.
+</p>
                             </div>
                         </div>
     
@@ -2968,6 +3012,17 @@ usage:
 1. pre-select blocks or select when prompted
 2. select a base curve as attractor
 3. adjust distance clamps in the dialog
+4. click "select" to apply random deselection
+5. keep clicking "select" to get different random results
+6. adjust clamp values and click "select" again to refine results
+7. click "close" when satisfied with the selection
+
+features:
+- interactive eto form with dedicated pick buttons
+- real-time distance range calculation
+- persistent settings (remembers last clamp values)
+- dynamic visualization (circles/pipes) that updates with each selection
+- iterative workflow - keep trying until you get the desired result
 ' data-tab='Selection.tab'>
     <div class='tool-content'>
       <div class='tool-icon-column'><img src='assets/_rhino_Selection_tab_random_deselect_by_dist_button_icon.png' class='tool-icon' alt='RandomDeselectByDist icon'></div>
@@ -2985,6 +3040,17 @@ Usage:
 1. Pre-select blocks or select when prompted
 2. Select a base curve as attractor
 3. Adjust distance clamps in the dialog
+4. Click "Select" to apply random deselection
+5. Keep clicking "Select" to get different random results
+6. Adjust clamp values and click "Select" again to refine results
+7. Click "Close" when satisfied with the selection
+
+Features:
+- Interactive Eto form with dedicated pick buttons
+- Real-time distance range calculation
+- Persistent settings (remembers last clamp values)
+- Dynamic visualization (circles/pipes) that updates with each selection
+- Iterative workflow - keep trying until you get the desired result
 </p>
                             </div>
                         </div>
@@ -3030,7 +3096,7 @@ Usage:
 
 replaces blocks between twinmotion and enscape versions based on excel mapping data.
 features:
-- supports bidirectional block replacement (twinmotion ↔ enscape)
+- supports bidirectional block replacement (twinmotion â†” enscape)
 - uses excel mapping file for block name relationships
 - processes entire document with progress tracking
 - maintains block transformations and properties
@@ -3038,8 +3104,8 @@ features:
 - automatically redraws viewport after replacement
 
 replacement options:
-1. twinmotion block → enscape block
-2. enscape block → twinmotion block
+1. twinmotion block â†’ enscape block
+2. enscape block â†’ twinmotion block
 
 excel mapping:
 - reads from 'enscape_twinmotion_block_mapping.xlsx'
@@ -3069,7 +3135,7 @@ usage:
 
 Replaces blocks between Twinmotion and Enscape versions based on Excel mapping data.
 Features:
-- Supports bidirectional block replacement (Twinmotion ↔ Enscape)
+- Supports bidirectional block replacement (Twinmotion â†” Enscape)
 - Uses Excel mapping file for block name relationships
 - Processes entire document with progress tracking
 - Maintains block transformations and properties
@@ -3077,8 +3143,8 @@ Features:
 - Automatically redraws viewport after replacement
 
 Replacement Options:
-1. Twinmotion block → Enscape block
-2. Enscape block → Twinmotion block
+1. Twinmotion block â†’ Enscape block
+2. Enscape block â†’ Twinmotion block
 
 Excel Mapping:
 - Reads from 'enscape_twinmotion_block_mapping.xlsx'
@@ -3162,8 +3228,8 @@ workflow:
 6. cleans up temporary exploded geometry
 
 file naming:
-- motherbabylobby.3dm → tempstudy_motherbabylobby.dwg
-- other files → tempstudy.dwg
+- motherbabylobby.3dm â†’ tempstudy_motherbabylobby.dwg
+- other files â†’ tempstudy.dwg
 
 usage:
 - run tool to prepare geometry for cad export
@@ -3196,8 +3262,8 @@ Workflow:
 6. Cleans up temporary exploded geometry
 
 File Naming:
-- MotherBabyLobby.3dm → TempStudy_MotherBabyLobby.dwg
-- Other files → TempStudy.dwg
+- MotherBabyLobby.3dm â†’ TempStudy_MotherBabyLobby.dwg
+- Other files â†’ TempStudy.dwg
 
 Usage:
 - Run tool to prepare geometry for CAD export
@@ -3376,14 +3442,14 @@ Usage:
     
                     </article>
                 
-  <article class='tool-card' data-alias='saifpanelmapping' data-doc='this button does saifpanelmapping when left click' data-tab='Tailor.tab'>
+  <article class='tool-card' data-alias='saifpanelmapping' data-doc='maps saif panels using new naming convention cw01_solid x_yyyy_zzzz and cw06_solid x_yyyy_zzzz, extracting pier width (x) as-is' data-tab='Tailor.tab'>
     <div class='tool-content'>
       <div class='tool-icon-column'><div class='tool-icon-placeholder'></div></div>
       <div class='tool-text-column'>
         <header class='tool-header'>
           <h3 class='tool-title'>SaifPanelMapping</h3>
                                 </header>
-        <p class='tool-description'>This button does SaifPanelMapping when left click</p>
+        <p class='tool-description'>Maps SAIF panels using new naming convention CW01_SOLID X_YYYY_ZZZZ and CW06_SOLID X_YYYY_ZZZZ, extracting pier width (X) as-is</p>
                             </div>
                         </div>
     
